@@ -1,0 +1,25 @@
+/*Estilo Barra de Notificaciones*/	
+	#campana{
+	height:50px;
+	}
+	#notificacion{
+		position: absolute;
+		top:50px;
+		right:20px;
+		width:320px;
+		overflow: auto;
+		height:320px;
+		display:none;
+		background-color: #E6E6E6;
+	}
+	#notificacion::-webkit-scrollbar{
+	width:7px;
+	}
+	#notificacion::-webkit-scrollbar-thumb{
+	background:#0069D9;
+	border-radius: 10px;
+	}
+	#navNotificacion{
+	height:50px;
+	}
+/*Fin Estilo Barra de Notificaciones*/	
