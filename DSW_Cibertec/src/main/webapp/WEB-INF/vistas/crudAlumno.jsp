@@ -54,11 +54,10 @@
 												<th>ID</th>
 												<th>Nombre</th>
 												<th>DNI</th>
-												<th>Telefono</th>
+												<th>Correo</th>
 												<th>Direccion</th>
 												<th>Fec. Nac.</th>
-												<th>Usuario</th>
-												<th>Contraseña</th>
+												<th>Telefono</th>
 												<th>Actualiza </th>
 												<th>Elimina </th>
 											</tr>
@@ -70,13 +69,12 @@
 														<td>${x.idalumno}</td>
 														<td>${x.nombre}</td>
 														<td>${x.dni}</td>
-														<td>${x.telefono}</td>
+														<td>${x.correo}</td>
 														<td>${x.direccion}</td>
 														<td><fmt:formatDate value="${x.fecnac}" pattern="yyyy-MM-dd"/></td>
-														<td>${x.usuario.usuario}</td>
-														<td>${x.usuario.contraseña}</td>
+														<td>${x.telefono}</td>
 														<td>
-															<button type='button' data-toggle='modal' onclick="editar('${x.idalumno}','${x.nombre}','${x.dni}','${x.dni}','${x.direccion}','<fmt:formatDate value="${x.fecnac}" pattern="yyyy-MM-dd"/>');" class='btn btn-success' style='background-color:hsla(233, 100%, 100%, 0);'>
+															<button type='button' data-toggle='modal' onclick="editar('${x.idalumno}','${x.nombre}','${x.dni}','${x.correo}','${x.direccion}','<fmt:formatDate value="${x.fecnac}" pattern="yyyy-MM-dd"/>','${x.telefono}','${x.usuario.idusuario}','${x.usuario.usuario}','${x.usuario.contraseña}','${x.usuario.credencial}');" class='btn btn-success' style='background-color:hsla(233, 100%, 100%, 0);'>
 																<img src='images/edit.gif' width='auto' height='auto' />
 															</button>
 														</td>
@@ -180,7 +178,7 @@
 					<h4><span class="glyphicon glyphicon-ok-sign"></span> Actualiza Alumno</h4>
 				</div>
 				<div class="modal-body" style="padding: 20px 10px;">
-						<form id="id_form_actualiza" accept-charset="UTF-8"  action="registraActualizaCrudAlumno" class="form-horizontal"     method="post">
+						<form id="id_form_actualiza" accept-charset="UTF-8"  action="actualizarAlumno" class="form-horizontal" method="post">
 		                    <div class="panel-group" id="steps">
 		                        <!-- Step 1 -->
 		                        <div class="panel panel-default">
@@ -190,50 +188,54 @@
 		                            <div id="stepOne" class="panel-collapse collapse in">
 		                                <div class="panel-body">
 		                                    <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_ID">ID</label>
+		                                        <label class="col-lg-3 control-label" for="ac_idalumno">ID</label>
 		                                        <div class="col-lg-5">
-		                                           <input class="form-control" id="id_ID" readonly="readonly" name="idAlumno" type="text" maxlength="8"/>
+		                                           <input class="form-control" id="ac_idalumno" readonly name="idalumno" type="text"/>
 		                                        </div>
 		                                     </div>
 		                                     <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_act_nombre">Nombre</label>
+		                                        <label class="col-lg-3 control-label" for="ac_nombre">Nombre</label>
 		                                        <div class="col-lg-5">
-													<input class="form-control" id="id_act_nombre" name="nombre" placeholder="Ingrese el Nombre" type="text" maxlength="20"/>
+													<input class="form-control" id="ac_nombre" name="nombre" placeholder="Ingrese el Nombre" type="text" maxlength="50"/>
 		                                        </div>
 		                                    </div>
 		                                    <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_act_dni">DNI</label>
+		                                        <label class="col-lg-3 control-label" for="ac_dni">DNI</label>
 		                                        <div class="col-lg-5">
-													<input class="form-control" id="id_act_dni" name="dni" placeholder="Ingrese el DNI" type="text" maxlength="10"/>
+													<input class="form-control" id="ac_dni" name="dni" placeholder="Ingrese el DNI" type="text" maxlength="8"/>
 		                                        </div>
 		                                    </div>
 		                                    <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_reg_correo">Telefono</label>
+		                                        <label class="col-lg-3 control-label" for="ac_correo">Correo</label>
 		                                        <div class="col-lg-5">
-													<input class="form-control" id="id_reg_correo" name="correo" placeholder="Ingrese el correo" type="text" />
+													<input class="form-control" id="ac_correo" name="correo" placeholder="Ingrese el correo" type="email" />
 		                                        </div>
 		                                    </div>    
 		                                    <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_reg_fecha">Direccion</label>
+		                                        <label class="col-lg-3 control-label" for="ac_direccion">Direccion</label>
 		                                        <div class="col-lg-5">
-													<input class="form-control" id="id_reg_fecha" name="fechaNacimiento" placeholder="Ingrese la fecha de nacimiento" type="date" />
+													<input class="form-control" id="ac_direccion" name="direccion" placeholder="Ingrese la direccion" type="text" />
 		                                        </div>
 		                                    </div>
 		                                    <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_reg_correo">Usuario</label>
+		                                        <label class="col-lg-3 control-label" for="ac_fecnac">Fecha de Nacimiento</label>
 		                                        <div class="col-lg-5">
-													<input class="form-control" id="id_reg_correo" name="correo" placeholder="Ingrese el correo" type="text" />
+													<input class="form-control" id="ac_fecnac" name="fecnac" placeholder="Ingrese la fecha de nacimiento" type="text" />
 		                                        </div>
-		                                    </div>    
+		                                    </div>
 		                                    <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_reg_fecha">Contraseña</label>
+		                                        <label class="col-lg-3 control-label" for="ac_telefono">Telefono</label>
 		                                        <div class="col-lg-5">
-													<input class="form-control" id="id_reg_fecha" name="fechaNacimiento" placeholder="Ingrese la fecha de nacimiento" type="date" />
+													<input class="form-control" id="ac_telefono" name="telefono" placeholder="Ingrese el telefono" type="text" />
 		                                        </div>
-		                                    </div>    
+		                                    </div>  
+		                                    <input name="usuario.idusuario" id="ac_idusuario" type="hidden"/>
+		                                    <input name="usuario.credencial" id="ac_credencial" type="hidden"/>
+		                                    <input name="usuario.contraseña" id="ac_contraseña" type="hidden" />
+											<input name="usuario.usuario" id="ac_usuario" type="hidden"/>
 		                                    <div class="form-group">
 		                                        <div class="col-lg-9 col-lg-offset-3">
-		                                        	<button type="submit" class="btn btn-primary" id="idBtnActualiza">ACTUALIZA</button>
+		                                        	<button type="submit" class="btn btn-primary" id="idBtnActualiza">Actualiza</button>
 		                                        </div>
 		                                    </div>
 		                                </div>
@@ -277,20 +279,20 @@ $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
 </script>
 
 <script type="text/javascript">
+function registrar(){$('#idModalRegistra').modal("show");}
 
-
-
-
-function registrar(){	
-	$('#idModalRegistra').modal("show");
-}
-
-function editar(id,nombre,dni,correo,fechaNacimiento){	
-	$('input[id=id_ID]').val(id);
-	$('input[id=id_act_nombre]').val(nombre);
-	$('input[id=id_act_dni]').val(dni);
-	$('input[id=id_act_correo]').val(correo);
-	$('input[id=id_act_fecha]').val(fechaNacimiento);
+function editar(id,nombre,dni,cor,direc,fecnac,tel,idu,usu,con,cre){	
+	$('#ac_idalumno').val(id);
+	$('#ac_nombre').val(nombre);
+	$('#ac_dni').val(dni);
+	$('#ac_correo').val(cor);
+	$('#ac_direccion').val(direc);
+	$('#ac_fecnac').val(fecnac);
+	$('#ac_telefono').val(tel);
+	$('#ac_idusuario').val(idu);
+	$('#ac_usuario').val(usu);
+	$('#ac_contraseña').val(con);
+	$('#ac_credencial').val(cre);
 	$('#idModalActualiza').modal("show");
 }
 

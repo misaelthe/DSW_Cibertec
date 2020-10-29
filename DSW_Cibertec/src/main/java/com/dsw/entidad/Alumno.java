@@ -14,6 +14,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -29,13 +31,14 @@ public class Alumno {
 
 	@Column(name = "dni")
 	private String dni;
-
+	
+	@Cascade(CascadeType.ALL)
 	@ManyToOne
 	@JoinColumn(name = "idusuario", nullable = false)
 	private Usuario usuario;
 
-	@Column(name = "telefono")
-	private String telefono;
+	@Column(name = "correo")
+	private String correo;
 
 	@Column(name = "direccion")
 	private String direccion;
@@ -44,6 +47,9 @@ public class Alumno {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fecnac;
 
+	@Column(name = "telefono")
+	private String telefono;
+	
 	public Integer getIdalumno() {
 		return idalumno;
 	}
@@ -84,12 +90,12 @@ public class Alumno {
 		this.usuario = usuario;
 	}
 
-	public String getTelefono() {
-		return telefono;
+	public String getCorreo() {
+		return correo;
 	}
 
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
+	public void setCorreo(String correo) {
+		this.correo = correo;
 	}
 
 	public String getDireccion() {
@@ -98,5 +104,13 @@ public class Alumno {
 
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
 }

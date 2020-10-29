@@ -22,4 +22,7 @@ public class AlumnoServicioImpl implements AlumnoServicio{
 		return repositorio.traerAlumnoPorNombre(nombre);
 	}
 
+	@Override
+	public void actualizarAlumno(Alumno a) {repositorio.save(a);}
+
 }

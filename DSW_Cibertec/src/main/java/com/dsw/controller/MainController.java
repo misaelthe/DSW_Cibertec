@@ -33,6 +33,7 @@ public class MainController {
 		model.addAttribute("objPais", tem);*/
 		return "index";
 	}
+	/*METODOS DEL CRUD ALUMNO*/
 	@RequestMapping("/verCrudAlumno")
 	public String verCrudAlumno() {
 		return "crudAlumno";
@@ -43,10 +44,17 @@ public class MainController {
 		session.setAttribute("alumnos", data);
 		return "crudAlumno";
 	}
-	@RequestMapping("/salida")
-	public String listarTodos(HttpSession session) {
+	@RequestMapping("/actualizarAlumno")
+	public String actualizarAlumno(Alumno a,HttpSession session) {
+		ser_alumno.actualizarAlumno(a);
+		return "redirect:salidaAlumno";
+	}
+	@RequestMapping("/salidaAlumno")
+	public String salidaCrudAlumno(HttpSession session) {
 		return "crudAlumno";
 	}
+	/*FIN METODOS DEL CRUD ALUMNO*/
+
 	/*@RequestMapping(value = "/transferirDinero",method = RequestMethod.POST)
 	}*/
 
