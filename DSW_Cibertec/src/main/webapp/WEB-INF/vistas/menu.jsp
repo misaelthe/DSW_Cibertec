@@ -10,8 +10,30 @@
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="shopping-cart"></span>
-              Products
+              Administrar
             </a>
+            <ul style="list-style-type: none;">
+            	<li class="ml-1">
+            		<a class="nav-link" href="#">
+		              Docentes
+		            </a>
+	            </li>
+	            <li class="ml-1">
+            		<a class="nav-link" href="#">
+		              Alumnos
+		            </a>
+	            </li>
+	            <li class="ml-1">
+            		<a class="nav-link" href="#">
+		              Curso
+		            </a>
+	            </li>
+	            <li class="ml-1">
+            		<a class="nav-link" href="#">
+		              Administradores
+		            </a>
+	            </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
