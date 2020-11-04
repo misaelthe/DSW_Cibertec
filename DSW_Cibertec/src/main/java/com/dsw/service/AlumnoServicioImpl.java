@@ -25,4 +25,10 @@ public class AlumnoServicioImpl implements AlumnoServicio{
 	@Override
 	public void actualizarAlumno(Alumno a) {repositorio.save(a);}
 
+	@Override
+	public void registrarAlumno(Alumno a) {repositorio.save(a);}
+
+	@Override
+	public void eliminarAlumno(Alumno a) {repositorio.delete(a);}
+
 }

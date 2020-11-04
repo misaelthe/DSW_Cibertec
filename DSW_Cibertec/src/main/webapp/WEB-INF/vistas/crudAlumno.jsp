@@ -18,8 +18,8 @@
 <div class="container">
  <h3>Crud de Alumno</h3>
 		 <div class="col-md-23" >  
-			  <form id="idFormElimina" action="eliminaCrudAlumno">
-			  		<input type="hidden" id="id_elimina" name="id">
+			  <form id="idFormElimina" action="eliminarAlumno">
+			  		<input type="hidden" id="id_elimina" name="idalumno">
 			  </form>	
 				
 		       <form accept-charset="UTF-8"  action="filtrarAlumno" class="simple_form" id="defaultForm2"  method="post">
@@ -105,7 +105,7 @@
 					<h4><span class="glyphicon glyphicon-ok-sign"></span> Registro de Alumno</h4>
 				</div>
 				<div class="modal-body" style="padding: 20px 10px;">
-						<form id="id_form_registra" accept-charset="UTF-8" action="registraActualizaCrudAlumno" class="form-horizontal"     method="post">
+						<form id="id_form_registra" accept-charset="UTF-8" action="registrarAlumno" class="form-horizontal" method="post">
 		                    <div class="panel-group" id="steps">
 		                        <!-- Step 1 -->
 		                        <div class="panel panel-default">
@@ -115,41 +115,46 @@
 		                            <div id="stepOne" class="panel-collapse collapse in">
 		                                <div class="panel-body">
 		                                     <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_reg_nombre">Nombre</label>
+		                                        <label class="col-lg-3 control-label" for="reg_nombre">Nombre</label>
 		                                        <div class="col-lg-5">
-													<input class="form-control" id="id_reg_nombre" name="nombre" placeholder="Ingrese el Nombre" type="text" maxlength="20"/>
+													<input class="form-control" id="reg_nombre" name="nombre" placeholder="Ingrese el Nombre" type="text" maxlength="50"/>
 		                                        </div>
 		                                    </div>
 		                                    <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_reg_dni">DNI</label>
+		                                        <label class="col-lg-3 control-label" for="reg_dni">DNI</label>
 		                                        <div class="col-lg-5">
-													<input class="form-control" id="id_reg_dni" name="dni" placeholder="Ingrese el DNI" type="text" maxlength="10"/>
+													<input class="form-control" id="reg_dni" name="dni" placeholder="Ingrese el DNI" type="text" maxlength="8"/>
 		                                        </div>
 		                                    </div>
 		                                    <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_reg_correo">Telefono</label>
+		                                        <label class="col-lg-3 control-label" for="reg_correo">Correo</label>
 		                                        <div class="col-lg-5">
-													<input class="form-control" id="id_reg_correo" name="correo" placeholder="Ingrese el correo" type="text" />
+													<input class="form-control" id="reg_correo" name="correo" placeholder="Ingrese el correo" type="text" />
 		                                        </div>
 		                                    </div>    
 		                                    <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_reg_fecha">Direccion</label>
+		                                        <label class="col-lg-3 control-label" for="reg_direc">Direccion</label>
 		                                        <div class="col-lg-5">
-													<input class="form-control" id="id_reg_fecha" name="fechaNacimiento" placeholder="Ingrese la fecha de nacimiento" type="date" />
+													<input class="form-control" id="reg_direc" name="direccion" placeholder="Ingrese la direccion" type="text" />
 		                                        </div>
 		                                    </div>
 		                                    <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_reg_correo">Usuario</label>
+		                                        <label class="col-lg-3 control-label" for="reg_fecnac">Fecha de Nac.</label>
 		                                        <div class="col-lg-5">
-													<input class="form-control" id="id_reg_correo" name="correo" placeholder="Ingrese el correo" type="text" />
+													<input class="form-control" id="reg_fecnac" name="fecnac" placeholder="Ingrese la fecha de nacimiento" type="date" />
 		                                        </div>
 		                                    </div>    
 		                                    <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_reg_fecha">Contraseña</label>
+		                                        <label class="col-lg-3 control-label" for="reg_telefono">Telefono</label>
 		                                        <div class="col-lg-5">
-													<input class="form-control" id="id_reg_fecha" name="fechaNacimiento" placeholder="Ingrese la fecha de nacimiento" type="date" />
+													<input class="form-control" id="reg_telefono" name="telefono" placeholder="Ingrese el telefono" type="text" />
 		                                        </div>
 		                                    </div>  
+		                                    <input name="idalumno" type="hidden"/>
+		                                    <input name="usuario.idusuario" type="hidden"/>
+		                                    <input name="usuario.credencial" type="hidden"/>
+		                                    <input name="usuario.contraseña" type="hidden" />
+											<input name="usuario.usuario" type="hidden"/>
 		                                    <div class="form-group">
 		                                        <div class="col-lg-9 col-lg-offset-3">
 		                                        	<button type="submit" class="btn btn-primary" id="idBtnRegistra">REGISTRA</button>
@@ -295,7 +300,10 @@ function editar(id,nombre,dni,cor,direc,fecnac,tel,idu,usu,con,cre){
 	$('#ac_credencial').val(cre);
 	$('#idModalActualiza').modal("show");
 }
-
+function eliminar(idalumno){
+	$('#id_elimina').val(idalumno);
+	$('#idFormElimina').submit();
+	}
 $(document).ready(function() {
     $('#tableAlumno').DataTable();
 } );

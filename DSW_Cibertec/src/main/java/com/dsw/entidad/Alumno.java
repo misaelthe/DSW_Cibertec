@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -32,8 +33,8 @@ public class Alumno {
 	@Column(name = "dni")
 	private String dni;
 	
-	@Cascade(CascadeType.ALL)
-	@ManyToOne
+	@Cascade(CascadeType.MERGE)
+	@OneToOne
 	@JoinColumn(name = "idusuario", nullable = false)
 	private Usuario usuario;
 

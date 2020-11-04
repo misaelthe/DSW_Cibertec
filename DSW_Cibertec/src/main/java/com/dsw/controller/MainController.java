@@ -11,14 +11,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dsw.entidad.Alumno;
+import com.dsw.entidad.Usuario;
 import com.dsw.service.AlumnoServicio;
+import com.dsw.service.UsuarioServicio;
 
 @Controller
 public class MainController {
 
 	@Autowired
 	private AlumnoServicio ser_alumno;
-	
+	@Autowired
+	private UsuarioServicio ser_usuario;
 	@RequestMapping("/verloginUsuario")
 	public String login() {
 		return "loginUsuario";
@@ -33,30 +36,5 @@ public class MainController {
 		model.addAttribute("objPais", tem);*/
 		return "index";
 	}
-	/*METODOS DEL CRUD ALUMNO*/
-	@RequestMapping("/verCrudAlumno")
-	public String verCrudAlumno() {
-		return "crudAlumno";
-	}
-	@RequestMapping("/filtrarAlumno")
-	public String filtrarAlumno(String nom_alumno,HttpSession session) {
-		List<Alumno> data=ser_alumno.filtrarAlumnoPorNombre(nom_alumno+"%");
-		session.setAttribute("alumnos", data);
-		return "crudAlumno";
-	}
-	@RequestMapping("/actualizarAlumno")
-	public String actualizarAlumno(Alumno a,HttpSession session) {
-		ser_alumno.actualizarAlumno(a);
-		return "redirect:salidaAlumno";
-	}
-	@RequestMapping("/salidaAlumno")
-	public String salidaCrudAlumno(HttpSession session) {
-		return "crudAlumno";
-	}
-	/*FIN METODOS DEL CRUD ALUMNO*/
-
-	/*@RequestMapping(value = "/transferirDinero",method = RequestMethod.POST)
-	}*/
-
-
+	
 }

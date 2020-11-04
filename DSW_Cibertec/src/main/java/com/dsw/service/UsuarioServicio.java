@@ -8,4 +8,5 @@ public interface UsuarioServicio {
 
 	public abstract Usuario login(Usuario bean);
 	
+	public abstract Usuario getLastIdUsuario();
 }

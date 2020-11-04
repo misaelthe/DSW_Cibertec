@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.dsw.entidad.Usuario;
 import com.dsw.repository.UsuarioRepositorio;
 
-
 @Service
 public class UsuarioServicioImpl implements UsuarioServicio{
 
@@ -16,8 +15,9 @@ public class UsuarioServicioImpl implements UsuarioServicio{
 	private UsuarioRepositorio repositorio;
 	
 	@Override
-	public Usuario login(Usuario bean) {
-		return repositorio.login(bean);
-	}
+	public Usuario login(Usuario bean) {return repositorio.login(bean);}
+
+	@Override
+	public Usuario getLastIdUsuario() {return repositorio.getLastIdUsuario();}
 
 }
