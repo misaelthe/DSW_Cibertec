@@ -8,12 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -25,34 +23,25 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-@Table(name = "alumno")
-public class Alumno {
+@Table(name = "constancia")
+public class Constancia {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idalumno")
-	private Integer idalumno;
-
-	@Column(name = "nombre")
-	private String nombre;
-
-	@Column(name = "dni")
-	private String dni;
+	@Column(name = "idconstancia")
+	private Integer idconstancia;
 	
 	@Cascade(CascadeType.MERGE)
 	@OneToOne
-	@JoinColumn(name = "idusuario", nullable = false)
-	private Usuario usuario;
+	@JoinColumn(name = "idalumno", nullable = false)
+	private Alumno alumno;
 
-	@Column(name = "correo")
-	private String correo;
+	@Column(name = "colegio")
+	private String colegio;
 
-	@Column(name = "direccion")
-	private String direccion;
-	
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date fecnac;
+	private Date fin_colegio;
 
-	@Column(name = "telefono")
-	private String telefono;
+	@Column(name = "constancia")
+	private String constancia;
 }

@@ -25,34 +25,35 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-@Table(name = "alumno")
-public class Alumno {
+@Table(name = "matricula")
+public class Matricula {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idalumno")
-	private Integer idalumno;
+	@Column(name = "idmatricula")
+	private Integer idmatricula;
 
-	@Column(name = "nombre")
-	private String nombre;
-
-	@Column(name = "dni")
-	private String dni;
-	
 	@Cascade(CascadeType.MERGE)
-	@OneToOne
-	@JoinColumn(name = "idusuario", nullable = false)
-	private Usuario usuario;
+	@ManyToOne
+	@JoinColumn(name = "idalumno", nullable = false)
+	private Alumno alumno;
 
-	@Column(name = "correo")
-	private String correo;
-
-	@Column(name = "direccion")
-	private String direccion;
+	@Column(name = "periodo")
+	private String periodo;
+	
+	@Column(name = "ciclo")
+	private Integer ciclo;
 	
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date fecnac;
+	private Date fecha;
+	
+	@Cascade(CascadeType.MERGE)
+	@OneToOne
+	@JoinColumn(name = "idcarrera", nullable = false)
+	private Carrera carrera;
 
-	@Column(name = "telefono")
-	private String telefono;
+	@Cascade(CascadeType.MERGE)
+	@OneToOne
+	@JoinColumn(name = "idturno", nullable = false)
+	private Turno turno;
 }

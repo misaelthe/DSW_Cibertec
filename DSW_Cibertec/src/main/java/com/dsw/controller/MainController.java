@@ -36,5 +36,10 @@ public class MainController {
 		model.addAttribute("objPais", tem);*/
 		return "index";
 	}
-	
+	@RequestMapping("/matricula")
+	public String verMatricula() {
+		/*List<Pais> tem= pa_serv.listarTodosPaises();
+		model.addAttribute("objPais", tem);*/
+		return "matricula";
+	}
 }
