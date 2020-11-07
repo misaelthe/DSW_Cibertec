@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dsw.entidad.Alumno;
+import com.dsw.entidad.Nota;
 import com.dsw.entidad.Usuario;
 import com.dsw.service.AlumnoServicio;
 import com.dsw.service.UsuarioServicio;
@@ -27,33 +28,27 @@ public class DocenteController {
 	@Autowired
 	private UsuarioServicio ser_usuario;
 
-	/*METODOS DEL CRUD ALUMNO*/
-	@RequestMapping("/verCrudAlumno")
-	public String verCrudAlumno() {
-		return "crudAlumno";
-	}
-	@RequestMapping("/filtrarAlumno")
-	public String filtrarAlumno(String nom_alumno,HttpSession session) {
-		List<Alumno> data=ser_alumno.filtrarAlumnoPorNombre(nom_alumno+"%");
-		session.setAttribute("alumnos", data);
-		return "crudAlumno";
-	}
+
 	@RequestMapping(value="/getAlumnosDocenteCurso",method = RequestMethod.GET,produces = "application/json")
 	@ResponseBody
 	public ResponseEntity<List<Alumno>> getAlumnosNoMatriculados() {
 		List<Alumno> tem=ser_alumno.getAlumnosNoMatriculados();
 		return new ResponseEntity<>(tem, HttpStatus.OK);
 	}
-	@RequestMapping("/actualizarAlumno")
-	public String actualizarAlumno(Alumno a,HttpSession session) {
-		ser_alumno.actualizarAlumno(a);
-		return "redirect:salidaAlumno";
+	
+	@RequestMapping("/interfazNotas")
+	public String interfazNotas() {	
+		return "registrarNota";
 	}
-	@RequestMapping("/eliminarAlumno")
-	public String eliminarAlumno(Alumno a,HttpSession session) {
-		ser_alumno.eliminarAlumno(a);
-		return "redirect:salidaAlumno";
+	@RequestMapping(value="/getNotaAlumno",method = RequestMethod.GET,produces = "application/json")
+	@ResponseBody
+	public ResponseEntity<Nota> getNotaAlumno(HttpServletRequest request) {
+		Integer idalumno=(Integer)request.getSession().getAttribute("idalumno");
+		Integer idclase=(Integer)request.getSession().getAttribute("idclase");
+		Nota tem=ser_alumno.getNotaXAlumnos(idalumno, idclase);
+		return new ResponseEntity<Nota>(tem, HttpStatus.OK);
 	}
+	
 	@RequestMapping("/salidaAlumno")
 	public String salidaCrudAlumno(HttpSession session) {
 		return "crudAlumno";

@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.dsw.entidad.Alumno;
+import com.dsw.entidad.Nota;
 
 public interface AlumnoRepositorio extends JpaRepository<Alumno, Integer>{
 
@@ -18,4 +19,7 @@ public interface AlumnoRepositorio extends JpaRepository<Alumno, Integer>{
 	
 	@Query("Select a from Alumno a,Alumno_Clase ac where a.idalumno=ac.alumno.idalumno and ac.clase.idclase= :var_clase")
 	public abstract List<Alumno> traerAlumnosXClase(@Param("var_clase")Integer clase);
+	
+	@Query("Select n from Nota n where n.idalumno = :var_idalumno and n.idclase = :var_idclase")
+	public abstract Nota traerNotaXAlumno(@Param("var_idalumno")Integer idalumno,@Param("var_idclase")Integer idclase);
 }
