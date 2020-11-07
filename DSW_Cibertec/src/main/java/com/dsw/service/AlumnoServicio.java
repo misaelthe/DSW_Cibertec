@@ -13,4 +13,8 @@ public interface AlumnoServicio {
 	public abstract void registrarAlumno(Alumno a);
 	
 	public abstract void eliminarAlumno(Alumno a);
+	
+	public abstract List<Alumno> getAlumnosNoMatriculados();
+	
+	public abstract List<Alumno> getAlumnosXClase(Integer idclase);
 }

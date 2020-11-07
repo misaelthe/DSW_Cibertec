@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 	<script src="js/dashboard.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -23,7 +24,7 @@
 	      		<div class="form-row">
 					<div class="form-group col-md-5">
 						<input type="hidden" id="idalumno">	
-			    		<input type="text" class="form-control" id="inputAlumno" placeholder="Alumno">		  	
+			    		<input type="text" class="form-control" id="inputAlumno" placeholder="Alumno" readonly="readonly">		  	
 			  		</div>
 			  		<div class="form-group offset-md-1">
 			  			<button class="btn btn-primary" id="btnAlumno" type="button" data-toggle="collapse" data-target="#collapseExample" aria-controls="collapseExample">
@@ -90,10 +91,16 @@
     </main>
     </div>
     </div>
+
+        <script>
+		    $.getJSON('getAlumnosNoMatriculados', function(data) {
+		    	$.each(data, function (index, value) {
+		            $("#inputAlumno").val(value.nombre);
+		        });
+		     });
+			$("#btnAlumno").click(function(){
+				$("#collapseExample").collapse('show');
+			});
+	    </script>
 	</body>
-            <script type="text/javascript">
-		$("#btnAlumno").click(function(){
-			$("#collapseExample").collapse('show');
-		});
-    </script>
 </html>

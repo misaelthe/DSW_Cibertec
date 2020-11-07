@@ -18,9 +18,7 @@ public class AlumnoServicioImpl implements AlumnoServicio{
 	private AlumnoRepositorio repositorio;
 	
 	@Override
-	public List<Alumno> filtrarAlumnoPorNombre(String nombre) {
-		return repositorio.traerAlumnoPorNombre(nombre);
-	}
+	public List<Alumno> filtrarAlumnoPorNombre(String nombre) {return repositorio.traerAlumnoPorNombre(nombre);}
 
 	@Override
 	public void actualizarAlumno(Alumno a) {repositorio.save(a);}
@@ -30,5 +28,12 @@ public class AlumnoServicioImpl implements AlumnoServicio{
 
 	@Override
 	public void eliminarAlumno(Alumno a) {repositorio.delete(a);}
+
+	@Override
+	public List<Alumno> getAlumnosNoMatriculados() {return repositorio.traerAlumnosNoMatriculados();}
+
+	@Override
+	public List<Alumno> getAlumnosXClase(Integer idclase) {return repositorio.traerAlumnosXClase(idclase);
+	}
 
 }
