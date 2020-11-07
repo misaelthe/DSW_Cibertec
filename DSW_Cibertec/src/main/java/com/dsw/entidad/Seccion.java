@@ -7,7 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -26,7 +31,9 @@ public class Seccion {
 	@Column(name = "codigo")
 	private String codigo;
 
-	@Column(name = "idcarrera")
+	@Cascade(CascadeType.MERGE)
+	@OneToOne
+	@JoinColumn(name = "idcarrera", nullable = false)
 	private Carrera carrera;
 	
 	@Column(name = "ciclo")

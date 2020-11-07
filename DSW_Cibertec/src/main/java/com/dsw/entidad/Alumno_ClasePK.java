@@ -13,6 +13,6 @@ import lombok.Setter;
 public class Alumno_ClasePK implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	private Integer id_alumno;
-	private Integer id_clase;	
+	private Integer idalumno;
+	private Integer idclase;	
 }

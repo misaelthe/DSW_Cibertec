@@ -29,9 +29,7 @@ public class Curso {
 	@Column(name = "idcurso")
 	private Integer idcurso;
 	
-	@Cascade(CascadeType.MERGE)
-	@OneToOne
-	@JoinColumn(name = "nombre", nullable = false)
+	@Column(name = "nombre")
 	private String nombre;
 	
 	@Cascade(CascadeType.MERGE)

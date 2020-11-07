@@ -1,3 +1,7 @@
+#0.5.9
+	Todas las Tablas de la BD mapeadas y agregadas como entidades
+	Errores corregidos
+	Interfaz de Nota agregadas
 #0.5.2
 	- Entidades adaptadas segun las tablas de la BD,en el caso de Alumno atributos extra añadidos
 		Alumno,Usuario,Carrera,Constancia,Matricula,Turno

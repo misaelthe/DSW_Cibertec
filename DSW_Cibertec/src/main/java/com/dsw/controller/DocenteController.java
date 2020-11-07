@@ -36,7 +36,7 @@ public class DocenteController {
 		return new ResponseEntity<>(tem, HttpStatus.OK);
 	}
 	
-	@RequestMapping("/interfazNotas")
+	@RequestMapping("/interfazNota")
 	public String interfazNotas() {	
 		return "registrarNota";
 	}
@@ -47,11 +47,6 @@ public class DocenteController {
 		Integer idclase=(Integer)request.getSession().getAttribute("idclase");
 		Nota tem=ser_alumno.getNotaXAlumnos(idalumno, idclase);
 		return new ResponseEntity<Nota>(tem, HttpStatus.OK);
-	}
-	
-	@RequestMapping("/salidaAlumno")
-	public String salidaCrudAlumno(HttpSession session) {
-		return "crudAlumno";
 	}
 
 

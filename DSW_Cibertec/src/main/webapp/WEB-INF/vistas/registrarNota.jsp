@@ -19,13 +19,45 @@
 
 	<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 pt-5">
       	<div>
-	      	<form action="">
-	      		<h4>Seleccione un alumno</h4>
-	      		<>
+	      		<h4>Registro de Notas</h4>
+	      		<form>
 
-		     
-		      
-	      	</form>
+				  <div class="form-group row">
+				    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Evaluacion Teorica 1</label>
+				    <div class="col-sm-10">
+				      <input type="number" class="form-control form-control-lg" id="colFormLabelLg" placeholder="col-form-label-lg">
+				    </div>
+				  </div>
+				  
+				  <div class="form-group row">
+				    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Evaluacion Teorica 2</label>
+				    <div class="col-sm-10">
+				      <input type="number" class="form-control form-control-lg" id="colFormLabelLg" placeholder="col-form-label-lg">
+				    </div>
+				  </div>
+				  
+				  <div class="form-group row">
+				    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Evaluacion Parcial</label>
+				    <div class="col-sm-10">
+				      <input type="number" class="form-control form-control-lg" id="colFormLabelLg" placeholder="col-form-label-lg">
+				    </div>
+				  </div>
+				  
+				  <div class="form-group row">
+				    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Evaluacion Teorica 3</label>
+				    <div class="col-sm-10">
+				      <input type="number" class="form-control form-control-lg" id="colFormLabelLg" placeholder="col-form-label-lg">
+				    </div>
+				  </div>
+				  
+				  <div class="form-group row">
+				    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Evaluacion Final</label>
+				    <div class="col-sm-10">
+				      <input type="number" class="form-control form-control-lg" id="colFormLabelLg" placeholder="col-form-label-lg">
+				    </div>
+				  </div>
+				</form>
+
       	</div>
     </main>
     </div>
