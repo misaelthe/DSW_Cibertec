@@ -39,4 +39,7 @@ public class AlumnoServicioImpl implements AlumnoServicio{
 	@Override
 	public Nota getNotaXAlumnos(Integer idalumno, Integer idclase) {return repositorio.traerNotaXAlumno(idalumno, idclase);}
 
+	@Override
+	public List<Alumno> getAllAlumno() {return repositorio.traerAllAlumnos();}
+
 }

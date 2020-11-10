@@ -7,6 +7,8 @@ import com.dsw.entidad.Nota;
 
 public interface AlumnoServicio {
 
+	public abstract List<Alumno> getAllAlumno();
+	
 	public abstract List<Alumno> filtrarAlumnoPorNombre(String nombre);
 	
 	public abstract void actualizarAlumno(Alumno a);
