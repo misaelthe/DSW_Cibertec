@@ -47,7 +47,7 @@ public class AlumnoController {
 	@RequestMapping("/registrarAlumno")
 	public String registrarAlumno(Alumno a,HttpSession session) {
 		
-		a.getUsuario().setContraseña(a.getDni());
+		a.getUsuario().setPassword(a.getDni());
 		a.getUsuario().setCredencial(1);
 		a.getUsuario().setUsuario(a.getDni());
 		a.getUsuario().setIdusuario(1);
