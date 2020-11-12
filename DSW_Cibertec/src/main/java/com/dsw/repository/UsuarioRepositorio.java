@@ -13,4 +13,7 @@ public interface UsuarioRepositorio extends JpaRepository<Usuario, Integer>{
 	
 	@Query(value="select * from usuario x order by x.idusuario desc limit 1",nativeQuery = true)
 	public abstract Usuario getLastIdUsuario();
+	
+	@Query("select u from Usuario u where u.usuario = :usu and u.contraseña = :contra")
+	public abstract Usuario getUsuario(@Param(value="usu")String usuario,@Param(value="contra")String contraseña);
 }
