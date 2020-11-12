@@ -27,8 +27,8 @@ public class ApiRestController {
 	
 	@GetMapping(path = "/getUsuario",produces = "application/json")
 	@ResponseBody
-	public Usuario getUsuario(@RequestParam("usuario") String usuario,@RequestParam("contraseña") String contraseña){
-		return restService.getUsuario(usuario, contraseña);
+	public Usuario getUsuario(@RequestParam("usuario") String usuario,@RequestParam("password") String password){
+		return restService.getUsuario(usuario, password);
 	}
 	
 	@GetMapping(path = "/getAlumno",produces = "application/json")
