@@ -10,5 +10,4 @@ public interface UsuarioServicio {
 	
 	public abstract Usuario getLastIdUsuario();
 	
-	public abstract Usuario getUsuario(String usuario,String contraseña);
 }

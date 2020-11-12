@@ -20,8 +20,4 @@ public class UsuarioServicioImpl implements UsuarioServicio{
 	@Override
 	public Usuario getLastIdUsuario() {return repositorio.getLastIdUsuario();}
 
-	@Override
-	public Usuario getUsuario(String usuario, String contraseña) {return repositorio.getUsuario(usuario, contraseña);
-	}
-
 }
