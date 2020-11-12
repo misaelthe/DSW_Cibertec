@@ -19,8 +19,8 @@ public class Usuario {
 	@Column(name = "usuario")
 	private String usuario;
 
-	@Column(name = "contraseña")
-	private String contraseña;
+	@Column(name = "password")
+	private String password;
 	
 	@Column(name = "credencial")
 	private Integer credencial;
@@ -40,21 +40,20 @@ public class Usuario {
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
-
-	public String getContraseña() {
-		return contraseña;
-	}
-
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
-	}
-
 	public Integer getCredencial() {
 		return credencial;
 	}
 
 	public void setCredencial(Integer credencial) {
 		this.credencial = credencial;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	
