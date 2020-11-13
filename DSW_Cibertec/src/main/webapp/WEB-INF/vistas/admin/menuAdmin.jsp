@@ -8,7 +8,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="matricula">
+            <a class="nav-link active" href="verMatricula">
               <span data-feather="home"></span>
               Matricula
             </a>
@@ -25,7 +25,7 @@
 		            </a>
 	            </li>
 	            <li class="ml-1">
-            		<a class="nav-link" href="#">
+            		<a class="nav-link" href="verCrudAlumno">
 		              Alumnos
 		            </a>
 	            </li>
@@ -41,36 +41,7 @@
 	            </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="users"></span>
-              Customers
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="bar-chart-2"></span>
-              Reports
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="layers"></span>
-              Transacciones
-            </a>
-            <ul style="list-style-type: none;">
-            	<li class="ml-1">
-            		<a class="nav-link" href="#">
-		              Pago de Servicios
-		            </a>
-	            </li>
-	            <li class="ml-1">
-            		<a class="nav-link" href="#">
-		              Transferencia de Dinero
-		            </a>
-	            </li>
-            </ul>
-          </li>
+
         </ul>
       </div>
     </nav>

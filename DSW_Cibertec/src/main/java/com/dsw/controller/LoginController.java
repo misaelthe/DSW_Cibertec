@@ -16,12 +16,13 @@ import com.dsw.service.AlumnoServicio;
 import com.dsw.service.UsuarioServicio;
 
 @Controller
-public class MainController {
+public class LoginController {
 
 	@Autowired
 	private AlumnoServicio ser_alumno;
 	@Autowired
 	private UsuarioServicio ser_usuario;
+	
 	@RequestMapping("/verloginUsuario")
 	public String login() {
 		return "loginUsuario";
@@ -35,11 +36,5 @@ public class MainController {
 		/*List<Pais> tem= pa_serv.listarTodosPaises();
 		model.addAttribute("objPais", tem);*/
 		return "index";
-	}
-	@RequestMapping("/matricula")
-	public String verMatricula() {
-		/*List<Pais> tem= pa_serv.listarTodosPaises();
-		model.addAttribute("objPais", tem);*/
-		return "matricula";
 	}
 }

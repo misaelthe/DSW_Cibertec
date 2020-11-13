@@ -3,6 +3,8 @@ package com.dsw.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,7 +13,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dsw.entidad.Alumno;
+import com.dsw.entidad.Alumno_Clase;
+import com.dsw.entidad.Clase;
+import com.dsw.entidad.Curso;
 import com.dsw.entidad.Docente;
+import com.dsw.entidad.Nota;
 import com.dsw.entidad.Usuario;
 import com.dsw.service.AlumnoServicio;
 import com.dsw.service.DocenteServicio;
@@ -21,7 +27,16 @@ import com.dsw.service.UsuarioServicio;
 @RestController
 @RequestMapping(value = "/rest")
 public class ApiRestController {
+	@Autowired
+	private AlumnoServicio ser_alumno;
 	
+	@GetMapping(value="/getAlumnosNoMatriculados",produces = "application/json")
+	@ResponseBody
+	public List<Alumno> getAlumnosNoMatriculados() {
+		List<Alumno> tem=ser_alumno.getAlumnosNoMatriculados();
+		return tem;
+	}
+	/////////////////////////////////////////////////////////
 	@Autowired
 	private RestServicio restService;
 	
@@ -41,5 +56,29 @@ public class ApiRestController {
 	@ResponseBody
 	public Docente getDocente(@RequestParam("idusuario") Integer idusuario){
 		return restService.getDocente(idusuario);
+	}
+	
+	@GetMapping(path = "/getAlumnoClase",produces = "application/json")
+	@ResponseBody
+	public List<Alumno_Clase> getAlumnoClase(@RequestParam("idalumno") Integer idalumno){
+		return restService.getAlumno_Clase(idalumno);
+	}
+	
+	@GetMapping(path = "/getNota",produces = "application/json")
+	@ResponseBody
+	public List<Nota> getNota(@RequestParam("idalumno") Integer idalumno){
+		return restService.getNotaXAlumno(idalumno);
+	}
+	
+	@GetMapping(path = "/getCurso",produces = "application/json")
+	@ResponseBody
+	public List<Curso> getCurso(@RequestParam("idalumno") Integer idalumno){
+		return restService.getCursoXAlumno(idalumno);
+	}
+	
+	@GetMapping(path = "/getClase",produces = "application/json")
+	@ResponseBody
+	public List<Clase> getClase(@RequestParam("idalumno") Integer idalumno){
+		return restService.getClaseXAlumno(idalumno);
 	}
 }
