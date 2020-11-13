@@ -34,7 +34,20 @@
 				<div class="from-row">
 					<div class="collapse col-12" id="collapseExample">
 						<div class="card card-body">
-						    Simosn Figer
+						    <table>
+						    	<thead>
+						    		<tr>
+										<th>ID</th>
+										<th>Nombre</th>
+										<th>DNI</th>
+										<th>Correo</th>
+										<th>Telefono</th>
+									</tr>
+						    	</thead>
+						    	<tbody id="tbodyAlumno">
+						    	
+						    	</tbody>
+						    </table>
 						</div>
 					</div>
 				</div>
@@ -93,7 +106,7 @@
         <script>
 		    $.getJSON('getAlumnosNoMatriculados', function(data) {
 		    	$.each(data, function (index, value) {
-		            $("#inputAlumno").val(value.nombre);
+		            $("#tbodyAlumno").append("<tr><td>"+value.idalumno+"</td><td>"+value.nombre+"</td><td>"+value.dni+"</td><td>"+value.correo+"</td><td>"+value.telefono+"</td></tr>");
 		        });
 		     });
 			$("#btnAlumno").click(function(){

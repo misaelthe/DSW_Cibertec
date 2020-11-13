@@ -31,7 +31,7 @@ public class DocenteController {
 
 	@RequestMapping(value="/getAlumnosDocenteCurso",method = RequestMethod.GET,produces = "application/json")
 	@ResponseBody
-	public ResponseEntity<List<Alumno>> getAlumnosNoMatriculados() {
+	public ResponseEntity<List<Alumno>> getAlumnosDocenteCurso() {
 		List<Alumno> tem=ser_alumno.getAlumnosNoMatriculados();
 		return new ResponseEntity<>(tem, HttpStatus.OK);
 	}

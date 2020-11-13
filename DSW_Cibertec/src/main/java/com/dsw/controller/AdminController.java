@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -72,6 +73,12 @@ public class AdminController {
 	@RequestMapping("/verMatricula")
 	public String verMatricula() {
 		return "admin/matricula";
+	}
+	@GetMapping(value="/getAlumnosNoMatriculados",produces = "application/json")
+	@ResponseBody
+	public ResponseEntity<List<Alumno>> getAlumnosNoMatriculados() {
+		List<Alumno> tem=ser_alumno.getAlumnosNoMatriculados();
+		return new ResponseEntity<>(tem, HttpStatus.OK);
 	}
 	@RequestMapping("/registrarMatricula")
 	public String registrarMatricula() {

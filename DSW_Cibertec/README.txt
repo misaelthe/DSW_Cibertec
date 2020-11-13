@@ -1,3 +1,6 @@
+#0.6.6
+	Servicios Rest creados
+	Arreglo de carpetas
 #0.5.9
 	Todas las Tablas de la BD mapeadas y agregadas como entidades
 	Errores corregidos

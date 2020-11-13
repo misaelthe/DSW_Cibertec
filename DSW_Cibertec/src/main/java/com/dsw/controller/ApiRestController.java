@@ -27,15 +27,8 @@ import com.dsw.service.UsuarioServicio;
 @RestController
 @RequestMapping(value = "/rest")
 public class ApiRestController {
-	@Autowired
-	private AlumnoServicio ser_alumno;
-	
-	@GetMapping(value="/getAlumnosNoMatriculados",produces = "application/json")
-	@ResponseBody
-	public List<Alumno> getAlumnosNoMatriculados() {
-		List<Alumno> tem=ser_alumno.getAlumnosNoMatriculados();
-		return tem;
-	}
+
+
 	/////////////////////////////////////////////////////////
 	@Autowired
 	private RestServicio restService;
