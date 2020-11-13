@@ -8,7 +8,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="verMatricula">
+            <a class="nav-link" href="verMatricula">
               <span data-feather="home"></span>
               Matricula
             </a>
