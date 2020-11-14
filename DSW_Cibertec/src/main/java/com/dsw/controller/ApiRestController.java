@@ -69,7 +69,7 @@ public class ApiRestController {
 		return restService.getCursoXAlumno(idalumno);
 	}
 	
-	@GetMapping(path = "/getCurso",produces = "application/json")
+	@GetMapping(path = "/getCursoXDocente",produces = "application/json")
 	@ResponseBody
 	public List<Curso> getCursoXDocente(@RequestParam("iddocente") Integer iddocente){
 		return restService.getCursoXDocente(iddocente);
@@ -81,7 +81,7 @@ public class ApiRestController {
 		return restService.getClaseXAlumno(idalumno);
 	}
 	
-	@GetMapping(path = "/getClase",produces = "application/json")
+	@GetMapping(path = "/getClaseXDocente",produces = "application/json")
 	@ResponseBody
 	public List<Clase> getClaseXDocente(@RequestParam("iddocente") Integer iddocente){
 		return restService.getClaseXDocente(iddocente);
