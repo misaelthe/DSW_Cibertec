@@ -40,7 +40,7 @@ public class AdminController {
 	public String filtrarAlumno(String nom_alumno,HttpSession session) {
 		List<Alumno> data=ser_alumno.filtrarAlumnoPorNombre(nom_alumno+"%");
 		session.setAttribute("alumnos", data);
-		return "admin/crudAlumno";
+		return "redirect:salidaAlumno";
 	}
 	@RequestMapping(value="/getAllAlumno",method = RequestMethod.GET,produces = "application/json")
 	@ResponseBody
@@ -68,7 +68,11 @@ public class AdminController {
 		return "redirect:salidaAlumno";
 	}
 	@RequestMapping("/salidaAlumno")
-	public String salidaCrudAlumno(HttpSession session) {return "admin/crudAlumno";}
+	public String salidaCrudAlumno(HttpSession session) {
+		List<Alumno> data=ser_alumno.getAllAlumno();
+		session.setAttribute("alumnos", data);
+		return "admin/crudAlumno";
+	}
 	
 	@RequestMapping("/verMatricula")
 	public String verMatricula() {
@@ -84,4 +88,11 @@ public class AdminController {
 	public String registrarMatricula() {
 		return "admin/matricula";
 	}
+	/*
+spring.datasource.url=jdbc:mysql://sql3.freemysqlhosting.net:3306/sql3375651?serverTimezone=UTC
+spring.datasource.username=sql3375651
+spring.datasource.password=vRgrUw78GW
+spring.datasource.url=jdbc:mysql://localhost:3306/cibertec?serverTimezone=UTC
+spring.datasource.username=root
+spring.datasource.password=mysql*/
 }

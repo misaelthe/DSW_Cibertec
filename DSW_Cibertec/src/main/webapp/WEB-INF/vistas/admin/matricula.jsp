@@ -12,6 +12,7 @@
 	<link href="../css/dashboard.css" rel="stylesheet">	    
   </head>
   <body>
+    <jsp:include page="../nav.jsp" />
   <div class="container-fluid">
   <div class="row">
 	<jsp:include page="menuAdmin.jsp" />
