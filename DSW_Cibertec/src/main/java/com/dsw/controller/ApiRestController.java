@@ -65,13 +65,25 @@ public class ApiRestController {
 	
 	@GetMapping(path = "/getCurso",produces = "application/json")
 	@ResponseBody
-	public List<Curso> getCurso(@RequestParam("idalumno") Integer idalumno){
+	public List<Curso> getCursoXAlumno(@RequestParam("idalumno") Integer idalumno){
 		return restService.getCursoXAlumno(idalumno);
+	}
+	
+	@GetMapping(path = "/getCurso",produces = "application/json")
+	@ResponseBody
+	public List<Curso> getCursoXDocente(@RequestParam("iddocente") Integer iddocente){
+		return restService.getCursoXDocente(iddocente);
 	}
 	
 	@GetMapping(path = "/getClase",produces = "application/json")
 	@ResponseBody
-	public List<Clase> getClase(@RequestParam("idalumno") Integer idalumno){
+	public List<Clase> getClaseXAlumno(@RequestParam("idalumno") Integer idalumno){
 		return restService.getClaseXAlumno(idalumno);
+	}
+	
+	@GetMapping(path = "/getClase",produces = "application/json")
+	@ResponseBody
+	public List<Clase> getClaseXDocente(@RequestParam("iddocente") Integer iddocente){
+		return restService.getClaseXDocente(iddocente);
 	}
 }
