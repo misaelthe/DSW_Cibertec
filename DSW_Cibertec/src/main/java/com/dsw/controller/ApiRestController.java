@@ -88,7 +88,7 @@ public class ApiRestController {
 	}
 	@GetMapping(path = "/getNotasXDocente",produces = "application/json")
 	@ResponseBody
-	public Nota getNotasXDocente(@RequestParam("iddocente") Integer iddocente){
+	public List<Nota> getNotasXDocente(@RequestParam("iddocente") Integer iddocente){
 		return restService.getNotasXDocente(iddocente);
 	}
 		

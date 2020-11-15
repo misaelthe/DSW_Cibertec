@@ -73,7 +73,7 @@ public class RestServicioImpl implements RestServicio{
 	public Docente getDocente(Integer idusuario) {return repDocente.getDocente(idusuario);}
 	//NOTA
 	@Override
-	public Nota getNotasXDocente(Integer iddocente) {return repNota.getNotasXDocente(iddocente);}
+	public List<Nota> getNotasXDocente(Integer iddocente) {return repNota.getNotasXDocente(iddocente);}
 	//USUARIO
 	@Override
 	public Usuario getUsuario(String usuario, String password) {return repUsuario.getUsuario(usuario, password);}
