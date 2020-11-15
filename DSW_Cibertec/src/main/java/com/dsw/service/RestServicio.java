@@ -31,7 +31,7 @@ public interface RestServicio {
 	//DOCENTE
 	public abstract Docente getDocente(Integer idusuario);
 	//NOTA
-	public abstract List<Nota> getNotaXAlumno(Integer idalumno);
+	public abstract Nota getNotaXClaseXAlumno(Integer idclase,Integer idalumno);
 	//USUARIO
 	public abstract Usuario getUsuario(String usuario,String password);
 }

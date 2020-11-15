@@ -12,7 +12,7 @@ import com.dsw.entidad.Nota;
 
 public interface NotaRepositorio extends JpaRepository<Nota, Integer>{
 	
-	@Query("Select n from Nota n where n.alumno.idalumno = :idalum")
-	public abstract List<Nota> getNota(@Param("idalum")Integer idalumno);
+	@Query("Select n from Nota n where n.clase.idclase = :idcla and n.alumno.idalumno = :idalum")
+	public abstract Nota getNotaXClaseXAlumno(@Param("idcla")Integer idclase,@Param("idalum")Integer idalumno);
 
 }
