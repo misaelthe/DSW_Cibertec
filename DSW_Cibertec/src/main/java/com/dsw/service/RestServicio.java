@@ -18,6 +18,7 @@ public interface RestServicio {
 	public abstract List<Seccion> getSeccionXDocente(Integer iddocente);
 	//ALUMNO_CLASE
 	public abstract List<Alumno_Clase> getAlumno_Clase(Integer idalumno);
+	public abstract List<Alumno_Clase> getAlumnoClaseXClase(Integer idclase);
 	//CLASE
 	public abstract List<Clase> getClaseXAlumno(Integer idalumno);	
 	public abstract List<Clase> getClaseXDocente(Integer iddocente);
@@ -26,6 +27,7 @@ public interface RestServicio {
 	public abstract List<Curso> getCursoXDocente(Integer iddocente);
 	//ALUMNO
 	public abstract Alumno getAlumno(Integer idusuario);
+	public abstract List<Alumno> getAlumnosXClase(Integer idclase);
 	//DOCENTE
 	public abstract Docente getDocente(Integer idusuario);
 	//NOTA

@@ -51,6 +51,8 @@ public class RestServicioImpl implements RestServicio{
 	//ALUMNO_CLASE
 	@Override
 	public List<Alumno_Clase> getAlumno_Clase(Integer idalumno) {return repAlumno_Clase.getAlumno_Clase(idalumno);}
+	@Override
+	public List<Alumno_Clase> getAlumnoClaseXClase(Integer idclase) {return repAlumno_Clase.getAlumnoClaseXClase(idclase);}
 	//CLASE
 	@Override
 	public List<Clase> getClaseXAlumno(Integer idalumno) {return repClase.getClaseXAlumno(idalumno);}
@@ -64,6 +66,8 @@ public class RestServicioImpl implements RestServicio{
 	//ALUMNO
 	@Override
 	public Alumno getAlumno(Integer idusuario) {return repAlumno.getAlumno(idusuario);}
+	@Override
+	public List<Alumno> getAlumnosXClase(Integer idclase) {return repAlumno.getAlumnosXClase(idclase);}
 	//DOCENTE
 	@Override
 	public Docente getDocente(Integer idusuario) {return repDocente.getDocente(idusuario);}
