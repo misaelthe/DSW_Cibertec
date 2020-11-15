@@ -76,22 +76,20 @@ public class ApiRestController {
 	public List<Curso> getCursoXDocente(@RequestParam("iddocente") Integer iddocente){
 		return restService.getCursoXDocente(iddocente);
 	}
-	@GetMapping(path = "/getAlumnoClaseXClase",produces = "application/json")
+	@GetMapping(path = "/getAlumnoClaseXDocente",produces = "application/json")
 	@ResponseBody
-	public List<Alumno_Clase> getAlumnoClaseXClase(@RequestParam("idclase") Integer idclase){
-		return restService.getAlumnoClaseXClase(idclase);
+	public List<Alumno_Clase> getAlumnoClaseXDocente(@RequestParam("iddocente") Integer iddocente){
+		return restService.getAlumnoClaseXDocente(iddocente);
 	}
-	@GetMapping(path = "/getAlumnosXClase",produces = "application/json")
+	@GetMapping(path = "/getAlumnosXDocente",produces = "application/json")
 	@ResponseBody
-	public List<Alumno> getAlumnosXClase(@RequestParam("idclase") Integer idclase){
-		return restService.getAlumnosXClase(idclase);
+	public List<Alumno> getAlumnosXDocente(@RequestParam("iddocente") Integer iddocente){
+		return restService.getAlumnosXDocente(iddocente);
 	}
-	///////////////////////////////METODOS EN COMUN
-	
-	@GetMapping(path = "/getNotaXClaseXAlumno",produces = "application/json")
+	@GetMapping(path = "/getNotasXDocente",produces = "application/json")
 	@ResponseBody
-	public Nota getNotaXClaseXAlumno(@RequestParam("idclase") Integer idclase,@RequestParam("idalumno") Integer idalumno){
-		return restService.getNotaXClaseXAlumno(idclase,idalumno);
+	public Nota getNotasXDocente(@RequestParam("iddocente") Integer iddocente){
+		return restService.getNotasXDocente(iddocente);
 	}
 		
 }

@@ -52,7 +52,7 @@ public class RestServicioImpl implements RestServicio{
 	@Override
 	public List<Alumno_Clase> getAlumno_Clase(Integer idalumno) {return repAlumno_Clase.getAlumno_Clase(idalumno);}
 	@Override
-	public List<Alumno_Clase> getAlumnoClaseXClase(Integer idclase) {return repAlumno_Clase.getAlumnoClaseXClase(idclase);}
+	public List<Alumno_Clase> getAlumnoClaseXDocente(Integer iddocente) {return repAlumno_Clase.getAlumnoClaseXDocente(iddocente);}
 	//CLASE
 	@Override
 	public List<Clase> getClaseXAlumno(Integer idalumno) {return repClase.getClaseXAlumno(idalumno);}
@@ -67,13 +67,13 @@ public class RestServicioImpl implements RestServicio{
 	@Override
 	public Alumno getAlumno(Integer idusuario) {return repAlumno.getAlumno(idusuario);}
 	@Override
-	public List<Alumno> getAlumnosXClase(Integer idclase) {return repAlumno.getAlumnosXClase(idclase);}
+	public List<Alumno> getAlumnosXDocente(Integer iddocente) {return repAlumno.getAlumnosXDocente(iddocente);}
 	//DOCENTE
 	@Override
 	public Docente getDocente(Integer idusuario) {return repDocente.getDocente(idusuario);}
 	//NOTA
 	@Override
-	public Nota getNotaXClaseXAlumno(Integer idclase,Integer idalumno) {return repNota.getNotaXClaseXAlumno(idclase,idalumno);}
+	public Nota getNotasXDocente(Integer iddocente) {return repNota.getNotasXDocente(iddocente);}
 	//USUARIO
 	@Override
 	public Usuario getUsuario(String usuario, String password) {return repUsuario.getUsuario(usuario, password);}

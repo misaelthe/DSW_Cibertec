@@ -15,6 +15,6 @@ public interface Alumno_ClaseRepositorio extends JpaRepository<Alumno_Clase, Int
 	@Query("Select ac from Alumno_Clase ac where ac.alumno.idalumno = :idalum")
 	public abstract List<Alumno_Clase> getAlumno_Clase(@Param("idalum")Integer idalumno);
 
-	@Query("Select ac from Alumno_Clase ac where ac.clase.idclase = :idcla")
-	public abstract List<Alumno_Clase> getAlumnoClaseXClase(@Param("idcla")Integer idclase);
+	@Query("Select ac from Alumno_Clase ac,Clase c where ac.clase.idclase = c.idclase and c.docente.iddocente = :iddoc")
+	public abstract List<Alumno_Clase> getAlumnoClaseXDocente(@Param("iddoc")Integer iddocente);
 }
