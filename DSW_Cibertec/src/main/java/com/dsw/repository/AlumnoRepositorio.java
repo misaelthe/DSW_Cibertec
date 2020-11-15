@@ -33,6 +33,6 @@ public interface AlumnoRepositorio extends JpaRepository<Alumno, Integer>{
 	public abstract Alumno getAlumno(@Param("idusu")Integer idusuario);
 	
 	@Query("Select DISTINCT a from Alumno a,Alumno_Clase ac,Clase c where a.idalumno = ac.alumno.idalumno and ac.clase.idclase = c.idclase and c.docente.iddocente = :iddoc")
-	@QueryHints(value = {@QueryHint(name = org.hibernate.jpa.QueryHints.HINT_PASS_DISTINCT_THROUGH,value = "false")})
+	//@QueryHints(value = {@QueryHint(name = org.hibernate.jpa.QueryHints.HINT_PASS_DISTINCT_THROUGH,value = "false")})
 	public abstract List<Alumno> getAlumnosXDocente(@Param("iddoc")Integer iddocente);
 }
