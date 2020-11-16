@@ -18,6 +18,7 @@ import com.dsw.entidad.Clase;
 import com.dsw.entidad.Curso;
 import com.dsw.entidad.Docente;
 import com.dsw.entidad.Nota;
+import com.dsw.entidad.Seccion;
 import com.dsw.entidad.Usuario;
 import com.dsw.service.AlumnoServicio;
 import com.dsw.service.DocenteServicio;
@@ -38,7 +39,7 @@ public class ApiRestController {
 	public Usuario getUsuario(@RequestParam("usuario") String usuario,@RequestParam("password") String password){
 		return restService.getUsuario(usuario, password);
 	}
-	
+///////////////////////////////METODOS DEL ALUMNO
 	@GetMapping(path = "/getAlumno",produces = "application/json")
 	@ResponseBody
 	public Alumno getAlumno(@RequestParam("idusuario") Integer idusuario){
@@ -59,6 +60,16 @@ public class ApiRestController {
 	public List<Alumno_Clase> getAlumnoClase(@RequestParam("idalumno") Integer idalumno){
 		return restService.getAlumno_Clase(idalumno);
 	}
+	@GetMapping(path = "/getNotasXAlumno",produces = "application/json")
+	@ResponseBody
+	public List<Nota> getNotasXAlumno(@RequestParam("idalumno") Integer idalumno){
+		return restService.getNotasXDocente(idalumno);
+	}
+	@GetMapping(path = "/getSeccionesXAlumno",produces = "application/json")
+	@ResponseBody
+	public List<Seccion> getSeccionesXAlumno(@RequestParam("idalumno") Integer idalumno){
+		return restService.getSeccionesXAlumno(idalumno);
+	}	
 	///////////////////////////////METODOS DEL DOCENTE
 	@GetMapping(path = "/getDocente",produces = "application/json")
 	@ResponseBody
@@ -69,8 +80,7 @@ public class ApiRestController {
 	@ResponseBody
 	public List<Clase> getClaseXDocente(@RequestParam("iddocente") Integer iddocente){
 		return restService.getClaseXDocente(iddocente);
-	}
-	
+	}	
 	@GetMapping(path = "/getCursoXDocente",produces = "application/json")
 	@ResponseBody
 	public List<Curso> getCursoXDocente(@RequestParam("iddocente") Integer iddocente){
@@ -91,5 +101,9 @@ public class ApiRestController {
 	public List<Nota> getNotasXDocente(@RequestParam("iddocente") Integer iddocente){
 		return restService.getNotasXDocente(iddocente);
 	}
-		
+	@GetMapping(path = "/getSeccionesXDocente",produces = "application/json")
+	@ResponseBody
+	public List<Seccion> getSeccionesXDocente(@RequestParam("iddocente") Integer iddocente){
+		return restService.getSeccionesXDocente(iddocente);
+	}	
 }

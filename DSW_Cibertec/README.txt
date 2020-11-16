@@ -1,3 +1,6 @@
+#0.8
+	Servicios Rest agregados, los necesarios para dar abasto a la app movil
+	Interfaz de Login añadida, pero no funcional completamente
 #0.6.6
 	Servicios Rest creados
 	Arreglo de carpetas

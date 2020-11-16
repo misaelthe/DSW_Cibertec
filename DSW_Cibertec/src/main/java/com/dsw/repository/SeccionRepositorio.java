@@ -15,8 +15,8 @@ import com.dsw.entidad.Seccion;
 public interface SeccionRepositorio extends JpaRepository<Seccion, Integer>{
 	
 	@Query("Select s from Seccion s,Clase cl,Alumno_Clase ac where s.idseccion=cl.seccion.idseccion and cl.idclase = ac.clase.idclase and ac.alumno.idalumno = :idalum")
-	public abstract List<Seccion> getSeccionXAlumno(@Param("idalum")Integer idalumno);
+	public abstract List<Seccion> getSeccionesXAlumno(@Param("idalum")Integer idalumno);
 
 	@Query("Select s from Seccion s,Clase cl where s.idseccion=cl.seccion.idseccion and cl.docente.iddocente = :iddoc")
-	public abstract List<Seccion> getSeccionXDocente(@Param("iddoc")Integer iddocente);
+	public abstract List<Seccion> getSeccionesXDocente(@Param("iddoc")Integer iddocente);
 }

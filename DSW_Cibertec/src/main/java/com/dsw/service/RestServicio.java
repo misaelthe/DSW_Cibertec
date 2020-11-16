@@ -13,9 +13,6 @@ import com.dsw.entidad.Usuario;
 
 public interface RestServicio {
 	
-	//SECCION
-	public abstract List<Seccion> getSeccionXAlumno(Integer idalumno);	
-	public abstract List<Seccion> getSeccionXDocente(Integer iddocente);
 	//ALUMNO_CLASE
 	public abstract List<Alumno_Clase> getAlumno_Clase(Integer idalumno);
 	public abstract List<Alumno_Clase> getAlumnoClaseXDocente(Integer iddocente);
@@ -32,6 +29,10 @@ public interface RestServicio {
 	public abstract Docente getDocente(Integer idusuario);
 	//NOTA
 	public abstract List<Nota> getNotasXDocente(Integer iddocente);
+	public abstract List<Nota> getNotasXAlumno(Integer idalumno);
+	//SECCION
+	public abstract List<Seccion> getSeccionesXDocente(Integer iddocente);
+	public abstract List<Seccion> getSeccionesXAlumno(Integer idalumno);
 	//USUARIO
 	public abstract Usuario getUsuario(String usuario,String password);
 }

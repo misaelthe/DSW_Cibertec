@@ -45,9 +45,9 @@ public class RestServicioImpl implements RestServicio{
 	
 	//SECCION
 	@Override
-	public List<Seccion> getSeccionXAlumno(Integer idalumno) {return repSeccion.getSeccionXAlumno(idalumno);}
+	public List<Seccion> getSeccionesXAlumno(Integer idalumno) {return repSeccion.getSeccionesXAlumno(idalumno);}
 	@Override
-	public List<Seccion> getSeccionXDocente(Integer iddocente) {return repSeccion.getSeccionXDocente(iddocente);}
+	public List<Seccion> getSeccionesXDocente(Integer iddocente) {return repSeccion.getSeccionesXDocente(iddocente);}
 	//ALUMNO_CLASE
 	@Override
 	public List<Alumno_Clase> getAlumno_Clase(Integer idalumno) {return repAlumno_Clase.getAlumno_Clase(idalumno);}
@@ -74,6 +74,8 @@ public class RestServicioImpl implements RestServicio{
 	//NOTA
 	@Override
 	public List<Nota> getNotasXDocente(Integer iddocente) {return repNota.getNotasXDocente(iddocente);}
+	@Override
+	public List<Nota> getNotasXAlumno(Integer idalumno) {return repNota.getNotasXAlumno(idalumno);}
 	//USUARIO
 	@Override
 	public Usuario getUsuario(String usuario, String password) {return repUsuario.getUsuario(usuario, password);}
