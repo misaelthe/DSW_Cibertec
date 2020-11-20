@@ -45,7 +45,7 @@
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="form-password">Contraseña</label>
-			                        	<input type="password" name="password" placeholder="Contraseña..." class="form-password form-control" id="form-password">
+			                        	<input type="password" name="password" placeholder="Contrase�a..." class="form-password form-control" id="form-password">
 			                        </div>
 			                        <button type="submit" class="btn">Ingresar</button>
 			                    </form>

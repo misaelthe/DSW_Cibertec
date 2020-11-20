@@ -1,3 +1,5 @@
+#0.8.2
+	Arreglando interfaz Login
 #0.8.1
 	Metodo para insertar las Notas desde la app agregado
 	Interfaz de listar Clases por Alumno creado

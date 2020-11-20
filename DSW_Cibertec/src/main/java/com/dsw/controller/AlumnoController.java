@@ -27,6 +27,11 @@ public class AlumnoController {
 	@Autowired
 	private AlumnoServicio ser_alumno;
 
+	@RequestMapping("/verIndexAlumno")
+	public String verIndexAlumno() {
+		return "alumno/indexAlumno";
+	}
+	
 	@RequestMapping(value="/verClasesDictadasPage")
 	public String verClasesDictadasPage(HttpSession session) {
 		return "pageClasesDictadas";

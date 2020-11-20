@@ -29,7 +29,11 @@ public class DocenteController {
 	@Autowired
 	private UsuarioServicio ser_usuario;
 
-
+	@RequestMapping("/verIndexDocente")
+	public String verIndexDocente() {
+		return "docente/indexDocente";
+	}
+	
 	@RequestMapping(value="/getAlumnosDocenteCurso",method = RequestMethod.GET,produces = "application/json")
 	@ResponseBody
 	public ResponseEntity<List<Alumno>> getAlumnosDocenteCurso() {
