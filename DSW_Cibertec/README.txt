@@ -1,5 +1,6 @@
+#0.8.8
+	Arreglando Login
 #0.8.7
-
 #0.8.6
 	Problema con los Branch
 #0.8.2

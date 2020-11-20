@@ -16,7 +16,6 @@ public class UsuarioServicioImpl implements UsuarioServicio{
 	
 	@Override
 	public Usuario login(Usuario bean) {return repositorio.login(bean);}
-
 	@Override
 	public Usuario getLastIdUsuario() {return repositorio.getLastIdUsuario();}
 

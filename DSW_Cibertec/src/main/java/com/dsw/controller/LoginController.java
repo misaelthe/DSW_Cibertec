@@ -20,8 +20,11 @@ public class LoginController {
 		return "login";
 	}
 	@RequestMapping("/enviarLogin")
-	public String enviarLogin(Usuario u,HttpSession session) {
-		Usuario obj = ser_usuario.login(u);
+	public String enviarLogin(String usuario,String password,HttpSession session) {
+		Usuario obj=new Usuario();
+		obj.setPassword(password);
+		obj.setUsuario(usuario);
+		obj = ser_usuario.login(obj);
 		if(obj == null) {
 			session.setAttribute("mensaje", "El usuario no existe");
 			return "redirect:login";	

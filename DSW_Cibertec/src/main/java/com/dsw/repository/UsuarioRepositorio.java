@@ -8,7 +8,7 @@ import com.dsw.entidad.Usuario;
 
 public interface UsuarioRepositorio extends JpaRepository<Usuario, Integer>{
 
-	@Query("Select x from Usuario x where x.usuario = :#{#usu.usuario}")
+	@Query("Select x from Usuario x where x.usuario = :#{#usu.usuario} and x.password = :#{#usu.password}")
 	public abstract Usuario login(@Param(value = "usu") Usuario usu);
 	
 	@Query(value="select * from usuario x order by x.idusuario desc limit 1",nativeQuery = true)
