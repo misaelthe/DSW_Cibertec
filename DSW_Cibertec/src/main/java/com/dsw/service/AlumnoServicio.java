@@ -3,6 +3,7 @@ package com.dsw.service;
 import java.util.List;
 
 import com.dsw.entidad.Alumno;
+import com.dsw.entidad.Clase;
 import com.dsw.entidad.Nota;
 
 public interface AlumnoServicio {
@@ -21,6 +22,9 @@ public interface AlumnoServicio {
 	
 	public abstract List<Alumno> getAlumnosXClase(Integer idclase);
 	
+	public abstract Alumno getAlumnoXUsuario(Integer idusuario);
+	
 	public abstract Nota getNotaXAlumnos(Integer idalumno,Integer idclase);
 
+	public abstract List<Clase> getClasesXAlumnos(Integer idalumno);
 }

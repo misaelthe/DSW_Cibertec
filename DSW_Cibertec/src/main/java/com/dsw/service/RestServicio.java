@@ -35,4 +35,6 @@ public interface RestServicio {
 	public abstract List<Seccion> getSeccionesXAlumno(Integer idalumno);
 	//USUARIO
 	public abstract Usuario getUsuario(String usuario,String password);
+	
+	public abstract void insertNota(Nota nota);
 }

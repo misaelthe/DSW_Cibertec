@@ -79,4 +79,6 @@ public class RestServicioImpl implements RestServicio{
 	//USUARIO
 	@Override
 	public Usuario getUsuario(String usuario, String password) {return repUsuario.getUsuario(usuario, password);}
+	@Override
+	public void insertNota(Nota nota) {repNota.save(nota);}
 }

@@ -8,9 +8,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="matricula">
+            <a class="nav-link active" href="alumno/verClasesDictadasPage">
               <span data-feather="home"></span>
-              Matricula
+              Ver Notas
             </a>
           </li>
           <li class="nav-item">

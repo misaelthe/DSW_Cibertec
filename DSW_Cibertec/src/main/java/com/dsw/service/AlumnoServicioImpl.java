@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dsw.entidad.Alumno;
+import com.dsw.entidad.Clase;
 import com.dsw.entidad.Nota;
 import com.dsw.entidad.Usuario;
 import com.dsw.repository.AlumnoRepositorio;
@@ -35,11 +36,18 @@ public class AlumnoServicioImpl implements AlumnoServicio{
 
 	@Override
 	public List<Alumno> getAlumnosXClase(Integer idclase) {return repositorio.traerAlumnosXClase(idclase);}
-
+	
+	@Override
+	public Alumno getAlumnoXUsuario(Integer idusuario) {return repositorio.getAlumno(idusuario);}
+	
 	@Override
 	public Nota getNotaXAlumnos(Integer idalumno, Integer idclase) {return repositorio.traerNotaXAlumno(idalumno, idclase);}
 
 	@Override
 	public List<Alumno> getAllAlumno() {return repositorio.traerAllAlumnos();}
+
+	@Override
+	public List<Clase> getClasesXAlumnos(Integer idalumno) {return repositorio.getClasesXAlumno(idalumno);
+	}
 
 }

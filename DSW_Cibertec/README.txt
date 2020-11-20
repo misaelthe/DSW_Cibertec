@@ -1,3 +1,6 @@
+#0.8.1
+	Metodo para insertar las Notas desde la app agregado
+	Interfaz de listar Clases por Alumno creado
 #0.8
 	Servicios Rest agregados, los necesarios para dar abasto a la app movil
 	Interfaz de Login añadida, pero no funcional completamente

@@ -21,6 +21,7 @@ import com.dsw.service.AlumnoServicio;
 import com.dsw.service.UsuarioServicio;
 
 @Controller
+@RequestMapping(value = "/docente")
 public class DocenteController {
 
 	@Autowired
