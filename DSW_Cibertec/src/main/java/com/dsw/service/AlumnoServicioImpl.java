@@ -47,7 +47,6 @@ public class AlumnoServicioImpl implements AlumnoServicio{
 	public List<Alumno> getAllAlumno() {return repositorio.traerAllAlumnos();}
 
 	@Override
-	public List<Clase> getClasesXAlumnos(Integer idalumno) {return repositorio.getClasesXAlumno(idalumno);
-	}
+	public List<Clase> getClasesXAlumnos(Integer idalumno) {return repositorio.getClasesXAlumno(idalumno);}
 
 }

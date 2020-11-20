@@ -30,7 +30,7 @@ public interface AlumnoRepositorio extends JpaRepository<Alumno, Integer>{
 	@Query("Select n from Nota n where n.alumno.idalumno = :var_idalumno and n.clase.idclase = :var_idclase")
 	public abstract Nota traerNotaXAlumno(@Param("var_idalumno")Integer idalumno,@Param("var_idclase")Integer idclase);
 	
-	@Query("Select x from Clase x,Alumno_Clase ac,Alumno a where x.clase.idclase = ac.clase.idclase and ac.alumno.idalumno = :idal")
+	@Query("Select x from Clase x,Alumno_Clase ac where x.idclase = ac.clase.idclase and ac.alumno.idalumno = :idal")
 	public abstract List<Clase> getClasesXAlumno(@Param("idal")Integer idalumno);
 	
 	@Query("Select a from Alumno a where a.usuario.idusuario = :idusu")

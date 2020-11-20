@@ -1,9 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
-
 <!DOCTYPE html>
-<html lang="esS" >
+<html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <script src="js/jquery.min.js"></script>
@@ -82,7 +81,7 @@ $(document).ready(function() {
             password: {
                 validators: {
                     notEmpty: {
-                        message: 'La contraseÃ±a es un campo obligatorio'
+                        message: 'La contraseña es un campo obligatorio'
                     }
                 }
             }
