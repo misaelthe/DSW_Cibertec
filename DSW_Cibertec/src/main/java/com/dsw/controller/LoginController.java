@@ -32,7 +32,7 @@ public class LoginController {
 		else {
 			if(obj.getCredencial()==1) {return "redirect:administrador/verIndexAdmin";}
 			else if(obj.getCredencial()==2) {return "redirect:docente/verIndexDocente";}
-			else {return "redirect:docente/verIndexAlumno";}
+			else {return "redirect:alumno/verIndexAlumno";}
 		}
 	}
 	@RequestMapping("/logout")
