@@ -21,14 +21,14 @@
 <body>    
         <div class="top-content">
             <div class="inner-bg">
-                <div class="container">
-									
-                	<c:if test="${requestScope.mensaje != null}">
-               		<div class="alert alert-danger fade in" id="success-alert">
-				        <a href="#" class="close" data-dismiss="alert">&times;</a>
-				        <strong>${requestScope.mensaje}</strong>
-				    </div>
-				    </c:if>
+                <div class="container">								
+                	<c:if test="${sessionScope.mensaje != null}">
+						<div class="alert alert-success fade in" id="success-alert">
+							<a href="#" class="close" data-dismiss="alert">&times;</a>
+							<strong>${sessionScope.mensaje}</strong>
+						</div>
+					</c:if>
+				    <c:remove var="mensaje" />
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                         	<div class="form-top">
@@ -47,7 +47,7 @@
 			                        	<label class="sr-only" for="form-password">Contrase√±a</label>
 			                        	<input type="password" name="password" placeholder="ContraseÒa..." class="form-password form-control" id="form-password">
 			                        </div>
-			                        <button type="submit" class="btn">Ingresar</button>
+			                        <button type="submit" class="btn" id="validateBtn">Ingresar</button>
 			                    </form>
 		                    </div>
                         </div>
@@ -57,19 +57,12 @@
             </div>
             
         </div>
-
-
-     
+    
 <script type="text/javascript">
-$("#success-alert").fadeTo(1000, 500).slideUp(500, function(){
-    $("#success-alert").slideUp(500);
-});
+	$("#success-alert").fadeTo(1000, 500).slideUp(500, function(){$("#success-alert").slideUp(500);});
 </script>
 
-
 <script type="text/javascript">
-
-
 $(document).ready(function() {
     $('#id_form').bootstrapValidator({
         message: 'This value is not valid',
@@ -95,8 +88,6 @@ $(document).ready(function() {
             }
         }   
     });
-
-    // Validate the form manually
     $('#validateBtn').click(function() {
         $('#id_form').bootstrapValidator('validate');
     });

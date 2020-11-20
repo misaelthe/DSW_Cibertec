@@ -20,10 +20,10 @@ public class LoginController {
 		return "login";
 	}
 	@RequestMapping("/enviarlogin")
-	public String enviarlogin(Usuario u,HttpServletRequest request) {
+	public String enviarlogin(Usuario u,HttpSession session) {
 		Usuario obj = ser_usuario.login(u);
 		if(obj == null) {
-			request.setAttribute("mensaje", "El usuario no existe");
+			session.setAttribute("mensaje", "El usuario no existe");
 			return "redirect:login";	
 		}
 		else {
