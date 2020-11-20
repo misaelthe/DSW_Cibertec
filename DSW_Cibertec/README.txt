@@ -1,3 +1,5 @@
+#0.8.6
+	Problema con los Branch
 #0.8.2
 	Arreglando interfaz Login
 #0.8.1

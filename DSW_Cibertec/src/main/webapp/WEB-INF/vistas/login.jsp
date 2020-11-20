@@ -55,12 +55,10 @@
                 </div>
             </div>
             
-        </div>
-    
+        </div>  
 <script type="text/javascript">
 	$("#success-alert").fadeTo(1000, 500).slideUp(500, function(){$("#success-alert").slideUp(500);});
 </script>
-
 <script type="text/javascript">
 $(document).ready(function() {
     $('#id_form').bootstrapValidator({
@@ -92,6 +90,5 @@ $(document).ready(function() {
     });
 });
 </script>
-
 </body>
 </html>
