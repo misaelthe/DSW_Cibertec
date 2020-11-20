@@ -53,24 +53,7 @@
               Reports
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="layers"></span>
-              Transacciones
-            </a>
-            <ul style="list-style-type: none;">
-            	<li class="ml-1">
-            		<a class="nav-link" href="#">
-		              Pago de Servicios
-		            </a>
-	            </li>
-	            <li class="ml-1">
-            		<a class="nav-link" href="#">
-		              Transferencia de Dinero
-		            </a>
-	            </li>
-            </ul>
-          </li>
+
         </ul>
       </div>
     </nav>
