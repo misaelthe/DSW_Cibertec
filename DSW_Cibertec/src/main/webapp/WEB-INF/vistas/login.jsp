@@ -37,16 +37,16 @@
                         		</div>
                             </div>
                             <div class="form-bottom">
-			                    <form id="id_form"  action="enviarlogin" method="post" class="login-form">
+			                    <form id="id_form" action="enviarLogin" method="post" class="login-form">
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-username">Usuario</label>
-			                        	<input type="text" name="login" placeholder="Usuario..." class="form-username form-control" id="form-username">
+			                        	<input type="text" name="usuario" placeholder="Usuario..." class="form-username form-control" id="form-username">
 			                        </div>
 			                        <div class="form-group">
-			                        	<label class="sr-only" for="form-password">ContraseÃ±a</label>
+			                        	<label class="sr-only" for="form-password">Contraseña</label>
 			                        	<input type="password" name="password" placeholder="Contraseña..." class="form-password form-control" id="form-password">
 			                        </div>
-			                        <button type="submit" class="btn" id="validateBtn">Ingresar</button>
+			                        <button type="submit" class="btn">Ingresar</button>
 			                    </form>
 		                    </div>
                         </div>

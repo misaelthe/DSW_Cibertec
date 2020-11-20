@@ -19,8 +19,8 @@ public class LoginController {
 	public String login() {
 		return "login";
 	}
-	@RequestMapping("/enviarlogin")
-	public String enviarlogin(Usuario u,HttpSession session) {
+	@RequestMapping("/enviarLogin")
+	public String enviarLogin(Usuario u,HttpSession session) {
 		Usuario obj = ser_usuario.login(u);
 		if(obj == null) {
 			session.setAttribute("mensaje", "El usuario no existe");
