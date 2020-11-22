@@ -34,7 +34,7 @@ public class AlumnoController {
 	
 	@RequestMapping(value="/verClasesDictadasPage")
 	public String verClasesDictadasPage(HttpSession session) {
-		return "pageClasesDictadas";
+		return "alumno/pageClasesDictadas";
 	}
 	
 	@RequestMapping(value="/getClasesAlumno",method = RequestMethod.GET,produces = "application/json")
@@ -44,5 +44,11 @@ public class AlumnoController {
 		Alumno a=ser_alumno.getAlumnoXUsuario(u.getIdusuario());
 		List<Clase> tem=ser_alumno.getClasesXAlumnos(a.getIdalumno());
 		return new ResponseEntity<>(tem, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/verNotasAlumno")
+	public String getNotasAlumno(String idclase,HttpSession session) {
+		Usuario u=(Usuario)session.getAttribute("objUsuario");
+		return "alumno/indexAlumno";
 	}
 }

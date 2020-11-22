@@ -25,7 +25,6 @@
 										<th>ID</th>
 										<th>Curso</th>
 										<th>Seccion</th>
-										<th>Ver Nota</th>
 									</tr>
 						    	</thead>
 						    	<tbody id="tbodyClases">
@@ -35,7 +34,7 @@
 						</div>
 					</div>
 				</div>
-      <form action="verNotasAlumno" method="post" id="formEnvio"><input type="hidden" name="idclase" id="idclase"></form>
+      
     </main>
     </div>
     </div>
@@ -44,14 +43,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script type="text/javascript">
-	    $.getJSON("getClasesAlumno",function(data){$.each(data, function (index, value){$("#tbodyClases").append("<tr class='arClases'><td>"+value.idclase+"</td><td>"+value.curso.idcurso+"</td><td>"+value.seccion.idseccion+"</td><td><button class='btn btn-success' onclick='verNota("+value.idclase+")'></button></td></tr>");});});
+	    $.getJSON("getClasesAlumno",function(data){$.each(data, function (index, value){$("#tbodyClases").append("<tr class='arClases'><td>"+value.idclase+"</td><td>"+value.curso.idcurso+"</td><td>"+value.seccion.idseccion+"</td></tr>");});});
 		$(".arClases").click(function(){
 			
 		});
-		function verNota(idclase){
-			$("#idclase").val(idclase);
-			$("#formEnvio").submit();
-		}
 	</script>
     </body>
 </html>  

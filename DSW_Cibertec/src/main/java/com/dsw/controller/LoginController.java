@@ -30,6 +30,7 @@ public class LoginController {
 			return "redirect:login";	
 		}
 		else {
+			session.setAttribute("objUsuario", obj);
 			if(obj.getCredencial()==1) {return "redirect:administrador/verIndexAdmin";}
 			else if(obj.getCredencial()==2) {return "redirect:docente/verIndexDocente";}
 			else {return "redirect:alumno/verIndexAlumno";}

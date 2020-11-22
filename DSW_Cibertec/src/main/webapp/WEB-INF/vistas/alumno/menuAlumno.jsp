@@ -2,13 +2,13 @@
       <div class="sidebar-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="#">
+            <a class="nav-link active" href="verIndexAlumno">
               <span data-feather="home"></span>
               Inicio <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="alumno/verClasesDictadasPage">
+            <a class="nav-link active" href="verClasesDictadasPage">
               <span data-feather="home"></span>
               Ver Notas
             </a>
