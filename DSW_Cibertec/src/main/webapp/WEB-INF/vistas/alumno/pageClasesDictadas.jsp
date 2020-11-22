@@ -35,7 +35,7 @@
 						</div>
 					</div>
 				</div>
-      <form action="verNotasAlumno" method="post" id="formEnvio"><input type="hidden" name="idclase" id="idclase"></form>
+      <form action="verNotasObtenidasPage" method="post" id="formEnvio"><input type="hidden" name="idclase" id="idclase"></form>
     </main>
     </div>
     </div>

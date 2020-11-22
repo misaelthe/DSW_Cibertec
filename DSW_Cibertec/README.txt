@@ -1,9 +1,6 @@
+#0.9.4
 #0.9.3
 	Listando cursos de alumno
-#0.9.2
-#0.9.1
-#0.9
-#0.8.9
 #0.8.8
 	Arreglando Login
 #0.8.7

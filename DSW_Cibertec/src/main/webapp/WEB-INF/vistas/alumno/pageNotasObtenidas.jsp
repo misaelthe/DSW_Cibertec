@@ -16,25 +16,7 @@
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Seleccione la Clase</h1>
       </div>
-				<div class="from-row">
-					<div class="col-12" >
-						<div class="card card-body">
-						    <table>
-						    	<thead>
-						    		<tr>
-										<th>ID</th>
-										<th>Curso</th>
-										<th>Seccion</th>
-									</tr>
-						    	</thead>
-						    	<tbody id="tbodyClases">
-						    	
-						    	</tbody>
-						    </table>
-						</div>
-					</div>
-				</div>
-      
+
     </main>
     </div>
     </div>
@@ -43,7 +25,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script type="text/javascript">
-	    $.getJSON("getClasesAlumno",function(data){$.each(data, function (index, value){$("#tbodyClases").append("<tr class='arClases'><td>"+value.idclase+"</td><td>"+value.curso.idcurso+"</td><td>"+value.seccion.idseccion+"</td></tr>");});});
+    //listar las notas q devulve
+	    $.getJSON("getNotasAlumno",function(data){$.each(data, function (index, value){$("#tbodyClases").append("<tr class='arClases'><td>"+value.idclase+"</td><td>"+value.curso.idcurso+"</td><td>"+value.seccion.idseccion+"</td></tr>");});});
 		$(".arClases").click(function(){
 			
 		});

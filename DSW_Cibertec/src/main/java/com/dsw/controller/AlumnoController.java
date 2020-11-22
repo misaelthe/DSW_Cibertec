@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dsw.entidad.Alumno;
 import com.dsw.entidad.Clase;
+import com.dsw.entidad.Nota;
 import com.dsw.entidad.Usuario;
 import com.dsw.service.AlumnoServicio;
 import com.dsw.service.UsuarioServicio;
@@ -46,9 +47,19 @@ public class AlumnoController {
 		return new ResponseEntity<>(tem, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/verNotasAlumno")
+	@RequestMapping(value="/verNotasObtenidasPage")
 	public String getNotasAlumno(String idclase,HttpSession session) {
-		Usuario u=(Usuario)session.getAttribute("objUsuario");
+		session.setAttribute("claseSeleccionada",idclase);
 		return "alumno/indexAlumno";
+	}
+	
+	@RequestMapping(value="/getNotasAlumno",method = RequestMethod.GET,produces = "application/json")
+	@ResponseBody
+	public ResponseEntity<Nota> getNotasAlumno(HttpSession session) {
+		Integer idclase=(Integer)session.getAttribute("claseSeleccionada");
+		Usuario u=(Usuario)session.getAttribute("objUsuario");
+		Alumno a=ser_alumno.getAlumnoXUsuario(u.getIdusuario());
+		Nota nota=ser_alumno.getNotaXAlumnos(a.getIdalumno(),idclase);
+		return new ResponseEntity<>(nota, HttpStatus.OK);
 	}
 }
