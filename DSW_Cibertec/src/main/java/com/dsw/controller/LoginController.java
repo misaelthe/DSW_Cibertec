@@ -43,6 +43,6 @@ public class LoginController {
 		response.setHeader("Expires", "0");
 		response.setHeader("Pragma", "no-cache");
 		request.setAttribute("mensaje", "El usuario salió de sesión");
-		return "login";
+		return "redirect:login";
 	}
 }

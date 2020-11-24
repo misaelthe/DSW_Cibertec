@@ -1,11 +1,11 @@
 package com.dsw.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,10 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.dsw.entidad.Alumno;
-import com.dsw.entidad.Usuario;
+import com.dsw.entidad.Carrera;
+import com.dsw.entidad.Constancia;
+import com.dsw.entidad.Matricula;
+import com.dsw.entidad.Turno;
 import com.dsw.service.AlumnoServicio;
+import com.dsw.service.RestServicio;
 import com.dsw.service.UsuarioServicio;
 
 @Controller
@@ -27,11 +30,21 @@ public class AdminController {
 
 	@Autowired
 	private AlumnoServicio ser_alumno;
-	
+	@Autowired
+	private RestServicio ser_rest;
 	@RequestMapping("/verIndexAdmin")
 	public String verIndex() {
 		return "admin/indexAdmin";
 	}	
+	@RequestMapping("/logouti")
+	public String logout(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+		session.invalidate();
+		response.setHeader("Cache-control", "no-cache");
+		response.setHeader("Expires", "0");
+		response.setHeader("Pragma", "no-cache");
+		request.setAttribute("mensaje", "El usuario salió de sesión");
+		return "redirect:login";
+	}
 	@RequestMapping("/verCrudAlumno")
 	public String verCrudAlumno() {
 		return "admin/crudAlumno";
@@ -84,14 +97,43 @@ public class AdminController {
 		List<Alumno> tem=ser_alumno.getAlumnosNoMatriculados();
 		return new ResponseEntity<>(tem, HttpStatus.OK);
 	}
-	@RequestMapping("/registrarMatricula")
-	public String registrarMatricula() {
-		return "admin/matricula";
+	@GetMapping(value="/getCarreras",produces = "application/json")
+	@ResponseBody
+	public ResponseEntity<List<Carrera>> getCarreras() {
+		List<Carrera> tem=ser_rest.getCarreras();
+		return new ResponseEntity<>(tem, HttpStatus.OK);
 	}
+	@RequestMapping("/registrarMatricula")
+	public String registrarMatricula(String idalumno,String periodo,String idturno,String idcarrera,String nombreColegio,String codModular,String finColegio,String archivo) {
+		Matricula ma=new Matricula();System.out.println(archivo+"------------------------------------------------------------------");
+		Constancia c=new Constancia();
+		Turno t=new Turno();
+		Carrera ca=new Carrera();
+		Date d=new Date();
+		
+		Alumno a=ser_alumno.getAlumnoXIdalumno(Integer.parseInt(idalumno));
+		t.setIdturno(Integer.parseInt(idturno));		
+		ca.setIdcarrera(Integer.parseInt(idcarrera));
+		ma.setAlumno(a);
+		ma.setCiclo(1);
+		ma.setIdmatricula(null);
+		ma.setPeriodo(periodo);
+		ma.setTurno(t);
+		ma.setFecha(d);
+		
+		c.setAlumno(a);
+		c.setColegio(nombreColegio);
+		c.setFin_colegio(finColegio);
+		c.setIdconstancia(null);
+		c.setConstancia("C:\\\\Cibertec\\Constancias\\"+archivo);
+		return "admin/indexAdmin";
+	}
+
+	
 	/*
-spring.datasource.url=jdbc:mysql://sql3.freemysqlhosting.net:3306/sql3375651?serverTimezone=UTC
-spring.datasource.username=sql3375651
-spring.datasource.password=vRgrUw78GW
+spring.datasource.url=jdbc:mysql://sql10.freemysqlhosting.net:3306/sql10377155?serverTimezone=UTC
+spring.datasource.username=sql10377155
+spring.datasource.password=Gicl6U4EaN
 spring.datasource.url=jdbc:mysql://localhost:3306/cibertec?serverTimezone=UTC
 spring.datasource.username=root
 spring.datasource.password=mysql*/

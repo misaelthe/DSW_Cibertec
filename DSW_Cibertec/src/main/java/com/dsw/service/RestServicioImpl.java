@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.dsw.entidad.Alumno;
 import com.dsw.entidad.Alumno_Clase;
+import com.dsw.entidad.Carrera;
 import com.dsw.entidad.Clase;
 import com.dsw.entidad.Curso;
 import com.dsw.entidad.Docente;
@@ -15,6 +16,7 @@ import com.dsw.entidad.Seccion;
 import com.dsw.entidad.Usuario;
 import com.dsw.repository.AlumnoRepositorio;
 import com.dsw.repository.Alumno_ClaseRepositorio;
+import com.dsw.repository.CarreraRepositorio;
 import com.dsw.repository.ClaseRepositorio;
 import com.dsw.repository.CursoRepositorio;
 import com.dsw.repository.DocenteRepositorio;
@@ -42,7 +44,8 @@ public class RestServicioImpl implements RestServicio{
 	private NotaRepositorio repNota;
 	@Autowired
 	private UsuarioRepositorio repUsuario;
-	
+	@Autowired
+	private CarreraRepositorio repCarrera;
 	//SECCION
 	@Override
 	public List<Seccion> getSeccionesXAlumno(Integer idalumno) {return repSeccion.getSeccionesXAlumno(idalumno);}
@@ -81,4 +84,6 @@ public class RestServicioImpl implements RestServicio{
 	public Usuario getUsuario(String usuario, String password) {return repUsuario.getUsuario(usuario, password);}
 	@Override
 	public void insertNota(Nota nota) {repNota.save(nota);}
+	//CARRERA
+	public List<Carrera> getCarreras() {return repCarrera.findAll();}
 }

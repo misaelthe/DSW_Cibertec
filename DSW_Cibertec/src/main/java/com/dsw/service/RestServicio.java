@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.dsw.entidad.Alumno;
 import com.dsw.entidad.Alumno_Clase;
+import com.dsw.entidad.Carrera;
 import com.dsw.entidad.Clase;
 import com.dsw.entidad.Curso;
 import com.dsw.entidad.Docente;
@@ -37,4 +38,6 @@ public interface RestServicio {
 	public abstract Usuario getUsuario(String usuario,String password);
 	
 	public abstract void insertNota(Nota nota);
+	//CARRERA
+	public abstract List<Carrera> getCarreras();
 }

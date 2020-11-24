@@ -23,7 +23,7 @@ public interface AlumnoServicio {
 	public abstract List<Alumno> getAlumnosXClase(Integer idclase);
 	
 	public abstract Alumno getAlumnoXUsuario(Integer idusuario);
-	
+	public abstract Alumno getAlumnoXIdalumno(Integer idalumno);
 	public abstract Nota getNotaXAlumnos(Integer idalumno,Integer idclase);
 
 	public abstract List<Clase> getClasesXAlumnos(Integer idalumno);

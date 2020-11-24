@@ -38,9 +38,8 @@ public class Constancia {
 	@Column(name = "colegio")
 	private String colegio;
 
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date fin_colegio;
+	@Column(name = "fin_colegio")
+	private String fin_colegio;
 
 	@Column(name = "constancia")
 	private String constancia;
