@@ -36,15 +36,6 @@ public class AdminController {
 	public String verIndex() {
 		return "admin/indexAdmin";
 	}	
-	@RequestMapping("/logouti")
-	public String logout(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
-		session.invalidate();
-		response.setHeader("Cache-control", "no-cache");
-		response.setHeader("Expires", "0");
-		response.setHeader("Pragma", "no-cache");
-		request.setAttribute("mensaje", "El usuario salió de sesión");
-		return "redirect:login";
-	}
 	@RequestMapping("/verCrudAlumno")
 	public String verCrudAlumno() {
 		return "admin/crudAlumno";
