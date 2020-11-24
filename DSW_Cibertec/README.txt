@@ -1,3 +1,5 @@
+#0.9.7
+	Configurando pagina de listar Clases del Docente
 #0.9.5
 	Interfaz de matricula funcionando
 #0.9.3
