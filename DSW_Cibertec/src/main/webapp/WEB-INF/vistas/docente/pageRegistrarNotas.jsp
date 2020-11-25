@@ -25,14 +25,16 @@
 						<label for="inTeo1" class="col-sm-2 col-form-label">Examen
 							Teorico 1</label>
 						<div class="col-sm-2">
-							<input type="number" class="form-control" id="inTeo1" name="inTeo1">
+							<input type="number" class="form-control" id="inTeo1"
+								name="inTeo1">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="inTeo2" class="col-sm-2 col-form-label">Examen
 							Teorico 2</label>
 						<div class="col-sm-2">
-							<input type="number" class="form-control" id="inTeo2" name="inTeo2">
+							<input type="number" class="form-control" id="inTeo2"
+								name="inTeo2">
 						</div>
 					</div>
 					<div class="form-group row">
@@ -46,7 +48,8 @@
 						<label for="inTeo3" class="col-sm-2 col-form-label">Examen
 							Teorico 3</label>
 						<div class="col-sm-2">
-							<input type="number" class="form-control" id="inTeo3" name="inTeo3">
+							<input type="number" class="form-control" id="inTeo3"
+								name="inTeo3">
 						</div>
 					</div>
 					<div class="form-group row">
@@ -57,8 +60,16 @@
 						</div>
 					</div>
 					<div class="form-group row">
+						<label for="inFin" class="col-sm-2 col-form-label">Promedio
+							General </label>
+						<div class="col-sm-2">
+							<input type="number" class="form-control" id="inProm" readonly>
+						</div>
+					</div>
+					<div class="form-group row">
 						<div class="col-sm-10">
-							<button type="submit" class="btn btn-primary">Registrar Nnota</button>
+							<button type="submit" class="btn btn-primary">Registrar
+								Nota</button>
 						</div>
 					</div>
 				</form>
@@ -73,29 +84,14 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-		$
-				.getJSON(
-						"getNotaXAlumnoXClase",
-						function(data) {
-							$
-									.each(
-											data,
-											function(index, value) {
-												$("#tbodyAlumnos")
-														.append(
-																"<tr class='arAlumnos'><td>"
-																		+ value.idalumno
-																		+ "</td><td>"
-																		+ value.nombre
-																		+ "</td><td><button type='button' class='btn btn-primary btn-lg' onclick='enviarAlumno("
-																		+ value.idalumno
-																		+ ")'></button></td></tr>");
-											});
-						});
-		function enviarAlumno(idalumno) {
-			$("#idalumno").val(idalumno);
-			$("#formEnvio").submit();
-		}
+		$.getJSON("getNotaXAlumnoXClase", function(data) {
+			$("#inTeo1").val(data.e1);
+			$("#inTeo2").val(data.e2);
+			$("#inPar").val(data.ep);
+			$("#inTeo3").val(data.e3);
+			$("#inFin").val(data.ef);
+			$("#inProm").val(data.promedio);
+		});
 	</script>
 </body>
 </html>

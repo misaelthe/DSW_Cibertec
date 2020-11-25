@@ -48,10 +48,17 @@ public class DocenteController {
 		return "docente/pageRegistrarNotas";
 	}
 	@RequestMapping("/registrarNotas")
-	public String registrarNotas(String inTeo1,String inTeo2,String inPar,String inTeo3,String inFin,HttpSession session) {
+	public String registrarNotas(Integer inTeo1,Integer inTeo2,Integer inPar,Integer inTeo3,Integer inFin,HttpSession session) {
 		Integer idclase=Integer.parseInt((String)session.getAttribute("claseSeleccionada"));
 		Integer idalumno=Integer.parseInt((String)session.getAttribute("alumnoSeleccionado"));
 		Nota nota=ser_alumno.getNotaXAlumnos(idalumno, idclase);
+		nota.setE1(inTeo1);
+		nota.setE2(inTeo2);
+		nota.setEp(inPar);
+		nota.setE3(inTeo3);
+		nota.setEf(inFin);
+		Integer prom=(inTeo1+inTeo2+inPar+inTeo3+inFin)/5;
+		nota.setPromedio(prom);
 		ser_alumno.insertNota(nota);
 		return "docente/indexDocente";
 	}

@@ -1,4 +1,7 @@
-#1.0.1
+#1.0.2
+	Interfaz del docente funcionalmente terminada
+	La interfaz de docente registra las notas del alumno
+	La interfaz de docente muestra y saca el promedio de las notas
 #1.0
 	Lista clases por docente
 	Lista alumnos por docente
