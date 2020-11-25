@@ -11,7 +11,6 @@ import com.dsw.service.UsuarioServicio;
 
 @Controller
 public class LoginController {
-
 	@Autowired
 	private UsuarioServicio ser_usuario;
 	
@@ -19,7 +18,6 @@ public class LoginController {
 	public String login() {
 		return "login";
 	}
-
 	@RequestMapping("/enviarLogin")
 	public String enviarLogin(String usuario,String password,HttpSession session) {
 		Usuario obj=new Usuario();
@@ -28,7 +26,7 @@ public class LoginController {
 		obj = ser_usuario.login(obj);
 		if(obj == null) {
 			session.setAttribute("mensaje", "El usuario no existe");
-			return "redirect:login";	
+			return "redirect:/";	
 		}
 		else {
 			session.setAttribute("objUsuario", obj);
@@ -44,6 +42,6 @@ public class LoginController {
 		response.setHeader("Expires", "0");
 		response.setHeader("Pragma", "no-cache");
 		request.setAttribute("mensaje", "El usuario salió de sesión");
-		return "redirect:login";
+		return "redirect:/";
 	}
 }
