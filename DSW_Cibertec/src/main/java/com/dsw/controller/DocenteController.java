@@ -69,7 +69,7 @@ public class DocenteController {
 	@RequestMapping(value="/getAlumnosXClase",method = RequestMethod.GET,produces = "application/json")
 	@ResponseBody
 	public ResponseEntity<List<Alumno>> getAlumnosDocenteCurso(HttpSession session) {
-		Integer idclase=(Integer)session.getAttribute("claseSeleccionada");
+		Integer idclase=Integer.parseInt((String)session.getAttribute("claseSeleccionada"));
 		List<Alumno> tem=ser_alumno.getAlumnosXClase(idclase);
 		return new ResponseEntity<>(tem, HttpStatus.OK);
 	}

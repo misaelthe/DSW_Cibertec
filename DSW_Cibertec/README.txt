@@ -1,3 +1,6 @@
+#1.0
+	Lista clases por docente
+	Lista alumnos por docente
 #0.9.9
 	Agregandole funcionalidad al proceso registro de notas
 #0.9.7
