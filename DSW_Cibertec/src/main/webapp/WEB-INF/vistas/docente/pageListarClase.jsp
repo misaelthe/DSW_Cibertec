@@ -5,12 +5,11 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
-<link href="css/dashboard.css" rel="stylesheet">
+<link href="../css/dashboard.css" rel="stylesheet">
 </head>
 <body>
 	<div class="container-fluid">
@@ -31,7 +30,8 @@
 										<th>ID</th>
 										<th>Curso</th>
 										<th>Seccion</th>
-										<th>Ver Nota</th>
+										<th>Inscritos</th>
+										<th>Seleccionar</th>
 									</tr>
 								</thead>
 								<tbody id="tbodyClases">
@@ -53,32 +53,29 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-	<script src="js/dashboard.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-		$.getJSON("getClasesAlumno",function(data) {
+		$.getJSON("getClasesXDocente",function(data) {
 			$.each(data,function(index, value) {
 												$("#tbodyClases")
 														.append(
 																"<tr class='arClases'><td>"
 																		+ value.idclase
 																		+ "</td><td>"
-																		+ value.curso.idcurso
+																		+ value.curso.nombre
 																		+ "</td><td>"
-																		+ value.seccion.idseccion
-																		+ "</td><td><button class='btn btn-success' onclick='verNota("
+																		+ value.seccion.codigo
+																		+ "</td><td>"
+																		+ value.alum_ins
+																		+ "</td><td><button type='button' class='btn btn-primary btn-lg' onclick='enviarClase("
 																		+ value.idclase
 																		+ ")'></button></td></tr>");
 											});
 						});
-		$(".arClases").click(function() {
-
-		});
-		function verNota(idclase) {
+		function enviarClase(idclase) {
 			$("#idclase").val(idclase);
 			$("#formEnvio").submit();
 		}
 	</script>
-
 </body>
 </html>

@@ -1,3 +1,5 @@
+#0.9.9
+	Agregandole funcionalidad al proceso registro de notas
 #0.9.7
 	Configurando pagina de listar Clases del Docente
 #0.9.5

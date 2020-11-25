@@ -21,6 +21,7 @@ import com.dsw.entidad.Nota;
 import com.dsw.entidad.Usuario;
 import com.dsw.service.AlumnoServicio;
 import com.dsw.service.DocenteServicio;
+import com.dsw.service.RestServicio;
 import com.dsw.service.UsuarioServicio;
 
 @Controller
@@ -33,6 +34,8 @@ public class DocenteController {
 	private UsuarioServicio ser_usuario;
 	@Autowired
 	private DocenteServicio ser_docente;
+	@Autowired
+	private RestServicio serRest;
 	
 	@RequestMapping("/verIndexDocente")
 	public String verIndexDocente() {
@@ -43,12 +46,17 @@ public class DocenteController {
 		return "docente/pageListarClase";
 	}
 	@RequestMapping("/verPageListarAlumnos")
-	public String verPageListarAlumnos() {
+	public String verPageListarAlumnos(String idclase,HttpSession session) {
+		session.setAttribute("claseSeleccionada",idclase);
 		return "docente/pageListarAlumnos";
 	}
 	@RequestMapping("/verPageRegistrarNotas")
 	public String verPageRegistrarNotas() {
 		return "docente/pageRegistrarNotas";
+	}
+	@RequestMapping("/verPageRegistrarNota")
+	public String verPageRegistrarNota(String idalumno,HttpSession session) {	
+		return "registrarNota";
 	}
 	@RequestMapping(value="/getClasesXDocente",method = RequestMethod.GET,produces = "application/json")
 	@ResponseBody
@@ -58,15 +66,12 @@ public class DocenteController {
 		List<Clase> tem=ser_docente.getClaseXDocente(d.getIddocente());
 		return new ResponseEntity<>(tem, HttpStatus.OK);
 	}
-	@RequestMapping(value="/getAlumnosDocenteCurso",method = RequestMethod.GET,produces = "application/json")
+	@RequestMapping(value="/getAlumnosXClase",method = RequestMethod.GET,produces = "application/json")
 	@ResponseBody
-	public ResponseEntity<List<Alumno>> getAlumnosDocenteCurso() {
-		List<Alumno> tem=ser_alumno.getAlumnosNoMatriculados();
+	public ResponseEntity<List<Alumno>> getAlumnosDocenteCurso(HttpSession session) {
+		Integer idclase=(Integer)session.getAttribute("claseSeleccionada");
+		List<Alumno> tem=ser_alumno.getAlumnosXClase(idclase);
 		return new ResponseEntity<>(tem, HttpStatus.OK);
-	}
-	@RequestMapping("/interfazNota")
-	public String interfazNotas() {	
-		return "registrarNota";
 	}
 	@RequestMapping(value="/getNotaAlumno",method = RequestMethod.GET,produces = "application/json")
 	@ResponseBody
@@ -76,6 +81,4 @@ public class DocenteController {
 		Nota tem=ser_alumno.getNotaXAlumnos(idalumno, idclase);
 		return new ResponseEntity<Nota>(tem, HttpStatus.OK);
 	}
-
-
 }
