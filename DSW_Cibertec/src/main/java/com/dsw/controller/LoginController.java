@@ -15,10 +15,11 @@ public class LoginController {
 	@Autowired
 	private UsuarioServicio ser_usuario;
 	
-	@RequestMapping("/login")
+	@RequestMapping("/")
 	public String login() {
 		return "login";
 	}
+
 	@RequestMapping("/enviarLogin")
 	public String enviarLogin(String usuario,String password,HttpSession session) {
 		Usuario obj=new Usuario();
