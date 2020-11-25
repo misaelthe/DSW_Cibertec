@@ -10,6 +10,7 @@ import com.dsw.entidad.Clase;
 import com.dsw.entidad.Nota;
 import com.dsw.entidad.Usuario;
 import com.dsw.repository.AlumnoRepositorio;
+import com.dsw.repository.NotaRepositorio;
 import com.dsw.repository.UsuarioRepositorio;
 
 
@@ -18,7 +19,8 @@ public class AlumnoServicioImpl implements AlumnoServicio{
 
 	@Autowired
 	private AlumnoRepositorio repositorio;
-	
+	@Autowired
+	private NotaRepositorio repNota;
 	@Override
 	public List<Alumno> filtrarAlumnoPorNombre(String nombre) {return repositorio.traerAlumnoPorNombre(nombre);}
 
@@ -42,7 +44,8 @@ public class AlumnoServicioImpl implements AlumnoServicio{
 	
 	@Override
 	public Nota getNotaXAlumnos(Integer idalumno, Integer idclase) {return repositorio.traerNotaXAlumno(idalumno, idclase);}
-
+	@Override
+	public void insertNota(Nota nota) {repNota.save(nota);}
 	@Override
 	public List<Alumno> getAllAlumno() {return repositorio.traerAllAlumnos();}
 	@Override

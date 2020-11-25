@@ -31,32 +31,29 @@ public class DocenteController {
 	@Autowired
 	private AlumnoServicio ser_alumno;
 	@Autowired
-	private UsuarioServicio ser_usuario;
-	@Autowired
 	private DocenteServicio ser_docente;
-	@Autowired
-	private RestServicio serRest;
-	
+
 	@RequestMapping("/verIndexDocente")
-	public String verIndexDocente() {
-		return "docente/indexDocente";
-	}
+	public String verIndexDocente() {return "docente/indexDocente";}
 	@RequestMapping("/verPageListarClase")
-	public String verPageListarClase() {
-		return "docente/pageListarClase";
-	}
+	public String verPageListarClase() {return "docente/pageListarClase";}
 	@RequestMapping("/verPageListarAlumnos")
 	public String verPageListarAlumnos(String idclase,HttpSession session) {
 		session.setAttribute("claseSeleccionada",idclase);
 		return "docente/pageListarAlumnos";
 	}
 	@RequestMapping("/verPageRegistrarNotas")
-	public String verPageRegistrarNotas() {
+	public String verPageRegistrarNotas(String idalumno,HttpSession session) {
+		session.setAttribute("alumnoSeleccionado",idalumno);
 		return "docente/pageRegistrarNotas";
 	}
-	@RequestMapping("/verPageRegistrarNota")
-	public String verPageRegistrarNota(String idalumno,HttpSession session) {	
-		return "registrarNota";
+	@RequestMapping("/registrarNotas")
+	public String registrarNotas(String inTeo1,String inTeo2,String inPar,String inTeo3,String inFin,HttpSession session) {
+		Integer idclase=Integer.parseInt((String)session.getAttribute("claseSeleccionada"));
+		Integer idalumno=Integer.parseInt((String)session.getAttribute("alumnoSeleccionado"));
+		Nota nota=ser_alumno.getNotaXAlumnos(idalumno, idclase);
+		ser_alumno.insertNota(nota);
+		return "docente/indexDocente";
 	}
 	@RequestMapping(value="/getClasesXDocente",method = RequestMethod.GET,produces = "application/json")
 	@ResponseBody
@@ -73,11 +70,11 @@ public class DocenteController {
 		List<Alumno> tem=ser_alumno.getAlumnosXClase(idclase);
 		return new ResponseEntity<>(tem, HttpStatus.OK);
 	}
-	@RequestMapping(value="/getNotaAlumno",method = RequestMethod.GET,produces = "application/json")
+	@RequestMapping(value="/getNotaXAlumnoXClase",method = RequestMethod.GET,produces = "application/json")
 	@ResponseBody
-	public ResponseEntity<Nota> getNotaAlumno(HttpServletRequest request) {
-		Integer idalumno=(Integer)request.getSession().getAttribute("idalumno");
-		Integer idclase=(Integer)request.getSession().getAttribute("idclase");
+	public ResponseEntity<Nota> getNotaXAlumnoXClase(HttpSession session) {
+		Integer idalumno=Integer.parseInt((String)session.getAttribute("alumnoSeleccionado"));
+		Integer idclase=Integer.parseInt((String)session.getAttribute("claseSeleccionada"));
 		Nota tem=ser_alumno.getNotaXAlumnos(idalumno, idclase);
 		return new ResponseEntity<Nota>(tem, HttpStatus.OK);
 	}

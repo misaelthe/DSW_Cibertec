@@ -38,7 +38,7 @@
 						</div>
 					</div>
 				</div>
-				<form action="verPageRegistrarNota" method="post" id="formEnvio">
+				<form action="verPageRegistrarNotas" method="post" id="formEnvio">
 					<input type="hidden" name="idalumno" id="idalumno">
 				</form>
 
