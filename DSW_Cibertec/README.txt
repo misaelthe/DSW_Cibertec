@@ -1,3 +1,4 @@
+#1.0.4
 #1.0.3
 #1.0.2
 	Interfaz del docente funcionalmente terminada
@@ -45,4 +46,4 @@
 #0.4
 	- Metodos del Crud de Alumno separados en AlumnoController
 	- Metodos Crud en el AlumnoServicio
-	- Inserta,filtra,elimina,actualiza Alumnos, pero aun la tabla html no refleja los cambios efectuados en la BD
+	- Inserta,filtra,elimina,actualiza Alumnos, pero aun la tabla html no refleja los cambios efectuados en la BD	
