@@ -31,6 +31,7 @@ public interface RestServicio {
 	//NOTA
 	public abstract List<Nota> getNotasXDocente(Integer iddocente);
 	public abstract List<Nota> getNotasXAlumno(Integer idalumno);
+	public abstract Nota getNotasBy(Integer idnota);
 	//SECCION
 	public abstract List<Seccion> getSeccionesXDocente(Integer iddocente);
 	public abstract List<Seccion> getSeccionesXAlumno(Integer idalumno);

@@ -114,22 +114,16 @@ public class ApiRestController {
 	public void registrarNota(@RequestBody NotaEnviada bean){
 		System.out.println("SE ESTA ENVIANDO LOS BEANxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		System.out.println(bean.getIdnota()+"y la nota e1 xxxxxxxxx "+bean.getE1());
-		Nota n=new Nota();
-		Clase c=new Clase();
-		Alumno a=new Alumno();
-		
-		c.setIdclase(bean.getIdclase());
-		a.setIdalumno(bean.getIdalumno());
-		n.setAlumno(a);
-		n.setClase(c);
+		Nota n=restService.getNotasBy(bean.getIdnota());
+
 		n.setE1(bean.getE1());
 		n.setE2(bean.getE2());
 		n.setE3(bean.getE3());
 		n.setEf(bean.getEf());
 		n.setEp(bean.getEp());
-		n.setIdnota(bean.getIdnota());
 		n.setPromedio(bean.getPromedio());
-		
+		System.out.println("SE setea lka data ingresantexxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		restService.insertNota(n);
+		System.out.println("inseto la notaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		}	
 }
