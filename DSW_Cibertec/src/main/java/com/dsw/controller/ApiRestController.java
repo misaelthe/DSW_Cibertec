@@ -20,6 +20,7 @@ import com.dsw.entidad.Clase;
 import com.dsw.entidad.Curso;
 import com.dsw.entidad.Docente;
 import com.dsw.entidad.Nota;
+import com.dsw.entidad.NotaEnviada;
 import com.dsw.entidad.Seccion;
 import com.dsw.entidad.Usuario;
 import com.dsw.service.AlumnoServicio;
@@ -110,5 +111,23 @@ public class ApiRestController {
 	}	
 	///////////////REGISTRO DE NOTAS
 	@PostMapping(path = "/registrarNota")
-	public void registrarNota(@RequestBody Nota bean){restService.insertNota(bean);}	
+	public void registrarNota(@RequestBody NotaEnviada bean){
+		Nota n=new Nota();
+		Clase c=new Clase();
+		Alumno a=new Alumno();
+		
+		c.setIdclase(bean.getIdclase());
+		a.setIdalumno(bean.getIdalumno());
+		n.setAlumno(a);
+		n.setClase(c);
+		n.setE1(bean.getE1());
+		n.setE2(bean.getE2());
+		n.setE3(bean.getE3());
+		n.setEf(bean.getEf());
+		n.setEp(bean.getEp());
+		n.setIdnota(bean.getIdnota());
+		n.setPromedio(bean.getPromedio());
+		
+		restService.insertNota(n);
+		}	
 }
