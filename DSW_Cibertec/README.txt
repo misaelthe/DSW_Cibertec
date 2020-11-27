@@ -1,4 +1,4 @@
-#1.0.9
+#1.1
 #1.0.2
 	Interfaz del docente funcionalmente terminada
 	La interfaz de docente registra las notas del alumno
