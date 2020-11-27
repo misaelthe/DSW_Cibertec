@@ -15,7 +15,7 @@ public class LoginController {
 	private UsuarioServicio ser_usuario;
 	
 	@RequestMapping("/")
-	public String login() {
+	public String login() {System.out.println("SE STA SACANDO EL LGOING AL EINIFNIFDF 777777777777777777777777777777777777777 ");
 		return "login";
 	}
 	@RequestMapping("/enviarLogin")

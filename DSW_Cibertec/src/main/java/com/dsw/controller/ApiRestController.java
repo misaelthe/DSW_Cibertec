@@ -112,6 +112,8 @@ public class ApiRestController {
 	///////////////REGISTRO DE NOTAS
 	@PostMapping(path = "/registrarNota")
 	public void registrarNota(@RequestBody NotaEnviada bean){
+		System.out.println("SE ESTA ENVIANDO LOS BEANxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+		System.out.println(bean.getIdnota()+"y la nota e1 xxxxxxxxx "+bean.getE1());
 		Nota n=new Nota();
 		Clase c=new Clase();
 		Alumno a=new Alumno();
