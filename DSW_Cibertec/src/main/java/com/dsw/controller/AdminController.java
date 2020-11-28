@@ -1,10 +1,7 @@
 package com.dsw.controller;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,15 +11,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 import com.dsw.entidad.Alumno;
 import com.dsw.entidad.Carrera;
 import com.dsw.entidad.Constancia;
 import com.dsw.entidad.Matricula;
 import com.dsw.entidad.Turno;
+import com.dsw.service.AdminServicio;
 import com.dsw.service.AlumnoServicio;
 import com.dsw.service.RestServicio;
-import com.dsw.service.UsuarioServicio;
 
 @Controller
 @RequestMapping(value = "/administrador")
@@ -31,7 +27,10 @@ public class AdminController {
 	@Autowired
 	private AlumnoServicio ser_alumno;
 	@Autowired
+	private AdminServicio serAdmin;
+	@Autowired
 	private RestServicio ser_rest;
+	
 	@RequestMapping("/verIndexAdmin")
 	public String verIndex() {
 		return "admin/indexAdmin";
@@ -76,8 +75,7 @@ public class AdminController {
 		List<Alumno> data=ser_alumno.getAllAlumno();
 		session.setAttribute("alumnos", data);
 		return "admin/crudAlumno";
-	}
-	
+	}	
 	@RequestMapping("/verMatricula")
 	public String verMatricula() {
 		return "admin/matricula";
@@ -96,7 +94,7 @@ public class AdminController {
 	}
 	@RequestMapping("/registrarMatricula")
 	public String registrarMatricula(String idalumno,String periodo,String idturno,String idcarrera,String nombreColegio,String codModular,String finColegio,String archivo) {
-		Matricula ma=new Matricula();System.out.println(archivo+"------------------------------------------------------------------");
+		Matricula ma=new Matricula();
 		Constancia c=new Constancia();
 		Turno t=new Turno();
 		Carrera ca=new Carrera();
@@ -111,12 +109,17 @@ public class AdminController {
 		ma.setPeriodo(periodo);
 		ma.setTurno(t);
 		ma.setFecha(d);
+		ma.setCarrera(ca);
 		
 		c.setAlumno(a);
 		c.setColegio(nombreColegio);
 		c.setFin_colegio(finColegio);
+		c.setCodigo_mod_colegio(codModular);
 		c.setIdconstancia(null);
 		c.setConstancia("C:\\\\Cibertec\\Constancias\\"+archivo);
+		
+		serAdmin.insertMatricula(ma);
+		serAdmin.insertConstancia(c);
 		return "admin/indexAdmin";
 	}
 

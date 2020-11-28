@@ -38,6 +38,9 @@ public class Constancia {
 	@Column(name = "colegio")
 	private String colegio;
 
+	@Column(name = "codigo_mod_colegio")
+	private String codigo_mod_colegio;
+	
 	@Column(name = "fin_colegio")
 	private String fin_colegio;
 

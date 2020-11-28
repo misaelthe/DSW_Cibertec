@@ -10,9 +10,11 @@
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
 <link href="../css/dashboard.css" rel="stylesheet">
-	<script src="../css/bootstrapValidator.css"></script>
+<link href="../css/styleMaestro.css" rel="stylesheet">
+<script src="../css/bootstrapValidator.css"></script>
 </head>
 <body>
+	<jsp:include page="../nav.jsp" />
 	<div class="container-fluid">
 		<div class="row">
 			<jsp:include page="menuDocente.jsp" />
@@ -21,7 +23,8 @@
 					class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 					<h1 class="h2">Seleccione el Alumno</h1>
 				</div>
-				<form action="registrarNotas" method="post" id="formRegistra" data-toggle="validator" role="form">
+				<form action="registrarNotas" method="post" id="formRegistra"
+					data-toggle="validator" role="form">
 					<div class="form-group row">
 						<label for="inTeo1" class="col-sm-2 col-form-label">Examen
 							Teorico 1</label>
@@ -94,110 +97,111 @@
 			$("#inFin").val(data.ef);
 			$("#inProm").val(data.promedio);
 		});
-		$('#formRegistra').validator().on('submit', function (e) {
-			  if (e.isDefaultPrevented()) {
-			    // handle the invalid form...
-			  } else {
-			    // everything looks good!
-			  }
-			})
+		$('#formRegistra').validator().on('submit', function(e) {
+			if (e.isDefaultPrevented()) {
+				// handle the invalid form...
+			} else {
+				// everything looks good!
+			}
+		})
 	</script>
 	<script type="text/javascript">
-	$('#formRegistra').bootstrapValidator({
-        message: 'This value is not valid',
-        feedbackIcons: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        fields: {
-        	 "inTeo1": {
-         		selector : '#inTeo1',
-                 validators: {
-                	 integer : { 
-                         message : 'Please enter the valid number ',
-                         min : 0,
-                         max : 20
-                     },
-                     regex: {
-     					regex:"/^\d{1,2}$/",
-     					message:"Formato de la ET01 es incorrecto"
-                     }
-                 }
-             },
-            "inTeo2": {
-        		selector : '#inTeo2',
-                validators: {
-                    stringLength :{
-                    	message:'La ET02 es entre 2 nro o caracteres',
-                    	min : 2,
-                    	max : 2
-                    },
-                    regex: {
-    					regex:"/^\d{2}[A-Z]{2}$/",
-    					message:"Formato de la ET02 es incorrecto"
-                    }
-                }
-            },
-            "inPar": {
-        		selector : '#inPar',
-                validators: {
-                    stringLength :{
-                    	message:'El Examen Parcial es entre 2 nro o caracteres',
-                    	min : 2,
-                    	max : 2
-                    },
-                    regex: {
-    					regex:"/^\d{2}[A-Z]{2}$/",
-    					message:"Formato del examen parcial es incorrecto"
-                    }
-                }
-            },
-            "inTeo3": {
-        		selector : '#inTeo3',
-                validators: {
-                    stringLength :{
-                    	message:'La ET03 es entre 2 nro o caracteres',
-                    	min : 2,
-                    	max : 2
-                    },
-                    regex: {
-    					regex:"/^\d{2}[A-Z]{2}$/",
-    					message:"Formato de la ET03 es incorrecto"
-                    }
-                }
-            },
-            "inFin": {
-        		selector : '#inFin',
-                validators: {
-                    stringLength :{
-                    	message:'La EF es entre 2 nro o caracteres',
-                    	min : 2,
-                    	max : 2
-                    },
-                    regex: {
-    					regex:"/^\d{2}[A-Z]{2}$/",
-    					message:"Formato del EF es incorrecto"
-                    }
-                }
-            },
-            "inProm": {
-        		selector : '#inProm',
-                validators: {
-                    stringLength :{
-                    	message:'La PG es entre 2 nro o caracteres',
-                    	min : 2,
-                    	max : 2
-                    },
-                    regex: {
-    					regex:"/^\d{2}[A-Z]{2}$/",
-    					message:"Formato del PG es incorrecto"
-                    },
-                }
-            },
-        }   
-    });
-
-</script>
+		$('#formRegistra')
+				.bootstrapValidator(
+						{
+							message : 'This value is not valid',
+							feedbackIcons : {
+								valid : 'glyphicon glyphicon-ok',
+								invalid : 'glyphicon glyphicon-remove',
+								validating : 'glyphicon glyphicon-refresh'
+							},
+							fields : {
+								"inTeo1" : {
+									selector : '#inTeo1',
+									validators : {
+										integer : {
+											message : 'Please enter the valid number ',
+											min : 0,
+											max : 20
+										},
+										regex : {
+											regex : "/^\d{1,2}$/",
+											message : "Formato de la ET01 es incorrecto"
+										}
+									}
+								},
+								"inTeo2" : {
+									selector : '#inTeo2',
+									validators : {
+										stringLength : {
+											message : 'La ET02 es entre 2 nro o caracteres',
+											min : 2,
+											max : 2
+										},
+										regex : {
+											regex : "/^\d{2}[A-Z]{2}$/",
+											message : "Formato de la ET02 es incorrecto"
+										}
+									}
+								},
+								"inPar" : {
+									selector : '#inPar',
+									validators : {
+										stringLength : {
+											message : 'El Examen Parcial es entre 2 nro o caracteres',
+											min : 2,
+											max : 2
+										},
+										regex : {
+											regex : "/^\d{2}[A-Z]{2}$/",
+											message : "Formato del examen parcial es incorrecto"
+										}
+									}
+								},
+								"inTeo3" : {
+									selector : '#inTeo3',
+									validators : {
+										stringLength : {
+											message : 'La ET03 es entre 2 nro o caracteres',
+											min : 2,
+											max : 2
+										},
+										regex : {
+											regex : "/^\d{2}[A-Z]{2}$/",
+											message : "Formato de la ET03 es incorrecto"
+										}
+									}
+								},
+								"inFin" : {
+									selector : '#inFin',
+									validators : {
+										stringLength : {
+											message : 'La EF es entre 2 nro o caracteres',
+											min : 2,
+											max : 2
+										},
+										regex : {
+											regex : "/^\d{2}[A-Z]{2}$/",
+											message : "Formato del EF es incorrecto"
+										}
+									}
+								},
+								"inProm" : {
+									selector : '#inProm',
+									validators : {
+										stringLength : {
+											message : 'La PG es entre 2 nro o caracteres',
+											min : 2,
+											max : 2
+										},
+										regex : {
+											regex : "/^\d{2}[A-Z]{2}$/",
+											message : "Formato del PG es incorrecto"
+										},
+									}
+								},
+							}
+						});
+	</script>
 </body>
 </html>

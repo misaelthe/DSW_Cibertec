@@ -18,13 +18,13 @@
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
 <link href="../css/dashboard.css" rel="stylesheet">
+<link href="../css/styleMaestro.css" rel="stylesheet">
 </head>
 <body>
 	<jsp:include page="../nav.jsp" />
 	<div class="container-fluid">
 		<div class="row">
 			<jsp:include page="menuAdmin.jsp" />
-
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 pt-5">
 				<div>
 					<form action="registrarMatricula" method="post">
@@ -43,22 +43,20 @@
 									aria-controls="collapseExample">Buscar Alumno</button>
 							</div>
 						</div>
-						<div class="from-row">
-							<div class="collapse col-12" id="collapseExample">
-								<div class="card card-body">
-									<table>
-										<thead>
-											<tr class='col-md-12'>
-												<th class='col-md-1'>ID</th>
-												<th class='col-md-3'>Nombre</th>
-												<th class='col-md-1'>DNI</th>
-												<th>Correo</th>
-												<th>Telefono</th>
-												<th>Seleccionar</th>
+						<div class="from-row col-md-12">
+							<div class="collapse col-md-12" id="collapseExample">
+								<div class="card card-body col-md-12 row">
+									<table class="col-md-12 row">
+										<thead class="col-md-12 row">
+											<tr class='col-md-12 row'>
+												<th class='col-md-1 textAlineado'>ID</th>
+												<th class='col-md-4 textAlineado'>Nombre</th>
+												<th class='col-md-2 textAlineado'>DNI</th>
+												<th class='col-md-3 textAlineado'>Correo</th>
+												<th class='col-md-2 textAlineado'>Escoger</th>
 											</tr>
 										</thead>
-										<tbody id="tbodyAlumno">
-
+										<tbody class='col-md-12' id="tbodyAlumno">
 										</tbody>
 									</table>
 								</div>
@@ -149,21 +147,19 @@
 											function(index, value) {
 												$("#tbodyAlumno")
 														.append(
-																"<tr><td>"
+																"<tr class='col-md-12row''><td class='col-md-1 textAlineado'>"
 																		+ value.idalumno
-																		+ "</td><td>"
+																		+ "</td><td class='col-md-4 textAlineado'>"
 																		+ value.nombre
-																		+ "</td><td>"
+																		+ "</td><td class='col-md-2 textAlineado'>"
 																		+ value.dni
-																		+ "</td><td>"
+																		+ "</td><td class='col-md-3 textAlineado'>"
 																		+ value.correo
-																		+ "</td><td>"
-																		+ value.telefono
-																		+ "</td><td><button type='button' class='btn btn-primary' data-toggle='collapse' data-target='#collapseExample' aria-controls='collapseExample' id='btnAlumnoSelec' onclick='cargarAlSelec("
+																		+ "</td><td class='col-md-2 textAlineado'><button type='button' class='btn btn-primary' data-toggle='collapse' data-target='#collapseExample' aria-controls='collapseExample' id='btnAlumnoSelec' onclick='cargarAlSelec("
 																		+ value.idalumno
 																		+ ",&quot;"
 																		+ value.nombre
-																		+ "&quot;)'>Seleccionar</button></td></tr>");
+																		+ "&quot;)'>Escoger</button></td></tr>");
 											});
 						});
 		$("#selectcarrera").change(function() {

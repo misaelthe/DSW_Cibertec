@@ -10,8 +10,10 @@
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
 <link href="../css/dashboard.css" rel="stylesheet">
+<link href="../css/styleMaestro.css" rel="stylesheet">
 </head>
 <body>
+	<jsp:include page="../nav.jsp" />
 	<div class="container-fluid">
 		<div class="row">
 			<jsp:include page="menuDocente.jsp" />
@@ -52,18 +54,25 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-		$.getJSON("getAlumnosXClase",function(data) {
-			$.each(data,function(index, value) {
-				$("#tbodyAlumnos").append(
-					"<tr class='arAlumnos'><td>"
-						+ value.idalumno
-						+ "</td><td>"
-						+ value.nombre
-						+ "</td><td><button type='button' class='btn btn-primary btn-lg' onclick='enviarAlumno("
-						+ value.idalumno
-						+ ")'></button></td></tr>");
-			});
-		});
+		$
+				.getJSON(
+						"getAlumnosXClase",
+						function(data) {
+							$
+									.each(
+											data,
+											function(index, value) {
+												$("#tbodyAlumnos")
+														.append(
+																"<tr class='arAlumnos'><td>"
+																		+ value.idalumno
+																		+ "</td><td>"
+																		+ value.nombre
+																		+ "</td><td><button type='button' class='btn btn-primary btn-lg' onclick='enviarAlumno("
+																		+ value.idalumno
+																		+ ")'></button></td></tr>");
+											});
+						});
 		function enviarAlumno(idalumno) {
 			$("#idalumno").val(idalumno);
 			$("#formEnvio").submit();
