@@ -10,20 +10,18 @@
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
 <link href="../css/dashboard.css" rel="stylesheet">
+<link href="../css/styleMaestro.css" rel="stylesheet">
 </head>
 <body>
-  <jsp:include page="../nav.jsp" />
+	<jsp:include page="../nav.jsp" />
 	<div class="container-fluid">
 		<div class="row">
 			<jsp:include page="menuDocente.jsp" />
-
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
 				<div
 					class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-					<h1 class="h2">Seleccione la cuenta</h1>
+					<h1 class="h2">Bienvenido Docente</h1>
 				</div>
-
-
 			</main>
 		</div>
 	</div>
