@@ -125,9 +125,9 @@ public class AdminController {
 
 	
 	/*
-spring.datasource.url=jdbc:mysql://sql10.freemysqlhosting.net:3306/sql10378393?serverTimezone=UTC
-spring.datasource.username=sql10378393
-spring.datasource.password=AQRhHkByuV
+spring.datasource.url=jdbc:mysql://sql10.freemysqlhosting.net:3306/sql10379803?serverTimezone=UTC
+spring.datasource.username=sql10379803
+spring.datasource.password=Ysg5Lv8iIN
 spring.datasource.url=jdbc:mysql://localhost:3306/cibertec?serverTimezone=UTC
 spring.datasource.username=root
 spring.datasource.password=mysql*/
