@@ -51,7 +51,7 @@ public class DocenteController {
 	public String registrarNotas(Integer inTeo1,Integer inTeo2,Integer inPar,Integer inTeo3,Integer inFin,HttpSession session) {
 		Integer idclase=Integer.parseInt((String)session.getAttribute("claseSeleccionada"));
 		Integer idalumno=Integer.parseInt((String)session.getAttribute("alumnoSeleccionado"));
-		Nota nota=ser_alumno.getNotaXAlumnos(idalumno, idclase);
+		Nota nota=ser_alumno.getNotaXAlumnoXClase(idalumno, idclase);
 		nota.setE1(inTeo1);
 		nota.setE2(inTeo2);
 		nota.setEp(inPar);
@@ -82,7 +82,7 @@ public class DocenteController {
 	public ResponseEntity<Nota> getNotaXAlumnoXClase(HttpSession session) {
 		Integer idalumno=Integer.parseInt((String)session.getAttribute("alumnoSeleccionado"));
 		Integer idclase=Integer.parseInt((String)session.getAttribute("claseSeleccionada"));
-		Nota tem=ser_alumno.getNotaXAlumnos(idalumno, idclase);
+		Nota tem=ser_alumno.getNotaXAlumnoXClase(idalumno, idclase);
 		return new ResponseEntity<Nota>(tem, HttpStatus.OK);
 	}
 }

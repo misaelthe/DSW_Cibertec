@@ -1,4 +1,5 @@
-#1.1.6
+#1.1.7
+	Interfaz de MOSTRAnotas x Alumno Añadida y funcionando
 #1.0.2
 	Interfaz del docente funcionalmente terminada
 	La interfaz de docente registra las notas del alumno

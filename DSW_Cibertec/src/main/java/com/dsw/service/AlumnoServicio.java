@@ -24,7 +24,7 @@ public interface AlumnoServicio {
 	
 	public abstract Alumno getAlumnoXUsuario(Integer idusuario);
 	public abstract Alumno getAlumnoXIdalumno(Integer idalumno);
-	public abstract Nota getNotaXAlumnos(Integer idalumno,Integer idclase);
+	public abstract Nota getNotaXAlumnoXClase(Integer idalumno,Integer idclase);
 	public abstract void insertNota(Nota nota);
 	public abstract List<Clase> getClasesXAlumnos(Integer idalumno);
 }

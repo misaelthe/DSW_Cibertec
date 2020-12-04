@@ -48,9 +48,9 @@ public class AlumnoController {
 	}
 	
 	@RequestMapping(value="/verNotasObtenidasPage")
-	public String getNotasAlumno(String idclase,HttpSession session) {
-		session.setAttribute("claseSeleccionada",idclase);
-		return "alumno/indexAlumno";
+	public String getNotasAlumno(Integer idclase,HttpSession session) {
+		session.setAttribute("claseSeleccionada",idclase);System.out.println("ppppppppppppppppppppppp"+idclase);
+		return "alumno/pageNotasObtenidas";
 	}
 	
 	@RequestMapping(value="/getNotasAlumno",method = RequestMethod.GET,produces = "application/json")
@@ -59,7 +59,7 @@ public class AlumnoController {
 		Integer idclase=(Integer)session.getAttribute("claseSeleccionada");
 		Usuario u=(Usuario)session.getAttribute("objUsuario");
 		Alumno a=ser_alumno.getAlumnoXUsuario(u.getIdusuario());
-		Nota nota=ser_alumno.getNotaXAlumnos(a.getIdalumno(),idclase);
+		Nota nota=ser_alumno.getNotaXAlumnoXClase(a.getIdalumno(),idclase);
 		return new ResponseEntity<>(nota, HttpStatus.OK);
 	}
 }

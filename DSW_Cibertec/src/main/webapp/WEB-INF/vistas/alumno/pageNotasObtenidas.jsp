@@ -55,20 +55,13 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-		//listar las notas q devulve
 		$.getJSON("getNotasAlumno", function(data) {
-			$.each(data, function(index, value) {
-				$("#tbodyNotas").append(
-						"<tr class='arClases'><td>" + value.idnota
-								+ "</td><td>" + value.e1 + "</td><td>"
-								+ value.e2 + "</td><td>" + value.ep
-								+ "</td><td>" + value.e3 + "</td><td>"
-								+ value.ef + "</td><td>" + value.promedio
-								+ "</td></tr>");
-			});
-		});
-		$(".arClases").click(function() {
-
+			$("#tbodyNotas").append(
+					"<tr class='arClases'><td>" + data.idnota + "</td><td>"
+							+ data.e1 + "</td><td>" + data.e2 + "</td><td>"
+							+ data.ep + "</td><td>" + data.e3 + "</td><td>"
+							+ data.ef + "</td><td>" + data.promedio
+							+ "</td></tr>");
 		});
 	</script>
 </body>
