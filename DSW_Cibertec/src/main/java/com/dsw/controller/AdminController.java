@@ -13,8 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.dsw.entidad.Alumno;
 import com.dsw.entidad.Carrera;
+import com.dsw.entidad.Clase;
 import com.dsw.entidad.Constancia;
+import com.dsw.entidad.Curso;
+import com.dsw.entidad.Docente;
 import com.dsw.entidad.Matricula;
+import com.dsw.entidad.Seccion;
 import com.dsw.entidad.Turno;
 import com.dsw.service.AdminServicio;
 import com.dsw.service.AlumnoServicio;
@@ -76,6 +80,57 @@ public class AdminController {
 		session.setAttribute("alumnos", data);
 		return "admin/crudAlumno";
 	}	
+	//CRUD DE CLASE
+	@RequestMapping("/verCrudClase")
+	public String verCrudClase() {
+		return "admin/crudClase";
+	}
+	@RequestMapping("/filtrarCurso")
+	public String filtrarCurso(String curso,HttpSession session) {
+		List<Clase> data=serAdmin.getClaseByCurso(curso+"%");
+		session.setAttribute("clases", data);
+		return "redirect:salidaClase";
+	}
+	@RequestMapping("/salidaClase")
+	public String salidaClase(HttpSession session) {
+		List<Clase> data=serAdmin.getAllClase();
+		session.setAttribute("clases", data);
+		return "admin/crudClase";
+	}	
+	@RequestMapping(value="/getAllClase",method = RequestMethod.GET,produces = "application/json")
+	@ResponseBody
+	public ResponseEntity<List<Clase>> getAllClase() {
+		List<Clase> data=serAdmin.getAllClase();
+		return new ResponseEntity<>(data, HttpStatus.OK);
+	}
+	@RequestMapping(value="/getAllSeccion",method = RequestMethod.GET,produces = "application/json")
+	@ResponseBody
+	public ResponseEntity<List<Seccion>> getAllSeccion() {
+		List<Seccion> data=serAdmin.getAllSeccion();
+		return new ResponseEntity<>(data, HttpStatus.OK);
+	}
+	@RequestMapping(value="/getAllCurso",method = RequestMethod.GET,produces = "application/json")
+	@ResponseBody
+	public ResponseEntity<List<Curso>> getAllCurso() {
+		List<Curso> data=serAdmin.getAllCurso();
+		return new ResponseEntity<>(data, HttpStatus.OK);
+	}
+	@RequestMapping(value="/getAllDocente",method = RequestMethod.GET,produces = "application/json")
+	@ResponseBody
+	public ResponseEntity<List<Docente>> getAllDocente() {
+		List<Docente> data=serAdmin.getAllDocente();
+		return new ResponseEntity<>(data, HttpStatus.OK);
+	}
+	@RequestMapping("/registrarClase")
+	public String registrarClase(Clase c,HttpSession session) {		
+		/*a.getUsuario().setPassword(a.getDni());
+		a.getUsuario().setCredencial(1);
+		a.getUsuario().setUsuario(a.getDni());
+		a.getUsuario().setIdusuario(1);
+		ser_alumno.registrarAlumno(a);*/
+		return "redirect:salidaClase";
+	}
+	//MATRICULA
 	@RequestMapping("/verMatricula")
 	public String verMatricula() {
 		return "admin/matricula";
