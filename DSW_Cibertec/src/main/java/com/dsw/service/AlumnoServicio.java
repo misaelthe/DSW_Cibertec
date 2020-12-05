@@ -6,6 +6,7 @@ import com.dsw.entidad.Alumno;
 import com.dsw.entidad.Clase;
 import com.dsw.entidad.Curso;
 import com.dsw.entidad.Nota;
+import com.dsw.entidad.Seccion;
 
 public interface AlumnoServicio {
 
@@ -28,4 +29,7 @@ public interface AlumnoServicio {
 	public abstract Nota getNotaXAlumnoXClase(Integer idalumno,Integer idclase);
 	public abstract void insertNota(Nota nota);
 	public abstract List<Clase> getClasesXAlumnos(Integer idalumno);
+	public abstract Clase getClaseBy(Integer idclase);
+	public abstract List<Clase> getClasesXUsuario(Integer idusuario);
+	public abstract List<Seccion> getSeccionesXCicloXCarrera(Integer idusuario);
 }

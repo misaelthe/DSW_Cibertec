@@ -21,4 +21,7 @@ public interface ClaseRepositorio extends JpaRepository<Clase, Integer>{
 	
 	@Query("Select a from Clase a,Curso c where a.curso.idcurso=c.idcurso and c.nombre like :cur")
 	public abstract List<Clase> getClaseByCurso(@Param("cur")String curso);
+	
+	@Query("Select a from Clase a where a.idclase = :cla")
+	public abstract Clase getClaseBy(@Param("cla")Integer idclase);
 }

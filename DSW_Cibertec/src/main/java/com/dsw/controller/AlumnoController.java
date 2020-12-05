@@ -66,48 +66,29 @@ public class AlumnoController {
 		return new ResponseEntity<>(nota, HttpStatus.OK);
 	}
 	//MATRICULA DE CURSO
-	@RequestMapping("/verMatriculaXCurso")
-	public String verMatriculaXCurso() {
-		return "admin/matriculaPorAlumno";
+	@RequestMapping("/verMatriculaXCursos")
+	public String verMatriculaXCursos() {
+		return "alumno/matriculaXCursos";
 	}
-	@RequestMapping(value="/buscarCursosXCiclo",method = RequestMethod.GET,produces = "application/json")
+	@RequestMapping(value="/buscarClases",method = RequestMethod.GET,produces = "application/json")
 	@ResponseBody
-	public ResponseEntity<List<Curso>> buscarCursosXCiclo(HttpSession session) {
+	public ResponseEntity<List<Clase>> buscarClases(HttpSession session) {
 		Usuario u=(Usuario)session.getAttribute("objUsuario");
-		List<Curso> data=serAlumno.getCursosXUsuario(u.getIdusuario());
+		List<Clase> data=serAlumno.getClasesXUsuario(u.getIdusuario());
 		return new ResponseEntity<>(data, HttpStatus.OK);
 	}
-	/*@RequestMapping(value="/buscarSeccionesXCurso",method = RequestMethod.GET,produces = "application/json")
+	@RequestMapping(value="/buscarClaseXidclase",method = RequestMethod.GET,produces = "application/json")
 	@ResponseBody
-	public ResponseEntity<List<Seccion>> buscarSeccionesXCurso(Integer idcurso,HttpSession session) {
-		Usuario u=(Usuario)session.getAttribute("objUsuario");
-		List<Curso> data=serAlumno.getCursosXUsuario(u.getIdusuario());
+	public ResponseEntity<Clase> buscarClaseXidclase(Integer idclase,HttpSession session) {
+		Clase data=serAlumno.getClaseBy(idclase);
 		return new ResponseEntity<>(data, HttpStatus.OK);
 	}
-	@RequestMapping("/salidaClase")
+	/*@RequestMapping("/salidaClase")
 	public String salidaClase(HttpSession session) {
 		List<Clase> data=serAdmin.getAllClase();
 		session.setAttribute("clases", data);
 		return "admin/crudClase";
 	}	
-	@RequestMapping(value="/getAllClase",method = RequestMethod.GET,produces = "application/json")
-	@ResponseBody
-	public ResponseEntity<List<Clase>> getAllClase() {
-		List<Clase> data=serAdmin.getAllClase();
-		return new ResponseEntity<>(data, HttpStatus.OK);
-	}
-	@RequestMapping(value="/getAllSeccion",method = RequestMethod.GET,produces = "application/json")
-	@ResponseBody
-	public ResponseEntity<List<Seccion>> getAllSeccion() {
-		List<Seccion> data=serAdmin.getAllSeccion();
-		return new ResponseEntity<>(data, HttpStatus.OK);
-	}
-	@RequestMapping(value="/getAllCurso",method = RequestMethod.GET,produces = "application/json")
-	@ResponseBody
-	public ResponseEntity<List<Curso>> getAllCurso() {
-		List<Curso> data=serAdmin.getAllCurso();
-		return new ResponseEntity<>(data, HttpStatus.OK);
-	}
 	@RequestMapping("/registrarClase")
 	public String registrarClase(Integer idseccion,Integer idcurso,Integer iddocente,Integer ins,HttpSession session) {	
 		Clase cla=new Clase();

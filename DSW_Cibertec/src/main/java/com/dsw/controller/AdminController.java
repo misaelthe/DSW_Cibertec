@@ -204,7 +204,7 @@ public class AdminController {
 		ma.setIdmatricula(null);
 		ma.setPeriodo(periodo);
 		ma.setTurno(t);
-		ma.setFecha(d);
+		ma.setYear(d);
 		ma.setCarrera(ca);
 		
 		c.setAlumno(a);

@@ -10,8 +10,10 @@ import com.dsw.entidad.Clase;
 import com.dsw.entidad.Curso;
 import com.dsw.entidad.Matricula;
 import com.dsw.entidad.Nota;
+import com.dsw.entidad.Seccion;
 import com.dsw.entidad.Usuario;
 import com.dsw.repository.AlumnoRepositorio;
+import com.dsw.repository.ClaseRepositorio;
 import com.dsw.repository.NotaRepositorio;
 import com.dsw.repository.UsuarioRepositorio;
 
@@ -23,6 +25,8 @@ public class AlumnoServicioImpl implements AlumnoServicio{
 	private AlumnoRepositorio repositorio;
 	@Autowired
 	private NotaRepositorio repNota;
+	@Autowired
+	private ClaseRepositorio repClase;
 	@Override
 	public List<Alumno> filtrarAlumnoPorNombre(String nombre) {return repositorio.traerAlumnoPorNombre(nombre);}
 
@@ -62,5 +66,22 @@ public class AlumnoServicioImpl implements AlumnoServicio{
 		Matricula m=tem.get(tem.size()-1);
 		return repositorio.getCursosXCiclo(m.getCiclo());
 	}
+
+	@Override
+	public List<Seccion> getSeccionesXCicloXCarrera(Integer idusuario) {
+		List<Matricula> tem=repositorio.getMatriculaXUsuario(idusuario);
+		Matricula m=tem.get(tem.size()-1);
+		return repositorio.getSeccionesXCicloXCarrera(m.getCiclo(),m.getCarrera().getIdcarrera());
+	}
+
+	@Override
+	public List<Clase> getClasesXUsuario(Integer idusuario) {
+		List<Matricula> tem=repositorio.getMatriculaXUsuario(idusuario);
+		Matricula m=tem.get(tem.size()-1);
+		return repositorio.getClasesXCicloXCarrera(m.getCiclo(),m.getCarrera().getIdcarrera());
+	}
+
+	@Override
+	public Clase getClaseBy(Integer idclase) {return repClase.getClaseBy(idclase);}
 
 }

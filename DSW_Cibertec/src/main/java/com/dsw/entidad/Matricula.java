@@ -45,7 +45,7 @@ public class Matricula {
 	
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date fecha;
+	private Date year;
 	
 	@Cascade(CascadeType.MERGE)
 	@OneToOne

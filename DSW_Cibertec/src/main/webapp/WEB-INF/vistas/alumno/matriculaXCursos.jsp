@@ -26,13 +26,6 @@
 				class="simple_form" id="defaultForm2" method="post">
 				<div class="row" style="height: 70px">
 					<div class="col-md-2">
-						<input class="form-control" id="id_nonbre_filtro" name="curso"
-							placeholder="Ingrese el curso" type="text" maxlength="30" />
-					</div>
-					<div class="col-md-2">
-						<button type="submit" class="btn btn-primary" style="width: 150px">FILTRA</button>
-					</div>
-					<div class="col-md-2">
 						<button type="button" data-toggle='modal' onclick="registrar();"
 							class='btn btn-success' id="validateBtnw2" style="width: 150px">REGISTRA</button>
 					</div>
@@ -46,7 +39,6 @@
 						<c:remove var="MENSAJE" />
 					</div>
 				</div>
-
 				<div class="row">
 					<div class="col-md-12">
 						<div class="content">
@@ -58,7 +50,6 @@
 										<th>Seccion</th>
 										<th>Curso</th>
 										<th>Docente</th>
-										<th>Editar</th>
 										<th>Eliminar</th>
 									</tr>
 								</thead>
@@ -69,18 +60,6 @@
 											<td>${x.seccion.codigo}</td>
 											<td>${x.curso.nombre}</td>
 											<td>${x.docente.nombre}</td>
-											<td>
-												<button type='button' data-toggle='modal'
-													onclick="editar('${x.idclase}','${x.seccion.idseccion}','${x.curso.idcurso}','${x.docente.iddocente}','${x.alum_ins}');"
-													class='btn btn-success'>
-													<svg width="25px" viewBox="0 0 16 16"
-														class="bi bi-check-circle-fill" fill="black"
-														xmlns="http://www.w3.org/2000/svg">
-																  <path fill-rule="evenodd"
-															d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-																</svg>
-												</button>
-											</td>
 											<td>
 												<button type='button' data-toggle='modal'
 													onclick="eliminar('${x.idclase}');" class='btn btn-success'>
@@ -128,45 +107,26 @@
 									<div id="stepOne" class="panel-collapse collapse in">
 										<div class="panel-body">
 											<div class="form-group">
-												<label class="col-lg-3 control-label" for="reg_seccion">Cursos Disponibles</label>
+												<label class="col-lg-3 control-label" for="idcurso">Cursos
+													Disponibles</label>
 												<div class="col-lg-5">
-													<select id="idcurso" name="idcurso"
-														class='form-control'>
+													<select id="idcurso" name="idcurso" class='form-control'>
 														<option value="-1">Seleccione</option>
 													</select>
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-lg-3 control-label" for="reg_seccion">Seccion</label>
+												<label class="col-lg-3 control-label" for="idseccion">Seccion</label>
 												<div class="col-lg-5">
-													<select id="reg_seccion" name="idseccion"
-														class='form-control'>
-														<option value="-1">Seleccione</option>
-													</select>
+													<input class="form-control" id="idseccion" type="text"
+														readonly="readonly" />
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-lg-3 control-label" for="reg_curso">Curso</label>
+												<label class="col-lg-3 control-label" for="iddocente">Docente</label>
 												<div class="col-lg-5">
-													<select id="reg_curso" name="idcurso" class='form-control'>
-														<option value="-1">Seleccione</option>
-													</select>
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-lg-3 control-label" for="reg_docente">Docente</label>
-												<div class="col-lg-5">
-													<select id="reg_docente" name="iddocente"
-														class='form-control'>
-														<option value="-1">Seleccione</option>
-													</select>
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-lg-3 control-label" for="reg_ins">Inscritos</label>
-												<div class="col-lg-5">
-													<input class="form-control" id="reg_ins" name="ins"
-														placeholder="Ingrese los Inscritos" type="number" />
+													<input class="form-control" id="iddocente" type="text"
+														readonly="readonly" />
 												</div>
 											</div>
 											<div class="form-group">
@@ -212,44 +172,29 @@
 		$(document).ready(
 				function() {
 					$('#tableClase').DataTable();
-					$.getJSON("buscarCursosXCiclo", {}, function(data, q, t) {
+					$.getJSON("buscarClases", {}, function(data, q, t) {
 						$.each(data, function(index, item) {
-							$("#reg_curso").append(
-									"<option value="+item.idcurso+">"
-											+ item.nombre + "</option>");
-						});
-					});
-					$.getJSON("getAllSeccion", {}, function(data, q, t) {
-						$.each(data, function(index, item) {
-							$("#reg_seccion").append(
-									"<option value="+item.idseccion+">"
-											+ item.codigo + "</option>");
-						});
-					});
-					$.getJSON("getAllDocente", {}, function(data, q, t) {
-						$.each(data, function(index, item) {
-							$("#reg_docente").append(
-									"<option value="+item.iddocente+">"
-											+ item.nombre + "</option>");
+							$("#idcurso")
+									.append(
+											"<option value="+item.idclase+">"
+													+ item.curso.nombre + " - "
+													+ item.seccion.codigo
+													+ " - "
+													+ item.docente.nombre
+													+ "</option>");
 						});
 					});
 				});
-		$("#idcurso").change(
-				function() {
-					var var_sel = $("#idcurso").val();
-					console.log(var_sel);
-					$("#id_seleccion").empty();
-					$.getJSON("cargaLibroPorAutor", {
-						"idAutor" : var_sel
-					}, function(data, q, txt) {
-						$.each(data, function(key, value) {
-							$("#id_seleccion").append(
-									"<option value='" + value.idLibro +  "'>"
-											+ value.titulo + "</option>")
-						})
-					});
-
-				});
+		$("#idcurso").change(function() {
+			var var_sel = $("#idcurso").val();
+			console.log(var_sel);
+			$.getJSON("buscarClaseXidclase", {
+				"idclase" : var_sel
+			}, function(data, q, txt) {
+				$("#idseccion").val(data.seccion.codigo);
+				$("#iddocente").val(data.docente.nombre);
+			});
+		});
 		function registrar() {
 			$('#idModalRegistra').modal("show");
 		}

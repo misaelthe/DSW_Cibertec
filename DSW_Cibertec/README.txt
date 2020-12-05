@@ -1,4 +1,4 @@
-#1.2.3
+#1.2.4
 #1.2
 	Crud de Clase Añadido
 #1.1.7
