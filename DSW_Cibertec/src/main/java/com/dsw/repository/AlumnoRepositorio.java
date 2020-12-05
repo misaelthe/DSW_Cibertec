@@ -39,14 +39,18 @@ public interface AlumnoRepositorio extends JpaRepository<Alumno, Integer>{
 	@Query("Select m from Matricula m,Alumno a where m.alumno.idalumno = a.idalumno and a.usuario.idusuario = :idusu")
 	public abstract List<Matricula> getMatriculaXUsuario(@Param("idusu")Integer idusuario);
 	
-	@Query("Select c from Curso c where c.ciclo = :cic")
+	@Query("Select DISTINCT c from Curso c where c.ciclo = :cic")
 	public abstract List<Curso> getCursosXCiclo(@Param("cic")Integer ciclo);
 	
-	@Query("Select s from Seccion s where s.ciclo = :cic and s.carrera.idcarrera = :car")
+	@Query("Select DISTINCT s from Seccion s where s.ciclo = :cic and s.carrera.idcarrera = :car")
 	public abstract List<Seccion> getSeccionesXCicloXCarrera(@Param("cic")Integer ciclo,@Param("car")Integer carrera);
 	
-	@Query("Select c from Clase c where c.seccion.ciclo = :cic and c.seccion.carrera.idcarrera = :car")
-	public abstract List<Clase> getClasesXCicloXCarrera(@Param("cic")Integer ciclo,@Param("car")Integer carrera);
+	@Query("Select m from Matricula m where m.alumno.idalumno =  :idal")
+	public abstract List<Matricula> getMatriculaXAlumno(@Param("idal")Integer idalumno);
+	
+	@Query("Select DISTINCT c from Clase c where c.seccion.ciclo = :cic and c.seccion.carrera.idcarrera = :car")
+	public abstract List<Clase> getClasesDisponiblesXCicloXCarrera(@Param("cic")Integer ciclo,@Param("car")Integer carrera);
+	
 	//@QueryHints(value = {@QueryHint(name = org.hibernate.jpa.QueryHints.HINT_PASS_DISTINCT_THROUGH,value = "false")})
 }
 

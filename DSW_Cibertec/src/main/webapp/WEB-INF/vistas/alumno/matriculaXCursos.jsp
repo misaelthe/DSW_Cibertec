@@ -107,10 +107,10 @@
 									<div id="stepOne" class="panel-collapse collapse in">
 										<div class="panel-body">
 											<div class="form-group">
-												<label class="col-lg-3 control-label" for="idcurso">Cursos
+												<label class="col-lg-3 control-label" for="idclase">Clases
 													Disponibles</label>
 												<div class="col-lg-5">
-													<select id="idcurso" name="idcurso" class='form-control'>
+													<select id="idclase" name="idclase" class='form-control'>
 														<option value="-1">Seleccione</option>
 													</select>
 												</div>
@@ -172,9 +172,9 @@
 		$(document).ready(
 				function() {
 					$('#tableClase').DataTable();
-					$.getJSON("buscarClases", {}, function(data, q, t) {
+					$.getJSON("getClasesDisponiblesXAlumno", {}, function(data, q, t) {
 						$.each(data, function(index, item) {
-							$("#idcurso")
+							$("#idclase")
 									.append(
 											"<option value="+item.idclase+">"
 													+ item.curso.nombre + " - "
@@ -185,8 +185,8 @@
 						});
 					});
 				});
-		$("#idcurso").change(function() {
-			var var_sel = $("#idcurso").val();
+		$("#idclase").change(function() {
+			var var_sel = $("#idclase").val();
 			console.log(var_sel);
 			$.getJSON("buscarClaseXidclase", {
 				"idclase" : var_sel
@@ -206,21 +206,6 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#id_form_registra').bootstrapValidator({
-				message : 'This value is not valid',
-				feedbackIcons : {
-					valid : 'glyphicon glyphicon-ok',
-					invalid : 'glyphicon glyphicon-remove',
-					validating : 'glyphicon glyphicon-refresh'
-				},
-				fields : {
-
-				}
-			});
-		});
-	</script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('#id_form_actualiza').bootstrapValidator({
 				message : 'This value is not valid',
 				feedbackIcons : {
 					valid : 'glyphicon glyphicon-ok',

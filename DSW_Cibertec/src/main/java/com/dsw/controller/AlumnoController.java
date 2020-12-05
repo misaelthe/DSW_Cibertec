@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dsw.entidad.Alumno;
+import com.dsw.entidad.Alumno_Clase;
 import com.dsw.entidad.Clase;
 import com.dsw.entidad.Curso;
 import com.dsw.entidad.Docente;
@@ -67,14 +68,19 @@ public class AlumnoController {
 	}
 	//MATRICULA DE CURSO
 	@RequestMapping("/verMatriculaXCursos")
-	public String verMatriculaXCursos() {
+	public String verMatriculaXCursos(HttpSession session) {
+		Usuario u=(Usuario)session.getAttribute("objUsuario");
+		Alumno a=serAlumno.getAlumnoXUsuario(u.getIdusuario());
+		List<Clase> data=serAlumno.getClasesXAlumno(a.getIdalumno());
+		session.setAttribute("clases", data);
 		return "alumno/matriculaXCursos";
 	}
-	@RequestMapping(value="/buscarClases",method = RequestMethod.GET,produces = "application/json")
+	@RequestMapping(value="/getClasesDisponiblesXAlumno",method = RequestMethod.GET,produces = "application/json")
 	@ResponseBody
-	public ResponseEntity<List<Clase>> buscarClases(HttpSession session) {
+	public ResponseEntity<List<Clase>> getClasesDisponiblesXAlumno(HttpSession session) {
 		Usuario u=(Usuario)session.getAttribute("objUsuario");
-		List<Clase> data=serAlumno.getClasesXUsuario(u.getIdusuario());
+		Alumno a=serAlumno.getAlumnoXUsuario(u.getIdusuario());
+		List<Clase> data=serAlumno.getClasesDisponiblesXAlumno(a.getIdalumno());
 		return new ResponseEntity<>(data, HttpStatus.OK);
 	}
 	@RequestMapping(value="/buscarClaseXidclase",method = RequestMethod.GET,produces = "application/json")
@@ -83,34 +89,43 @@ public class AlumnoController {
 		Clase data=serAlumno.getClaseBy(idclase);
 		return new ResponseEntity<>(data, HttpStatus.OK);
 	}
-	/*@RequestMapping("/salidaClase")
-	public String salidaClase(HttpSession session) {
-		List<Clase> data=serAdmin.getAllClase();
+	@RequestMapping("/salidaMatriculaXCursos")
+	public String salidaMatriculaXCursos(HttpSession session) {
+		Usuario u=(Usuario)session.getAttribute("objUsuario");
+		Alumno a=serAlumno.getAlumnoXUsuario(u.getIdusuario());
+		List<Clase> data=serAlumno.getClasesXAlumno(a.getIdalumno());
 		session.setAttribute("clases", data);
-		return "admin/crudClase";
+		return "alumno/matriculaXCursos";
 	}	
 	@RequestMapping("/registrarClase")
-	public String registrarClase(Integer idseccion,Integer idcurso,Integer iddocente,Integer ins,HttpSession session) {	
+	public String registrarClase(Integer idclase,HttpSession session) {	
+		Usuario u=(Usuario)session.getAttribute("objUsuario");
+		Alumno a=serAlumno.getAlumnoXUsuario(u.getIdusuario());
+		List<Clase> data=serAlumno.getClasesXAlumno(a.getIdalumno());
+		for(Clase c:data) {if(c.getIdclase()==idclase) {return "redirect:salidaMatriculaXCursos";}}
+		
 		Clase cla=new Clase();
-		Seccion s=new Seccion();
-		Curso cu=new Curso();
-		Docente d=new Docente();
+		Alumno al=new Alumno();
 		
-		s.setIdseccion(idseccion);
-		cu.setIdcurso(idcurso);
-		d.setIddocente(iddocente);
+		cla.setIdclase(idclase);
 		
-		cla.setIdclase(null);
-		cla.setCurso(cu);
-		cla.setDocente(d);
-		cla.setSeccion(s);
-		cla.setAlum_ins(ins);
-		serAdmin.insertClase(cla);
-		return "redirect:salidaClase";
+		al.setIdalumno(a.getIdalumno());
+		
+		Alumno_Clase ac=new Alumno_Clase();
+		ac.setIdalumno_clase(null);
+		ac.setClase(cla);
+		ac.setAlumno(al);
+		
+		serAlumno.insertAlumnoClase(ac);
+		return "redirect:salidaMatriculaXCursos";
 	}
 	@RequestMapping("/eliminarClase")
 	public String eliminarClase(Integer idclase,HttpSession session) {
-		serAdmin.deleteClase(idclase);
-		return "redirect:salidaClase";
-	}*/
+		Usuario u=(Usuario)session.getAttribute("objUsuario");
+		Alumno a=serAlumno.getAlumnoXUsuario(u.getIdusuario());
+		
+		Alumno_Clase ac= serAlumno.getAlumno_ClaseXAlumnoXClase(a.getIdalumno(), idclase);
+		serAlumno.deleteAlumno_Clase(ac.getIdalumno_clase());
+		return "redirect:salidaMatriculaXCursos";
+	}
 }
