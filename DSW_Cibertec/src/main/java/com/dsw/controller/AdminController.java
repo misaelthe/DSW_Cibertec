@@ -47,7 +47,7 @@ public class AdminController {
 	public String filtrarAlumno(String nom_alumno,HttpSession session) {
 		List<Alumno> data=ser_alumno.filtrarAlumnoPorNombre(nom_alumno+"%");
 		session.setAttribute("alumnos", data);
-		return "redirect:salidaAlumno";
+		return "redirect:verCrudAlumno";
 	}
 	@RequestMapping(value="/getAllAlumno",method = RequestMethod.GET,produces = "application/json")
 	@ResponseBody
@@ -89,7 +89,7 @@ public class AdminController {
 	public String filtrarCurso(String curso,HttpSession session) {
 		List<Clase> data=serAdmin.getClaseByCurso(curso+"%");
 		session.setAttribute("clases", data);
-		return "redirect:salidaClase";
+		return "redirect:verCrudClase";
 	}
 	@RequestMapping("/salidaClase")
 	public String salidaClase(HttpSession session) {
@@ -122,13 +122,47 @@ public class AdminController {
 		return new ResponseEntity<>(data, HttpStatus.OK);
 	}
 	@RequestMapping("/registrarClase")
-	public String registrarClase(Clase c,HttpSession session) {		
-		/*a.getUsuario().setPassword(a.getDni());
-		a.getUsuario().setCredencial(1);
-		a.getUsuario().setUsuario(a.getDni());
-		a.getUsuario().setIdusuario(1);
-		ser_alumno.registrarAlumno(a);*/
+	public String registrarClase(Integer idseccion,Integer idcurso,Integer iddocente,Integer alum_ins,HttpSession session) {	
+		Clase cla=new Clase();
+		Seccion s=new Seccion();
+		Curso cu=new Curso();
+		Docente d=new Docente();
+		
+		s.setIdseccion(idseccion);
+		cu.setIdcurso(idcurso);
+		d.setIddocente(iddocente);
+		
+		cla.setIdclase(null);
+		cla.setCurso(cu);
+		cla.setDocente(d);
+		cla.setSeccion(s);
+		cla.setAlum_ins(alum_ins);
+		serAdmin.insertClase(cla);
 		return "redirect:salidaClase";
+	}
+	@RequestMapping("/actualizarClase")
+	public String actualizarClase(Integer idclase,Integer idseccion,Integer idcurso,Integer iddocente,Integer alum_ins,HttpSession session) {
+		Clase cla=new Clase();
+		Seccion s=new Seccion();
+		Curso cu=new Curso();
+		Docente d=new Docente();
+		
+		s.setIdseccion(idseccion);
+		cu.setIdcurso(idcurso);
+		d.setIddocente(iddocente);
+		
+		cla.setIdclase(idclase);
+		cla.setCurso(cu);
+		cla.setDocente(d);
+		cla.setSeccion(s);
+		cla.setAlum_ins(alum_ins);
+		serAdmin.insertClase(cla);
+		return "redirect:salidaAlumno";
+	}
+	@RequestMapping("/eliminarClase")
+	public String eliminarClase(Integer idclase,HttpSession session) {
+		serAdmin.deleteClase(idclase);
+		return "redirect:salidaAlumno";
 	}
 	//MATRICULA
 	@RequestMapping("/verMatricula")

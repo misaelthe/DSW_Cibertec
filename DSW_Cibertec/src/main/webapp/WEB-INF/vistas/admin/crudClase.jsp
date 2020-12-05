@@ -73,7 +73,7 @@
 											<td>${x.alum_ins}</td>
 											<td>
 												<button type='button' data-toggle='modal'
-													onclick="editar('${x.idclase}','${x.seccion.codigo}','${x.curso.nombre}','${x.docente.nombre}','${x.alum_ins}');"
+													onclick="editar('${x.idclase}','${x.seccion.idseccion}','${x.curso.idcurso}','${x.docente.iddocente}','${x.alum_ins}');"
 													class='btn btn-success'>
 													<svg width="25px" viewBox="0 0 16 16"
 														class="bi bi-check-circle-fill" fill="black"
@@ -159,10 +159,11 @@
 														placeholder="Ingrese los Inscritos" type="number" />
 												</div>
 											</div>
-											<input name="idalumno" type="hidden" /> <input
-												name="usuario.idusuario" type="hidden" /> <input
-												name="usuario.credencial" type="hidden" /> <input
-												name="usuario.password" type="hidden" />
+											<input name="idclase" type="hidden" /> <input
+												name="idseccion" type="hidden" /> <input
+												name="idcurso" type="hidden" /> <input
+												name="iddocente" type="hidden" /> <input
+												name="alum_ins" type="hidden" />
 											<div class="form-group">
 												<div class="col-lg-9 col-lg-offset-3">
 													<button type="submit" class="btn btn-primary"
@@ -190,7 +191,7 @@
 					</div>
 					<div class="modal-body" style="padding: 20px 10px;">
 						<form id="id_form_actualiza" accept-charset="UTF-8"
-							action="actualizarAlumno" class="form-horizontal" method="post">
+							action="actualizarClase" class="form-horizontal" method="post">
 							<div class="panel-group" id="steps">
 								<!-- Step 1 -->
 								<div class="panel panel-default">

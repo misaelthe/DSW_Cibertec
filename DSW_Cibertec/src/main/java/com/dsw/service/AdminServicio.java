@@ -12,6 +12,8 @@ public interface AdminServicio {
 
 	public abstract void insertMatricula(Matricula matricula);
 	public abstract void insertConstancia(Constancia constancia);
+	public abstract void insertClase(Clase clase);
+	public abstract void deleteClase(Integer idclase);
 	public abstract List<Clase> getClaseByCurso(String nombre);
 	public abstract List<Clase> getAllClase();
 	public abstract List<Curso> getAllCurso();

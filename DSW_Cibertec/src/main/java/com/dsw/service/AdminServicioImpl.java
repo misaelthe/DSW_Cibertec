@@ -46,4 +46,8 @@ public class AdminServicioImpl implements AdminServicio{
 	public List<Docente> getAllDocente() {return repDocente.findAll();}
 	@Override
 	public List<Seccion> getAllSeccion() {return repSeccion.findAll();}
+	@Override
+	public void insertClase(Clase clase) {repClase.save(clase);}
+	@Override
+	public void deleteClase(Integer idclase) {repClase.deleteById(idclase);}
 }
