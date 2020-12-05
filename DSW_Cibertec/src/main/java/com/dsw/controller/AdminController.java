@@ -39,6 +39,7 @@ public class AdminController {
 	public String verIndex() {
 		return "admin/indexAdmin";
 	}	
+	//CRUD ALUMNO
 	@RequestMapping("/verCrudAlumno")
 	public String verCrudAlumno() {
 		return "admin/crudAlumno";
@@ -122,7 +123,7 @@ public class AdminController {
 		return new ResponseEntity<>(data, HttpStatus.OK);
 	}
 	@RequestMapping("/registrarClase")
-	public String registrarClase(Integer idseccion,Integer idcurso,Integer iddocente,Integer alum_ins,HttpSession session) {	
+	public String registrarClase(Integer idseccion,Integer idcurso,Integer iddocente,Integer ins,HttpSession session) {	
 		Clase cla=new Clase();
 		Seccion s=new Seccion();
 		Curso cu=new Curso();
@@ -136,12 +137,12 @@ public class AdminController {
 		cla.setCurso(cu);
 		cla.setDocente(d);
 		cla.setSeccion(s);
-		cla.setAlum_ins(alum_ins);
+		cla.setAlum_ins(ins);
 		serAdmin.insertClase(cla);
 		return "redirect:salidaClase";
 	}
 	@RequestMapping("/actualizarClase")
-	public String actualizarClase(Integer idclase,Integer idseccion,Integer idcurso,Integer iddocente,Integer alum_ins,HttpSession session) {
+	public String actualizarClase(Integer idclase,Integer idseccion,Integer idcurso,Integer iddocente,Integer ins,HttpSession session) {
 		Clase cla=new Clase();
 		Seccion s=new Seccion();
 		Curso cu=new Curso();
@@ -155,15 +156,21 @@ public class AdminController {
 		cla.setCurso(cu);
 		cla.setDocente(d);
 		cla.setSeccion(s);
-		cla.setAlum_ins(alum_ins);
+		cla.setAlum_ins(ins);
 		serAdmin.insertClase(cla);
-		return "redirect:salidaAlumno";
+		return "redirect:salidaClase";
 	}
 	@RequestMapping("/eliminarClase")
 	public String eliminarClase(Integer idclase,HttpSession session) {
 		serAdmin.deleteClase(idclase);
-		return "redirect:salidaAlumno";
+		return "redirect:salidaClase";
 	}
+	//ALUMNOS POR CLASE
+	@RequestMapping("/verAlumnosPorClase")
+	public String verAlumnosPorClase() {
+		return "admin/AlumnosPorClase";
+	}
+	
 	//MATRICULA
 	@RequestMapping("/verMatricula")
 	public String verMatricula() {

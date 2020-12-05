@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.dsw.entidad.Alumno;
 import com.dsw.entidad.Clase;
+import com.dsw.entidad.Curso;
+import com.dsw.entidad.Matricula;
 import com.dsw.entidad.Nota;
 import com.dsw.entidad.Usuario;
 import com.dsw.repository.AlumnoRepositorio;
@@ -53,5 +55,12 @@ public class AlumnoServicioImpl implements AlumnoServicio{
 	
 	@Override
 	public List<Clase> getClasesXAlumnos(Integer idalumno) {return repositorio.getClasesXAlumno(idalumno);}
+
+	@Override
+	public List<Curso> getCursosXUsuario(Integer idusuario) {
+		List<Matricula> tem=repositorio.getMatriculaXUsuario(idusuario);
+		Matricula m=tem.get(tem.size()-1);
+		return repositorio.getCursosXCiclo(m.getCiclo());
+	}
 
 }

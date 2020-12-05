@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.dsw.entidad.Alumno;
 import com.dsw.entidad.Clase;
+import com.dsw.entidad.Curso;
 import com.dsw.entidad.Nota;
 
 public interface AlumnoServicio {
@@ -21,7 +22,7 @@ public interface AlumnoServicio {
 	public abstract List<Alumno> getAlumnosNoMatriculados();
 	
 	public abstract List<Alumno> getAlumnosXClase(Integer idclase);
-	
+	public abstract List<Curso> getCursosXUsuario(Integer idusuario);
 	public abstract Alumno getAlumnoXUsuario(Integer idusuario);
 	public abstract Alumno getAlumnoXIdalumno(Integer idalumno);
 	public abstract Nota getNotaXAlumnoXClase(Integer idalumno,Integer idclase);

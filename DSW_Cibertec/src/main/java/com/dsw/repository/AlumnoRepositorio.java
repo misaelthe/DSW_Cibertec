@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import com.dsw.entidad.Alumno;
 import com.dsw.entidad.Clase;
+import com.dsw.entidad.Curso;
+import com.dsw.entidad.Matricula;
 
 public interface AlumnoRepositorio extends JpaRepository<Alumno, Integer>{
 
@@ -33,6 +35,11 @@ public interface AlumnoRepositorio extends JpaRepository<Alumno, Integer>{
 	@Query("Select DISTINCT a from Alumno a,Alumno_Clase ac,Clase c where a.idalumno = ac.alumno.idalumno and ac.clase.idclase = c.idclase and c.docente.iddocente = :iddoc")
 	public abstract List<Alumno> getAlumnosXDocente(@Param("iddoc")Integer iddocente);
 	
+	@Query("Select m from Matricula m,Alumno a where m.alumno.idalumno = a.idalumno, a.usuario.idusuario = :idusu")
+	public abstract List<Matricula> getMatriculaXUsuario(@Param("idusu")Integer idusuario);
+	
+	@Query("Select c from Curso c where c.ciclo = :cic")
+	public abstract List<Curso> getCursosXCiclo(@Param("cic")Integer ciclo);
 	//@QueryHints(value = {@QueryHint(name = org.hibernate.jpa.QueryHints.HINT_PASS_DISTINCT_THROUGH,value = "false")})
 }
 
