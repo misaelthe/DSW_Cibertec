@@ -18,9 +18,44 @@
 		<div class="row">
 			<jsp:include page="menuAdmin.jsp" />
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+				<div class="col-12">
+					<img class="img-fluid" src="../bannercibertec.png" />
+				</div>
 				<div
 					class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 					<h1 class="h2">Bienvenido Administrador</h1>
+				</div>
+				<div class="card-group">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Ultimos Anuncios</h5>
+							<p class="card-text">Ultimos Anuncios emitidos por la
+								institucion.Enterate las ultimas noticias y mantente informado.</p>
+							<p class="card-text">
+								<small class="text-muted">Actualizado hace 3 minutos</small>
+							</p>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Revicion de Notificaciones</h5>
+							<p class="card-text">No se olvide de revisar las ultimas
+								solicitudes de registro de matricula de los alumnos, es
+								importante que sea parte de su trabajo rutinario</p>
+							<p class="card-text"></p>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Servicios Informaticos</h5>
+							<p class="card-text">Contactate con nuestros servicios si
+								tienes algun inconveniente en el dia a dia</p>
+							<p class="card-text">Servicios informáticos (01) 4192900
+								anexo 7777</p>
+							<p class="card-text">Aula Virtual aulavirtual@cibertec.pe</p>
+							<p class="card-text"></p>
+						</div>
+					</div>
 				</div>
 			</main>
 		</div>
