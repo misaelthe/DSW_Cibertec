@@ -212,7 +212,7 @@ public class AdminController {
 		c.setFin_colegio(finColegio);
 		c.setCodigo_mod_colegio(codModular);
 		c.setIdconstancia(null);
-		c.setConstancia("C:\\\\Cibertec\\Constancias\\"+archivo);
+		c.setConstancia("C:\\\\sql10380867\\Constancias\\"+archivo);
 		
 		serAdmin.insertMatricula(ma);
 		serAdmin.insertConstancia(c);
@@ -221,9 +221,9 @@ public class AdminController {
 
 	
 	/*
-spring.datasource.url=jdbc:mysql://sql10.freemysqlhosting.net:3306/sql10379803?serverTimezone=UTC
-spring.datasource.username=sql10379803
-spring.datasource.password=Ysg5Lv8iIN
+spring.datasource.url=jdbc:mysql://sql10.freemysqlhosting.net:3306/sql10380867?serverTimezone=UTC
+spring.datasource.username=sql10380867
+spring.datasource.password=g8snJTNdT9
 spring.datasource.url=jdbc:mysql://localhost:3306/cibertec?serverTimezone=UTC
 spring.datasource.username=root
 spring.datasource.password=mysql*/
