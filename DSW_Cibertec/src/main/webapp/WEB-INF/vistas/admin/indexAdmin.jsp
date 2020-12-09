@@ -38,7 +38,7 @@
 					</div>
 					<div class="card">
 						<div class="card-body">
-							<h5 class="card-title">Revicion de Notificaciones</h5>
+							<h5 class="card-title">Revision de Notificaciones</h5>
 							<p class="card-text">No se olvide de revisar las ultimas
 								solicitudes de registro de matricula de los alumnos, es
 								importante que sea parte de su trabajo rutinario</p>
