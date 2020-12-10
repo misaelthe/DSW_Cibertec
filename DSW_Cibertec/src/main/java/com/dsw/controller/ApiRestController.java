@@ -66,7 +66,7 @@ public class ApiRestController {
 	@GetMapping(path = "/getNotasXAlumno",produces = "application/json")
 	@ResponseBody
 	public List<Nota> getNotasXAlumno(@RequestParam("idalumno") Integer idalumno){
-		return restService.getNotasXDocente(idalumno);
+		return restService.getNotasXAlumno(idalumno);
 	}
 	@GetMapping(path = "/getSeccionesXAlumno",produces = "application/json")
 	@ResponseBody
@@ -112,18 +112,13 @@ public class ApiRestController {
 	///////////////REGISTRO DE NOTAS
 	@PostMapping(path = "/registrarNota")
 	public void registrarNota(@RequestBody NotaEnviada bean){
-		System.out.println("SE ESTA ENVIANDO LOS BEANxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-		System.out.println(bean.getIdnota()+"y la nota e1 xxxxxxxxx "+bean.getE1());
 		Nota n=restService.getNotasBy(bean.getIdnota());
-
 		n.setE1(bean.getE1());
 		n.setE2(bean.getE2());
 		n.setE3(bean.getE3());
 		n.setEf(bean.getEf());
 		n.setEp(bean.getEp());
 		n.setPromedio(bean.getPromedio());
-		System.out.println("SE setea lka data ingresantexxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		restService.insertNota(n);
-		System.out.println("inseto la notaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		}	
 }
