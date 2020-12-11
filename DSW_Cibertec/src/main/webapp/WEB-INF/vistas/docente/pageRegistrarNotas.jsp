@@ -21,7 +21,7 @@
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
 				<div
 					class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-					<h1 class="h2">Reistrar Nota</h1>
+					<h1 class="h2">Registrar Nota</h1>
 				</div>
 				<form action="registrarNotas" method="post" id="formRegistra"
 					data-toggle="validator" role="form">
@@ -120,84 +120,70 @@
 									selector : '#inTeo1',
 									validators : {
 										integer : {
-											message : 'Please enter the valid number ',
+											message : 'Ingrese una nota valida',
 											min : 0,
 											max : 20
 										},
 										regex : {
 											regex : "/^\d{1,2}$/",
-											message : "Formato de la ET01 es incorrecto"
+											message : "Formato de la E. Teorica 1 es incorrecto"
 										}
 									}
 								},
 								"inTeo2" : {
 									selector : '#inTeo2',
 									validators : {
-										stringLength : {
-											message : 'La ET02 es entre 2 nro o caracteres',
-											min : 2,
-											max : 2
+										integer : {
+											message : 'Ingrese una nota valida',
+											min : 0,
+											max : 20
 										},
 										regex : {
-											regex : "/^\d{2}[A-Z]{2}$/",
-											message : "Formato de la ET02 es incorrecto"
+											regex : "/^\d{1,2}$/",
+											message : "Formato de la E. Teorica 2 es incorrecto"
 										}
 									}
 								},
 								"inPar" : {
 									selector : '#inPar',
 									validators : {
-										stringLength : {
-											message : 'El Examen Parcial es entre 2 nro o caracteres',
-											min : 2,
-											max : 2
+										integer : {
+											message : 'Ingrese una nota valida',
+											min : 0,
+											max : 20
 										},
 										regex : {
-											regex : "/^\d{2}[A-Z]{2}$/",
-											message : "Formato del examen parcial es incorrecto"
+											regex : "/^\d{1,2}$/",
+											message : "Formato de la E. Parcial es incorrecto"
 										}
 									}
 								},
 								"inTeo3" : {
 									selector : '#inTeo3',
 									validators : {
-										stringLength : {
-											message : 'La ET03 es entre 2 nro o caracteres',
-											min : 2,
-											max : 2
+										integer : {
+											message : 'Ingrese una nota valida',
+											min : 0,
+											max : 20
 										},
 										regex : {
-											regex : "/^\d{2}[A-Z]{2}$/",
-											message : "Formato de la ET03 es incorrecto"
+											regex : "/^\d{1,2}$/",
+											message : "Formato de la E. Teorica 3 es incorrecto"
 										}
 									}
 								},
 								"inFin" : {
 									selector : '#inFin',
 									validators : {
-										stringLength : {
-											message : 'La EF es entre 2 nro o caracteres',
-											min : 2,
-											max : 2
+										integer : {
+											message : 'Ingrese una nota valida',
+											min : 0,
+											max : 20
 										},
 										regex : {
-											regex : "/^\d{2}[A-Z]{2}$/",
-											message : "Formato del EF es incorrecto"
+											regex : "/^\d{1,2}$/",
+											message : "Formato de la E. Final es incorrecto"
 										}
-									}
-								},
-								"inProm" : {
-									selector : '#inProm',
-									validators : {
-										stringLength : {
-											message : 'La PG es entre 2 nro o caracteres',
-											min : 2,
-											max : 2
-										},
-										regex : {
-											regex : "/^\d{2}[A-Z]{2}$/",
-											message : "Formato del PG es incorrecto"
-										},
 									}
 								},
 							}
