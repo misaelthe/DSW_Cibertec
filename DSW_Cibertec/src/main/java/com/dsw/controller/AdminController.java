@@ -126,7 +126,7 @@ public class AdminController {
 		Date date1 = df.parse(fecnac);
 		
 		Usuario u =serAdmin.getLastUsuario();
-		u.setIdusuario(u.getIdusuario());
+		u.setIdusuario(u.getIdusuario()+1);
 		u.setPassword(dni);
 		u.setCredencial(2);
 		u.setUsuario(dni);
