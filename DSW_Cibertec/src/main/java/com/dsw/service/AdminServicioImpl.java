@@ -50,4 +50,8 @@ public class AdminServicioImpl implements AdminServicio{
 	public void insertClase(Clase clase) {repClase.save(clase);}
 	@Override
 	public void deleteClase(Integer idclase) {repClase.deleteById(idclase);}
+	@Override
+	public void insertCurso(Curso curso) {repCurso.save(curso);}
+	@Override
+	public List<Curso> getCursosBy(String nombre) {return repCurso.getCursoBy(nombre);}
 }

@@ -27,4 +27,15 @@ public class DocenteServicioImpl implements DocenteServicio{
 	public Docente getDocenteXIdusuario(Integer idusuario) {return repositorio.getDocente(idusuario);}
 	@Override
 	public List<Clase> getClaseXDocente(Integer iddocente) {return repClase.getClaseXDocente(iddocente);}
+	
+	@Override
+	public List<Docente> getAllDocente() {return repositorio.findAll();}
+	@Override
+	public List<Docente> filtrarDocentePorNombre(String nombre) {return repositorio.traerDocentePorNombre(nombre);}
+	@Override
+	public void actualizarDocente(Docente a) {repositorio.save(a);}
+	@Override
+	public void registrarDocente(Docente a) {repositorio.save(a);}
+	@Override
+	public void eliminarDocente(Docente a) {repositorio.delete(a);}
 }
