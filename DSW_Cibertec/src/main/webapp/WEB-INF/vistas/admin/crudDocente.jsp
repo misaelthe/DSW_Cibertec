@@ -20,7 +20,7 @@
 		<h3>Crud de Docente</h3>
 		<div class="col-md-23">
 			<form id="idFormElimina" action="eliminarDocente">
-				<input type="hidden" id="id_elimina" name="idalumno">
+				<input type="hidden" id="id_elimina" name="iddocente">
 			</form>
 			<form accept-charset="UTF-8" action="filtrarDocente"
 				class="simple_form" id="defaultForm2" method="post">

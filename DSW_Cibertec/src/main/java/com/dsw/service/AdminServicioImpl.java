@@ -62,4 +62,6 @@ public class AdminServicioImpl implements AdminServicio{
 	public Usuario getLastUsuario() {return repUsuario.getLastIdUsuario();}
 	@Override
 	public Docente getDocenteBy(Integer iddocente) {return repDocente.getDocenteBy(iddocente);}
+	@Override
+	public void deleteDocente(Integer iddocente) {repDocente.deleteById(iddocente);}
 }

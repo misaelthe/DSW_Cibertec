@@ -164,8 +164,8 @@ public class AdminController {
 	}
 
 	@RequestMapping("/eliminarDocente")
-	public String eliminarDocente(Docente a, HttpSession session) {
-		serDocente.eliminarDocente(a);
+	public String eliminarDocente(Integer iddocente, HttpSession session) {
+		serAdmin.deleteDocente(iddocente);
 		return "redirect:salidaDocente";
 	}
 
