@@ -120,10 +120,10 @@
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-lg-3 control-label" for="reg_dni">Carrera</label>
+												<label class="col-lg-3 control-label">Carrera</label>
 												<div class="col-lg-5">
 													<select class="custom-select d-block w-100"
-														id="reglistadoCarrera" required name="idcarrera">
+														id="regCarrera" required name="idcarrera">
 														<option value="-1">Escoja ...</option>
 													</select>
 												</div>
@@ -191,7 +191,7 @@
 												<label class="col-lg-3 control-label" for="ac_dni">Carrera</label>
 												<div class="col-lg-5">
 													<select class="custom-select d-block w-100"
-														id="aclistadoCarrera" required name="idcarrera">
+														id="acCarrera" required name="idcarrera">
 														<option value="-1">Escoja ...</option>
 													</select>
 												</div>
@@ -239,12 +239,12 @@
 			$('#ac_ciclo').val(cic);
 			$('#idModalActualiza').modal("show");
 		}
-		$.getJSON("getCarreras",function(data) {
-					$.each(data,function(index, value) {
-						$("#reglistadoCarrera").append(
+		$.getJSON("getAllCarrera",function(data) {
+					$.each(data,function(index, item) {
+						$("#regCarrera").append(
 								"<option value="+item.idcarrera+">"
 										+ item.nombre + "</option>");
-						$("#aclistadoCarrera").append(
+						$("#acCarrera").append(
 								"<option value="+item.idcarrera+">"
 										+ item.nombre + "</option>");
 					});

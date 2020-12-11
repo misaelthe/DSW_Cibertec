@@ -209,7 +209,14 @@ public class AdminController {
 		List<Curso> data = serAdmin.getAllCurso();
 		return new ResponseEntity<>(data, HttpStatus.OK);
 	}
-
+	
+	@GetMapping(value = "/getAllCarrera", produces = "application/json")
+	@ResponseBody
+	public ResponseEntity<List<Carrera>> getAllCarrera() {
+		List<Carrera> tem = serAdmin.getAllCarrera();
+		return new ResponseEntity<>(tem, HttpStatus.OK);
+	}
+	
 	/*
 	 * @RequestMapping(value = "/getAllDocente", method = RequestMethod.GET,
 	 * produces = "application/json") public ResponseEntity<List<Docente>>
@@ -325,13 +332,6 @@ public class AdminController {
 	@ResponseBody
 	public ResponseEntity<List<Alumno>> getAlumnosNoMatriculados() {
 		List<Alumno> tem = ser_alumno.getAlumnosNoMatriculados();
-		return new ResponseEntity<>(tem, HttpStatus.OK);
-	}
-
-	@GetMapping(value = "/getCarreras", produces = "application/json")
-	@ResponseBody
-	public ResponseEntity<List<Carrera>> getCarreras() {
-		List<Carrera> tem = serAdmin.getAllCarrera();
 		return new ResponseEntity<>(tem, HttpStatus.OK);
 	}
 
