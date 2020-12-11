@@ -148,21 +148,17 @@ public class AdminController {
 	@RequestMapping("/actualizarDocente")
 	public String actualizarDocente(Integer iddocente,String nombre, String dni, String direccion, String correo, String fecnac,
 			String telefono, HttpSession session) throws ParseException {
-		Docente d = new Docente();
-		Carrera c=new Carrera();
-		c.setIdcarrera(1);
+		Docente d = serAdmin.getDocenteBy(iddocente);
+
 		DateFormat df=new SimpleDateFormat("yyyy-MM-dd");
 		Date date1 = df.parse(fecnac);
-		
-		d.setIddocente(iddocente);
+
 		d.setCorreo(correo);
 		d.setDireccion(direccion);
 		d.setDni(dni);
 		d.setFecnac(date1);
 		d.setNombre(nombre);
 		d.setTelefono(telefono);
-		d.setCarrera(c);
-
 		serDocente.actualizarDocente(d);
 		return "redirect:salidaDocente";
 	}

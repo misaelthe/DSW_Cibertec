@@ -15,6 +15,9 @@ public interface DocenteRepositorio extends JpaRepository<Docente, Integer>{
 	@Query("Select d from Docente d where d.usuario.idusuario = :idusu")
 	public abstract Docente getDocente(@Param("idusu")Integer idusuario);
 	
+	@Query("Select d from Docente d where d.iddocente = :iddoc")
+	public abstract Docente getDocenteBy(@Param("iddoc")Integer iddocente);
+	
 	@Query("Select d from Docente d where d.nombre like :nom")
 	public abstract List<Docente> traerDocentePorNombre(@Param("nom")String nombre);
 	

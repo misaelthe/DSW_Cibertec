@@ -60,4 +60,6 @@ public class AdminServicioImpl implements AdminServicio{
 	public List<Curso> getCursosBy(String nombre) {return repCurso.getCursoBy(nombre);}
 	@Override
 	public Usuario getLastUsuario() {return repUsuario.getLastIdUsuario();}
+	@Override
+	public Docente getDocenteBy(Integer iddocente) {return repDocente.getDocenteBy(iddocente);}
 }

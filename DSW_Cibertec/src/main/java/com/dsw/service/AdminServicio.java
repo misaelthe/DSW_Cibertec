@@ -24,4 +24,5 @@ public interface AdminServicio {
 	public abstract List<Docente> getAllDocente();
 	
 	public abstract Usuario getLastUsuario();
+	public abstract Docente getDocenteBy(Integer iddocente);
 }
