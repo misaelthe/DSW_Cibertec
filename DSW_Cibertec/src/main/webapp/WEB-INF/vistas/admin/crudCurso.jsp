@@ -191,7 +191,7 @@
 												<label class="col-lg-3 control-label" for="ac_dni">Carrera</label>
 												<div class="col-lg-5">
 													<select class="custom-select d-block w-100"
-														id="acCarrera" required name="idcarrera">
+														id="ac_carrera" required name="idcarrera">
 														<option value="-1">Escoja ...</option>
 													</select>
 												</div>
