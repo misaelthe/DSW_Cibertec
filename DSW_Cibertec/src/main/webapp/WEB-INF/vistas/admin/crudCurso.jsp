@@ -67,7 +67,7 @@
 											<td>${x.ciclo}</td>
 											<td>
 												<button type='button' data-toggle='modal'
-													onclick="editar('${x.idcurso}','${x.nombre}','${x.carrera.nombre}','${x.ciclo}');"
+													onclick="editar('${x.idcurso}','${x.nombre}','${x.carrera.idcarrera}','${x.ciclo}');"
 													class='btn btn-success'>
 													<svg width="25px" viewBox="0 0 16 16"
 														class="bi bi-check-circle-fill" fill="black"
@@ -135,9 +135,6 @@
 														placeholder="Ingrese el Ciclo" type="text" />
 												</div>
 											</div>
-											<input name="nombre" type="hidden" /> <input
-												name="idcarrera" type="hidden" /> <input
-												name="ciclo" type="hidden" />
 											<div class="form-group">
 												<div class="col-lg-9 col-lg-offset-3">
 													<button type="submit" class="btn btn-primary"
@@ -221,25 +218,6 @@
 								</div>
 							</div>
 						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="modal fade" id="idModalElimina">
-			<div class="modal-dialog" style="width: 60%">
-				<div class="modal-content">
-					<div class="modal-header" style="padding: 35px 50px">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4>
-							<span class="glyphicon glyphicon-ok-sign"></span> Eliminar
-							Curso
-						</h4>
-					</div>
-					<div class="modal-footer">
-						<button type="button" id="idBtnElimina" name="modalDe"
-							class="btn btn-primary">ELIMINAR</button>
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Cerrar</button>
 					</div>
 				</div>
 			</div>

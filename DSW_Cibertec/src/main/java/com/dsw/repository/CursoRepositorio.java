@@ -19,6 +19,6 @@ public interface CursoRepositorio extends JpaRepository<Curso, Integer>{
 	@Query("Select cu from Curso cu,Clase cl where cu.idcurso=cl.curso.idcurso and cl.docente.iddocente = :iddoc")
 	public abstract List<Curso> getCursoXDocente(@Param("iddoc")Integer iddocente);
 	
-	@Query("Select cu from Curso cu where cu.nombre = :nom")
-	public abstract List<Curso> getCursoBy(@Param("nom")String nombre);
+	@Query("Select cu from Curso cu where cu.nombre like :nom")
+	public abstract List<Curso> getCursosBy(@Param("nom")String nombre);
 }

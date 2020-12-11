@@ -62,7 +62,7 @@ public class AdminServicioImpl implements AdminServicio{
 	@Override
 	public void insertCurso(Curso curso) {repCurso.save(curso);}
 	@Override
-	public List<Curso> getCursosBy(String nombre) {return repCurso.getCursoBy(nombre);}
+	public List<Curso> getCursosBy(String nombre) {return repCurso.getCursosBy(nombre);}
 	@Override
 	public Usuario getLastUsuario() {return repUsuario.getLastIdUsuario();}
 	@Override
