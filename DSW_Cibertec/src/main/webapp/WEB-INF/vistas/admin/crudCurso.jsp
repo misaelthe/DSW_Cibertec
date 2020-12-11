@@ -54,18 +54,18 @@
 									<tr>
 										<th>ID</th>
 										<th>Nombre</th>
-										<th>DNI</th>
-										<th>Correo</th>
+										<th>Carrera</th>
+										<th>Ciclo</th>
 										<th>Actualiza</th>
 									</tr>
 								</thead>
 								<tbody>
 									<c:forEach items="${sessionScope.cursos}" var="x">
 										<tr>
-											<td>${x.iddocente}</td>
+											<td>${x.idcurso}</td>
 											<td>${x.nombre}</td>
-											<td>${x.dni}</td>
-											<td>${x.correo}</td>
+											<td>${x.carrera.nombre}</td>
+											<td>${x.ciclo}</td>
 											<td>
 												<button type='button' data-toggle='modal'
 													onclick="editar('${x.idcurso}','${x.nombre}','${x.carrera.nombre}','${x.ciclo}');"
@@ -97,18 +97,18 @@
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 						<h4>
 							<span class="glyphicon glyphicon-ok-sign"></span> Registro de
-							Docente
+							Curso
 						</h4>
 					</div>
 					<div class="modal-body" style="padding: 20px 10px;">
 						<form id="id_form_registra" accept-charset="UTF-8"
-							action="registrarDocente" class="form-horizontal" method="post">
+							action="registrarCurso" class="form-horizontal" method="post">
 							<div class="panel-group" id="steps">
 								<div class="panel panel-default">
 									<div class="panel-heading">
 										<h4 class="panel-title">
 											<a data-toggle="collapse" data-parent="#steps"
-												href="#stepOne">Datos del Docente</a>
+												href="#stepOne">Datos del Curso</a>
 										</h4>
 									</div>
 									<div id="stepOne" class="panel-collapse collapse in">
@@ -121,47 +121,22 @@
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-lg-3 control-label" for="reg_dni">DNI</label>
+												<label class="col-lg-3 control-label" for="reg_dni">Carrera</label>
 												<div class="col-lg-5">
 													<input class="form-control" id="reg_dni" name="dni"
 														placeholder="Ingrese el DNI" type="text" maxlength="8" />
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-lg-3 control-label" for="reg_correo">Correo</label>
+												<label class="col-lg-3 control-label" for="reg_ciclo">Ciclo</label>
 												<div class="col-lg-5">
-													<input class="form-control" id="reg_correo" name="correo"
-														placeholder="Ingrese el correo" type="text" />
+													<input class="form-control" id="reg_ciclo" name="ciclo"
+														placeholder="Ingrese el Ciclo" type="text" />
 												</div>
 											</div>
-											<div class="form-group">
-												<label class="col-lg-3 control-label" for="reg_direc">Direccion</label>
-												<div class="col-lg-5">
-													<input class="form-control" id="reg_direc" name="direccion"
-														placeholder="Ingrese la direccion" type="text" />
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-lg-3 control-label" for="reg_fecnac">Fecha
-													de Nac.</label>
-												<div class="col-lg-5">
-													<input class="form-control" id="reg_fecnac" name="fecnac"
-														placeholder="Ingrese la fecha de nacimiento" type="date" />
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-lg-3 control-label" for="reg_telefono">Telefono</label>
-												<div class="col-lg-5">
-													<input class="form-control" id="reg_telefono"
-														name="telefono" placeholder="Ingrese el telefono"
-														type="text" />
-												</div>
-											</div>
-											<input name="iddocente" type="hidden" /> <input
-												name="usuario.idusuario" type="hidden" /> <input
-												name="usuario.credencial" type="hidden" /> <input
-												name="usuario.password" type="hidden" /> <input
-												name="usuario.usuario" type="hidden" />
+											<input name="nombre" type="hidden" /> <input
+												name="idcarrera" type="hidden" /> <input
+												name="ciclo" type="hidden" />
 											<div class="form-group">
 												<div class="col-lg-9 col-lg-offset-3">
 													<button type="submit" class="btn btn-primary"
@@ -184,27 +159,27 @@
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 						<h4>
 							<span class="glyphicon glyphicon-ok-sign"></span> Actualiza
-							Docente
+							Curso
 						</h4>
 					</div>
 					<div class="modal-body" style="padding: 20px 10px;">
 						<form id="id_form_actualiza" accept-charset="UTF-8"
-							action="actualizarDocente" class="form-horizontal" method="post">
+							action="actualizarCurso" class="form-horizontal" method="post">
 							<div class="panel-group" id="steps">
 								<div class="panel panel-default">
 									<div class="panel-heading">
 										<h4 class="panel-title">
 											<a data-toggle="collapse" data-parent="#steps"
-												href="#stepOne">Datos del Docente</a>
+												href="#stepOne">Datos del Curso</a>
 										</h4>
 									</div>
 									<div id="stepOne" class="panel-collapse collapse in">
 										<div class="panel-body">
 											<div class="form-group">
-												<label class="col-lg-3 control-label" for="ac_iddocennte">ID</label>
+												<label class="col-lg-3 control-label" for="ac_idcurso">ID</label>
 												<div class="col-lg-5">
-													<input class="form-control" id="ac_iddocennte" readonly
-														name="iddocente" type="text" />
+													<input class="form-control" id="ac_idcurso" readonly
+														name="idcurso" type="text" />
 												</div>
 											</div>
 											<div class="form-group">
@@ -215,48 +190,23 @@
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-lg-3 control-label" for="ac_dni">DNI</label>
+												<label class="col-lg-3 control-label" for="ac_dni">Carrera</label>
 												<div class="col-lg-5">
 													<input class="form-control" id="ac_dni" name="dni"
 														placeholder="Ingrese el DNI" type="text" maxlength="8" />
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-lg-3 control-label" for="ac_correo">Correo</label>
+												<label class="col-lg-3 control-label" for="ac_ciclo">Ciclo</label>
 												<div class="col-lg-5">
-													<input class="form-control" id="ac_correo" name="correo"
-														placeholder="Ingrese el correo" type="email" />
+													<input class="form-control" id="ac_ciclo" name="ciclo"
+														placeholder="Ingrese el Ciclo" type="number" />
 												</div>
 											</div>
-											<div class="form-group">
-												<label class="col-lg-3 control-label" for="ac_direccion">Direccion</label>
-												<div class="col-lg-5">
-													<input class="form-control" id="ac_direccion"
-														name="direccion" placeholder="Ingrese la direccion"
-														type="text" />
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-lg-3 control-label" for="ac_fecnac">Fecha
-													de Nacimiento</label>
-												<div class="col-lg-5">
-													<input class="form-control" id="ac_fecnac" name="fecnac"
-														placeholder="Ingrese la fecha de nacimiento" type="text" />
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-lg-3 control-label" for="ac_telefono">Telefono</label>
-												<div class="col-lg-5">
-													<input class="form-control" id="ac_telefono"
-														name="telefono" placeholder="Ingrese el telefono"
-														type="text" />
-												</div>
-											</div>
-											<input name="usuario.idusuario" id="ac_idusuario"
+											<input name="idclase" id="ac_idusuario"
 												type="hidden" /> <input name="usuario.credencial"
 												id="ac_credencial" type="hidden" /> <input
-												name="usuario.password" id="ac_password" type="hidden" /> <input
-												name="usuario.usuario" id="ac_usuario" type="hidden" />
+												name="usuario.password" id="ac_password" type="hidden" /> 
 											<div class="form-group">
 												<div class="col-lg-9 col-lg-offset-3">
 													<button type="submit" class="btn btn-primary"
@@ -279,7 +229,7 @@
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 						<h4>
 							<span class="glyphicon glyphicon-ok-sign"></span> Eliminar
-							Docente
+							Curso
 						</h4>
 					</div>
 					<div class="modal-footer">
@@ -302,10 +252,10 @@
 			$('#idModalRegistra').modal("show");
 		}
 		function editar(id, nombre, idcar, cic) {
-			$('#ac_iddocennte').val(id);
+			$('#ac_idcurso').val(id);
 			$('#ac_nombre').val(nombre);
-			$('#ac_dni').val(dni);
-			$('#ac_correo').val(cor);
+			$('#ac_carrera').val(idcar);
+			$('#ac_ciclo').val(cic);
 			$('#idModalActualiza').modal("show");
 		}
 		$(document).ready(function() {

@@ -180,6 +180,10 @@ public class AdminController {
 		return new ResponseEntity<>(data, HttpStatus.OK);
 	}
 	//CRUD CURSO
+	@RequestMapping("/verCrudCurso")
+	public String verCrudCurso() {
+		return "admin/crudCurso";
+	}
 	@RequestMapping("/registrarCurso")
 	public String registrarCurso(String nombre, Integer idcarrera,Integer ciclo,
 			HttpSession session) {
