@@ -123,7 +123,7 @@ public class AdminController {
 		Docente d = new Docente();
 		Carrera c=new Carrera();
 		c.setIdcarrera(1);
-		DateFormat df=new SimpleDateFormat("yyyy/MM/dd");
+		DateFormat df=new SimpleDateFormat("yyyy-MM-dd");
 		Date date1 = df.parse(fecnac);
 		
 		d.setIddocente(null);
