@@ -119,7 +119,6 @@ public class AdminController {
 	@RequestMapping("/registrarDocente")
 	public String registrarDocente(String nombre, String dni, String direccion, String correo, String fecnac,
 			String telefono, HttpSession session) throws ParseException {
-		Usuario u = new Usuario();
 		Docente d = new Docente();
 		Carrera c=new Carrera();
 		c.setIdcarrera(1);
@@ -134,10 +133,12 @@ public class AdminController {
 		d.setNombre(nombre);
 		d.setTelefono(telefono);
 		d.setCarrera(c);
+		
+		Usuario u =serAdmin.getLastUsuario();
+		u.setIdusuario(u.getIdusuario());
 		u.setPassword(dni);
 		u.setCredencial(2);
 		u.setUsuario(dni);
-		u.setIdusuario(1);
 		serDocente.registrarDocente(d);
 		return "redirect:salidaDocente";
 	}

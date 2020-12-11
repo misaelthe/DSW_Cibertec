@@ -7,6 +7,7 @@ import com.dsw.entidad.Curso;
 import com.dsw.entidad.Docente;
 import com.dsw.entidad.Matricula;
 import com.dsw.entidad.Seccion;
+import com.dsw.entidad.Usuario;
 
 public interface AdminServicio {
 
@@ -21,4 +22,6 @@ public interface AdminServicio {
 	public abstract List<Curso> getAllCurso();
 	public abstract List<Seccion> getAllSeccion();
 	public abstract List<Docente> getAllDocente();
+	
+	public abstract Usuario getLastUsuario();
 }

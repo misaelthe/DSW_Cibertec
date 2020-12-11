@@ -9,12 +9,14 @@ import com.dsw.entidad.Curso;
 import com.dsw.entidad.Docente;
 import com.dsw.entidad.Matricula;
 import com.dsw.entidad.Seccion;
+import com.dsw.entidad.Usuario;
 import com.dsw.repository.ClaseRepositorio;
 import com.dsw.repository.ConstanciaRepositorio;
 import com.dsw.repository.CursoRepositorio;
 import com.dsw.repository.DocenteRepositorio;
 import com.dsw.repository.MatriculaRepositorio;
 import com.dsw.repository.SeccionRepositorio;
+import com.dsw.repository.UsuarioRepositorio;
 
 @Service
 public class AdminServicioImpl implements AdminServicio{
@@ -31,6 +33,8 @@ public class AdminServicioImpl implements AdminServicio{
 	private DocenteRepositorio repDocente;
 	@Autowired
 	private SeccionRepositorio repSeccion;
+	@Autowired
+	private UsuarioRepositorio repUsuario;
 	
 	@Override
 	public void insertMatricula(Matricula matricula) {repMatricula.save(matricula);}
@@ -54,4 +58,6 @@ public class AdminServicioImpl implements AdminServicio{
 	public void insertCurso(Curso curso) {repCurso.save(curso);}
 	@Override
 	public List<Curso> getCursosBy(String nombre) {return repCurso.getCursoBy(nombre);}
+	@Override
+	public Usuario getLastUsuario() {return repUsuario.getLastIdUsuario();}
 }
