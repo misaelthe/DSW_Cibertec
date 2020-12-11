@@ -270,11 +270,6 @@
 														type="text" />
 												</div>
 											</div>
-											<input name="usuario.idusuario" id="ac_idusuario"
-												type="hidden" /> <input name="usuario.credencial"
-												id="ac_credencial" type="hidden" /> <input
-												name="usuario.password" id="ac_password" type="hidden" /> <input
-												name="usuario.usuario" id="ac_usuario" type="hidden" />
 											<div class="form-group">
 												<div class="col-lg-9 col-lg-offset-3">
 													<button type="submit" class="btn btn-primary"
