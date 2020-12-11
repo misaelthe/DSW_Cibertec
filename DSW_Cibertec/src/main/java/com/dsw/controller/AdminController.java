@@ -219,8 +219,6 @@ public class AdminController {
 	// CRUD CURSO
 	@RequestMapping("/verCrudCurso")
 	public String verCrudCurso(HttpSession session) {
-		List<Curso> data = serAdmin.getAllCurso();
-		session.setAttribute("cursos", data);
 		return "admin/crudCurso";
 	}
 
@@ -333,7 +331,7 @@ public class AdminController {
 	@GetMapping(value = "/getCarreras", produces = "application/json")
 	@ResponseBody
 	public ResponseEntity<List<Carrera>> getCarreras() {
-		List<Carrera> tem = ser_rest.getCarreras();
+		List<Carrera> tem = serAdmin.getAllCarrera();
 		return new ResponseEntity<>(tem, HttpStatus.OK);
 	}
 

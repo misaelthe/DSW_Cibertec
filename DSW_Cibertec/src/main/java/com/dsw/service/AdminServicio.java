@@ -1,6 +1,8 @@
 package com.dsw.service;
 
 import java.util.List;
+
+import com.dsw.entidad.Carrera;
 import com.dsw.entidad.Clase;
 import com.dsw.entidad.Constancia;
 import com.dsw.entidad.Curso;
@@ -23,6 +25,7 @@ public interface AdminServicio {
 	public abstract List<Curso> getAllCurso();
 	public abstract List<Seccion> getAllSeccion();
 	public abstract List<Docente> getAllDocente();
+	public abstract List<Carrera> getAllCarrera();
 	
 	public abstract Usuario getLastUsuario();
 	public abstract Docente getDocenteBy(Integer iddocente);

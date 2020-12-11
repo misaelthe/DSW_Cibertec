@@ -3,6 +3,8 @@ package com.dsw.service;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.dsw.entidad.Carrera;
 import com.dsw.entidad.Clase;
 import com.dsw.entidad.Constancia;
 import com.dsw.entidad.Curso;
@@ -10,6 +12,7 @@ import com.dsw.entidad.Docente;
 import com.dsw.entidad.Matricula;
 import com.dsw.entidad.Seccion;
 import com.dsw.entidad.Usuario;
+import com.dsw.repository.CarreraRepositorio;
 import com.dsw.repository.ClaseRepositorio;
 import com.dsw.repository.ConstanciaRepositorio;
 import com.dsw.repository.CursoRepositorio;
@@ -35,6 +38,8 @@ public class AdminServicioImpl implements AdminServicio{
 	private SeccionRepositorio repSeccion;
 	@Autowired
 	private UsuarioRepositorio repUsuario;
+	@Autowired
+	private CarreraRepositorio repCarrera;
 	
 	@Override
 	public void insertMatricula(Matricula matricula) {repMatricula.save(matricula);}
@@ -64,4 +69,6 @@ public class AdminServicioImpl implements AdminServicio{
 	public Docente getDocenteBy(Integer iddocente) {return repDocente.getDocenteBy(iddocente);}
 	@Override
 	public void deleteDocente(Integer iddocente) {repDocente.deleteById(iddocente);}
+	@Override
+	public List<Carrera> getAllCarrera() {return repCarrera.findAll();}
 }
