@@ -107,8 +107,6 @@ public class AdminController {
 	// CRUD Docente
 	@RequestMapping("/verCrudDocente")
 	public String verCrudDocente(HttpSession session) {
-		List<Docente> data = serAdmin.getAllDocente();
-		session.setAttribute("docentes", data);
 		return "admin/crudDocente";
 	}
 
@@ -119,7 +117,7 @@ public class AdminController {
 		a.getUsuario().setUsuario(a.getDni());
 		a.getUsuario().setIdusuario(1);
 		serDocente.registrarDocente(a);
-		return "redirect:salidaAlumno";
+		return "redirect:salidaDocente";
 	}
 
 	@RequestMapping("/actualizarDocente")
