@@ -121,8 +121,11 @@ public class AdminController {
 			String telefono, HttpSession session) throws ParseException {
 		Usuario u = new Usuario();
 		Docente d = new Docente();
+		Carrera c=new Carrera();
+		c.setIdcarrera(1);
 		DateFormat df=new SimpleDateFormat("yyyy/MM/dd");
 		Date date1 = df.parse(fecnac);
+		
 		d.setIddocente(null);
 		d.setCorreo(correo);
 		d.setDireccion(direccion);
@@ -130,7 +133,7 @@ public class AdminController {
 		d.setFecnac(date1);
 		d.setNombre(nombre);
 		d.setTelefono(telefono);
-
+		d.setCarrera(c);
 		u.setPassword(dni);
 		u.setCredencial(2);
 		u.setUsuario(dni);
