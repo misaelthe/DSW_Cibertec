@@ -62,8 +62,8 @@ public class AdminController {
 	}
 
 	@RequestMapping("/filtrarCurso")
-	public String filtrarCurso(String curso, HttpSession session) {
-		List<Curso> data = serAdmin.getCursosBy(curso + "%");
+	public String filtrarCurso(String nombre, HttpSession session) {
+		List<Curso> data = serAdmin.getCursosBy(nombre + "%");
 		session.setAttribute("cursos", data);
 		return "redirect:verCrudCurso";
 	}
