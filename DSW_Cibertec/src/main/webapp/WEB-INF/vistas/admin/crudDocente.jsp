@@ -180,11 +180,6 @@
 														type="text" />
 												</div>
 											</div>
-											<input name="iddocente" type="hidden" /> <input
-												name="usuario.idusuario" type="hidden" /> <input
-												name="usuario.credencial" type="hidden" /> <input
-												name="usuario.password" type="hidden" /> <input
-												name="usuario.usuario" type="hidden" />
 											<div class="form-group">
 												<div class="col-lg-9 col-lg-offset-3">
 													<button type="submit" class="btn btn-primary"
