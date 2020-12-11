@@ -50,10 +50,10 @@ public class AdminController {
 		return "redirect:verCrudAlumno";
 	}
 	@RequestMapping("/filtrarDocente")
-	public String filtrarDocente(String nom, HttpSession session) {
-		List<Docente> data = serDocente.filtrarDocentePorNombre(nom + "%");
+	public String filtrarDocente(String nombre, HttpSession session) {
+		List<Docente> data = serDocente.filtrarDocentePorNombre(nombre + "%");
 		session.setAttribute("docentes", data);
-		return "redirect:crudDocente";
+		return "redirect:verCrudDocente";
 	}
 
 	@RequestMapping("/filtrarCurso")

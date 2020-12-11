@@ -123,8 +123,10 @@
 											<div class="form-group">
 												<label class="col-lg-3 control-label" for="reg_dni">Carrera</label>
 												<div class="col-lg-5">
-													<input class="form-control" id="reg_dni" name="dni"
-														placeholder="Ingrese el DNI" type="text" maxlength="8" />
+													<select class="custom-select d-block w-100"
+														id="reglistadoCarrera" required name="idcarrera">
+														<option value="-1">Escoja ...</option>
+													</select>
 												</div>
 											</div>
 											<div class="form-group">
@@ -192,8 +194,10 @@
 											<div class="form-group">
 												<label class="col-lg-3 control-label" for="ac_dni">Carrera</label>
 												<div class="col-lg-5">
-													<input class="form-control" id="ac_dni" name="dni"
-														placeholder="Ingrese el DNI" type="text" maxlength="8" />
+													<select class="custom-select d-block w-100"
+														id="aclistadoCarrera" required name="idcarrera">
+														<option value="-1">Escoja ...</option>
+													</select>
 												</div>
 											</div>
 											<div class="form-group">
@@ -258,6 +262,16 @@
 			$('#ac_ciclo').val(cic);
 			$('#idModalActualiza').modal("show");
 		}
+		$.getJSON("getCarreras",function(data) {
+					$.each(data,function(index, value) {
+						$("#reglistadoCarrera").append(
+								"<option value="+item.idcarrera+">"
+										+ item.nombre + "</option>");
+						$("#aclistadoCarrera").append(
+								"<option value="+item.idcarrera+">"
+										+ item.nombre + "</option>");
+					});
+				});
 		$(document).ready(function() {
 			$('#tableAlumno').DataTable();
 		});

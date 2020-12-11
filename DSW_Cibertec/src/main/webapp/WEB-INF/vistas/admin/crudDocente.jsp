@@ -26,7 +26,7 @@
 				class="simple_form" id="defaultForm2" method="post">
 				<div class="row" style="height: 70px">
 					<div class="col-md-2">
-						<input class="form-control" id="id_nonbre_filtro" name="nom"
+						<input class="form-control" id="id_nonbre_filtro" name="nombre"
 							placeholder="Ingrese el nombre" type="text" maxlength="30" />
 					</div>
 					<div class="col-md-2">
