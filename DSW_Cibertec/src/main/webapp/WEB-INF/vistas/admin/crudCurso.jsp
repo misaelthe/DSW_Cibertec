@@ -244,7 +244,7 @@
 						$("#regCarrera").append(
 								"<option value="+item.idcarrera+">"
 										+ item.nombre + "</option>");
-						$("#acCarrera").append(
+						$("#ac_carrera").append(
 								"<option value="+item.idcarrera+">"
 										+ item.nombre + "</option>");
 					});
