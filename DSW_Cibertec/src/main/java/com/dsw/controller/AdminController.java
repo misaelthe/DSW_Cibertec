@@ -106,7 +106,9 @@ public class AdminController {
 
 	// CRUD Docente
 	@RequestMapping("/verCrudDocente")
-	public String verCrudDocente() {
+	public String verCrudDocente(HttpSession session) {
+		List<Docente> data = serAdmin.getAllDocente();
+		session.setAttribute("docentes", data);
 		return "admin/crudDocente";
 	}
 
@@ -173,15 +175,16 @@ public class AdminController {
 		return new ResponseEntity<>(data, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/getAllDocente", method = RequestMethod.GET, produces = "application/json")
-	@ResponseBody
-	public ResponseEntity<List<Docente>> getAllDocente() {
+	/*@RequestMapping(value = "/getAllDocente", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<List<Docente>> getAllDocente(HttpSession session) {
 		List<Docente> data = serAdmin.getAllDocente();
-		return new ResponseEntity<>(data, HttpStatus.OK);
-	}
+		session.setAttribute("docentes", data);
+	}*/
 	//CRUD CURSO
 	@RequestMapping("/verCrudCurso")
-	public String verCrudCurso() {
+	public String verCrudCurso(HttpSession session) {
+			List<Curso> data = serAdmin.getAllCurso();
+			session.setAttribute("cursos", data);
 		return "admin/crudCurso";
 	}
 	@RequestMapping("/registrarCurso")

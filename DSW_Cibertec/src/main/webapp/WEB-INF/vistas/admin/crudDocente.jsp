@@ -14,17 +14,14 @@
 <link rel="stylesheet" href="../css/bootstrap.css" />
 <link rel="stylesheet" href="../css/dataTables.bootstrap.min.css" />
 <link rel="stylesheet" href="../css/bootstrapValidator.css" />
-
 </head>
 <body>
-
 	<div class="container">
 		<h3>Crud de Docente</h3>
 		<div class="col-md-23">
 			<form id="idFormElimina" action="eliminarDocente">
 				<input type="hidden" id="id_elimina" name="idalumno">
 			</form>
-
 			<form accept-charset="UTF-8" action="filtrarDocente"
 				class="simple_form" id="defaultForm2" method="post">
 				<div class="row" style="height: 70px">
@@ -70,7 +67,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${sessionScope.docente}" var="x">
+									<c:forEach items="${sessionScope.docentes}" var="x">
 										<tr>
 											<td>${x.iddocente}</td>
 											<td>${x.nombre}</td>
