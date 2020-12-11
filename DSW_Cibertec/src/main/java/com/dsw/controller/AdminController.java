@@ -125,6 +125,12 @@ public class AdminController {
 		DateFormat df=new SimpleDateFormat("yyyy-MM-dd");
 		Date date1 = df.parse(fecnac);
 		
+		Usuario u =serAdmin.getLastUsuario();
+		u.setIdusuario(u.getIdusuario());
+		u.setPassword(dni);
+		u.setCredencial(2);
+		u.setUsuario(dni);
+		
 		d.setIddocente(null);
 		d.setCorreo(correo);
 		d.setDireccion(direccion);
@@ -133,12 +139,8 @@ public class AdminController {
 		d.setNombre(nombre);
 		d.setTelefono(telefono);
 		d.setCarrera(c);
+		d.setUsuario(u);
 		
-		Usuario u =serAdmin.getLastUsuario();
-		u.setIdusuario(u.getIdusuario());
-		u.setPassword(dni);
-		u.setCredencial(2);
-		u.setUsuario(dni);
 		serDocente.registrarDocente(d);
 		return "redirect:salidaDocente";
 	}
