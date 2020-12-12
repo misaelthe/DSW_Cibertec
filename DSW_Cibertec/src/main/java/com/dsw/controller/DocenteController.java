@@ -56,8 +56,7 @@ public class DocenteController {
 	}
 
 	@RequestMapping("/registrarNotas")
-	public String registrarNotas(Integer inTeo1, Integer inTeo2, Integer inPar, Integer inTeo3, Integer inFin,
-			HttpSession session) {
+	public String registrarNotas(int inTeo1, int inTeo2, int inPar, int inTeo3, int inFin, HttpSession session) {
 		Integer idclase = Integer.parseInt((String) session.getAttribute("claseSeleccionada"));
 		Integer idalumno = Integer.parseInt((String) session.getAttribute("alumnoSeleccionado"));
 		Nota nota = ser_alumno.getNotaXAlumnoXClase(idalumno, idclase);
@@ -66,11 +65,17 @@ public class DocenteController {
 		nota.setEp(inPar);
 		nota.setE3(inTeo3);
 		nota.setEf(inFin);
-		Integer prom = (int) Math.ceil(((inTeo1 + inTeo2 + inTeo3) * 45 / 300)+((inPar) * 20 / 100)+((inFin) * 25 / 100));
 
-		/*System.out.println(
-				prom.toString() + "-------------------------------------------------------------------------------"
-						+ no1 + "-" + no2 + "-" + no3);*/
+		Double no1 = (double) (inTeo1 + inTeo2 + inTeo3) * 45 / 300;
+		Double no2 = (double) (inPar) * 20 / 100;
+		Double no3 = (double) ((inFin) * 25 / 100);
+		Integer prom = (int) Math.ceil(no1 + no2 + no3);
+
+		
+		  System.out.println( prom.toString() +
+		  "-------------------------------------------------------------------------------"
+		 + no1 + "-" + no2 + "-" + no3);
+		 
 		nota.setPromedio(prom);
 		ser_alumno.insertNota(nota);
 		return "docente/indexDocente";
