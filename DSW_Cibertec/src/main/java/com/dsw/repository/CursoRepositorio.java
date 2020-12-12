@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import com.dsw.entidad.Alumno;
 import com.dsw.entidad.Alumno_Clase;
 import com.dsw.entidad.Curso;
+import com.dsw.entidad.Docente;
 import com.dsw.entidad.Nota;
 
 public interface CursoRepositorio extends JpaRepository<Curso, Integer>{
@@ -21,4 +22,7 @@ public interface CursoRepositorio extends JpaRepository<Curso, Integer>{
 	
 	@Query("Select cu from Curso cu where cu.nombre like :nom")
 	public abstract List<Curso> getCursosBy(@Param("nom")String nombre);
+	
+	@Query("Select c from Curso c where c.idcurso = :idcu")
+	public abstract Curso getCursoBy(@Param("idcu")Integer idcurso);
 }

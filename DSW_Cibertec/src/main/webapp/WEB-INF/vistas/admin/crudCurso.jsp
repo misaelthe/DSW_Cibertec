@@ -188,7 +188,7 @@
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-lg-3 control-label" for="ac_dni">Carrera</label>
+												<label class="col-lg-3 control-label" for="ac_carrera">Carrera</label>
 												<div class="col-lg-5">
 													<select class="custom-select d-block w-100"
 														id="ac_carrera" required name="idcarrera">
@@ -203,10 +203,6 @@
 														placeholder="Ingrese el Ciclo" type="number" />
 												</div>
 											</div>
-											<input name="idclase" id="ac_idusuario"
-												type="hidden" /> <input name="usuario.credencial"
-												id="ac_credencial" type="hidden" /> <input
-												name="usuario.password" id="ac_password" type="hidden" /> 
 											<div class="form-group">
 												<div class="col-lg-9 col-lg-offset-3">
 													<button type="submit" class="btn btn-primary"

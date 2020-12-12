@@ -1,6 +1,8 @@
 package com.dsw.service;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -71,4 +73,6 @@ public class AdminServicioImpl implements AdminServicio{
 	public void deleteDocente(Integer iddocente) {repDocente.deleteById(iddocente);}
 	@Override
 	public List<Carrera> getAllCarrera() {return repCarrera.findAll();}
+	@Override
+	public Curso getCursoBy(Integer idcurso) {return repCurso.getCursoBy(idcurso);}
 }

@@ -29,4 +29,5 @@ public interface AdminServicio {
 	
 	public abstract Usuario getLastUsuario();
 	public abstract Docente getDocenteBy(Integer iddocente);
+	public abstract Curso getCursoBy(Integer idcurso);
 }
