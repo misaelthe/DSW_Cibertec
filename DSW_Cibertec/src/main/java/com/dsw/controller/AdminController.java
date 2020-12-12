@@ -126,18 +126,19 @@ public class AdminController {
 	@RequestMapping("/registrarDocente")
 	public String registrarDocente(String nombre, String dni, String direccion, String correo, String fecnac,
 			String telefono, HttpSession session) throws ParseException {
+		Usuario u=new Usuario();
+		u.setIdusuario(null);
+		u.setCredencial(2);
+		u.setPassword(dni);
+		u.setUsuario(dni);
+		serAdmin.insertUsuario(u);
+		Usuario un = serAdmin.getLastUsuario();
+		
 		Docente d = new Docente();
 		Carrera c = new Carrera();
 		c.setIdcarrera(1);
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		Date date1 = df.parse(fecnac);
-
-		Usuario un = serAdmin.getLastUsuario();
-		Usuario u=new Usuario();
-		u.setIdusuario(un.getIdusuario() + 1);
-		u.setPassword(dni);
-		u.setCredencial(2);
-		u.setUsuario(dni);
 
 		d.setIddocente(null);
 		d.setCorreo(correo);
@@ -147,7 +148,7 @@ public class AdminController {
 		d.setNombre(nombre);
 		d.setTelefono(telefono);
 		d.setCarrera(c);
-		d.setUsuario(u);
+		d.setUsuario(un);
 
 		serDocente.registrarDocente(d);
 		return "redirect:salidaDocente";

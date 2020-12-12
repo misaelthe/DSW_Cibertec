@@ -75,4 +75,6 @@ public class AdminServicioImpl implements AdminServicio{
 	public List<Carrera> getAllCarrera() {return repCarrera.findAll();}
 	@Override
 	public Curso getCursoBy(Integer idcurso) {return repCurso.getCursoBy(idcurso);}
+	@Override
+	public void insertUsuario(Usuario usuario) {repUsuario.save(usuario);}
 }

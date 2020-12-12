@@ -17,6 +17,7 @@ public interface AdminServicio {
 	public abstract void insertConstancia(Constancia constancia);
 	public abstract void insertClase(Clase clase);
 	public abstract void insertCurso(Curso curso);
+	public abstract void insertUsuario(Usuario usuario);
 	public abstract void deleteClase(Integer idclase);
 	public abstract void deleteDocente(Integer iddocente);
 	public abstract List<Clase> getClaseByCurso(String nombre);
