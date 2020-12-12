@@ -57,7 +57,7 @@ public class DocenteController {
 		nota.setEp(inPar);
 		nota.setE3(inTeo3);
 		nota.setEf(inFin);
-		Integer prom=(inTeo1+inTeo2+inTeo3)*15/100+(inPar)*20/100+(inFin)/25/100;
+		Integer prom=(inTeo1+inTeo2+inTeo3)*45/100+(inPar)*20/100+(inFin)*25/100;
 		nota.setPromedio(prom);
 		ser_alumno.insertNota(nota);
 		return "docente/indexDocente";
