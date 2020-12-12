@@ -344,20 +344,5 @@
 			});
 		});
 	</script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('#id_form_actualiza').bootstrapValidator({
-				message : 'This value is not valid',
-				feedbackIcons : {
-					valid : 'glyphicon glyphicon-ok',
-					invalid : 'glyphicon glyphicon-remove',
-					validating : 'glyphicon glyphicon-refresh'
-				},
-				fields : {
-
-				}
-			});
-		});
-	</script>
 </body>
 </html>

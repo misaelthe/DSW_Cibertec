@@ -67,13 +67,14 @@ public class AdminController {
 		session.setAttribute("cursos", data);
 		return "redirect:verCrudCurso";
 	}
+
 	@RequestMapping("/filtrarClase")
 	public String filtrarClase(String nombre, HttpSession session) {
 		List<Clase> data = serAdmin.getClaseByCurso(nombre + "%");
 		session.setAttribute("clases", data);
 		return "redirect:verCrudClase";
 	}
-	
+
 	// CRUD ALUMNO
 	@RequestMapping("/verCrudAlumno")
 	public String verCrudAlumno() {
@@ -126,17 +127,17 @@ public class AdminController {
 	public String registrarDocente(String nombre, String dni, String direccion, String correo, String fecnac,
 			String telefono, HttpSession session) throws ParseException {
 		Docente d = new Docente();
-		Carrera c=new Carrera();
+		Carrera c = new Carrera();
 		c.setIdcarrera(1);
-		DateFormat df=new SimpleDateFormat("yyyy-MM-dd");
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		Date date1 = df.parse(fecnac);
-		
-		Usuario u =serAdmin.getLastUsuario();
-		u.setIdusuario(u.getIdusuario()+1);
+
+		Usuario u = serAdmin.getLastUsuario();
+		u.setIdusuario(u.getIdusuario() + 1);
 		u.setPassword(dni);
 		u.setCredencial(2);
 		u.setUsuario(dni);
-		
+
 		d.setIddocente(null);
 		d.setCorreo(correo);
 		d.setDireccion(direccion);
@@ -146,17 +147,17 @@ public class AdminController {
 		d.setTelefono(telefono);
 		d.setCarrera(c);
 		d.setUsuario(u);
-		
+
 		serDocente.registrarDocente(d);
 		return "redirect:salidaDocente";
 	}
 
 	@RequestMapping("/actualizarDocente")
-	public String actualizarDocente(Integer iddocente,String nombre, String dni, String direccion, String correo, String fecnac,
-			String telefono, HttpSession session) throws ParseException {
+	public String actualizarDocente(Integer iddocente, String nombre, String dni, String direccion, String correo,
+			String fecnac, String telefono, HttpSession session) throws ParseException {
 		Docente d = serAdmin.getDocenteBy(iddocente);
 
-		DateFormat df=new SimpleDateFormat("yyyy-MM-dd");
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		Date date1 = df.parse(fecnac);
 
 		d.setCorreo(correo);
@@ -215,20 +216,21 @@ public class AdminController {
 		List<Curso> data = serAdmin.getAllCurso();
 		return new ResponseEntity<>(data, HttpStatus.OK);
 	}
-	
+
 	@GetMapping(value = "/getAllCarrera", produces = "application/json")
 	@ResponseBody
 	public ResponseEntity<List<Carrera>> getAllCarrera() {
 		List<Carrera> tem = serAdmin.getAllCarrera();
 		return new ResponseEntity<>(tem, HttpStatus.OK);
 	}
-	
-	/*
-	 * @RequestMapping(value = "/getAllDocente", method = RequestMethod.GET,
-	 * produces = "application/json") public ResponseEntity<List<Docente>>
-	 * getAllDocente(HttpSession session) { List<Docente> data =
-	 * serAdmin.getAllDocente(); session.setAttribute("docentes", data); }
-	 */
+
+	@GetMapping(value = "/getAllDocente", produces = "application/json")
+	@ResponseBody
+	public ResponseEntity<List<Docente>> getAllDocente() {
+		List<Docente> tem = serAdmin.getAllDocente();
+		return new ResponseEntity<>(tem, HttpStatus.OK);
+	}
+
 	// CRUD CURSO
 	@RequestMapping("/verCrudCurso")
 	public String verCrudCurso(HttpSession session) {
@@ -251,9 +253,8 @@ public class AdminController {
 	}
 
 	@RequestMapping("/actualizarCurso")
-	public String actualizarCurso(Integer idcurso, String nombre, Integer ciclo,
-			HttpSession session) {
-		Curso c=serAdmin.getCursoBy(idcurso);
+	public String actualizarCurso(Integer idcurso, String nombre, Integer ciclo, HttpSession session) {
+		Curso c = serAdmin.getCursoBy(idcurso);
 
 		c.setNombre(nombre);
 		c.setCiclo(ciclo);
