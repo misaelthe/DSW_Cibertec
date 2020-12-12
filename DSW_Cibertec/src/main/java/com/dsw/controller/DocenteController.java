@@ -68,7 +68,7 @@ public class DocenteController {
 
 		Double no1 = (double) (inTeo1 + inTeo2 + inTeo3) * 45 / 300;
 		Double no2 = (double) (inPar) * 20 / 100;
-		Double no3 = (double) ((inFin) * 25 / 100);
+		Double no3 = (double) ((inFin) * 35 / 100);
 		Integer prom = (int) Math.ceil(no1 + no2 + no3);
 
 		
