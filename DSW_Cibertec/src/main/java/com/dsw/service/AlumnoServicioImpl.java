@@ -101,4 +101,7 @@ public class AlumnoServicioImpl implements AlumnoServicio{
 	@Override
 	public void deleteAlumno_Clase(Integer idclase) {repAlClase.deleteById(idclase);}
 
+	@Override
+	public Nota getLastNota() {return repNota.getLastNota();}
+
 }

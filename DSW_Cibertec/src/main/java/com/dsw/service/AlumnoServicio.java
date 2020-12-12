@@ -35,4 +35,5 @@ public interface AlumnoServicio {
 	public abstract List<Clase> getClasesDisponiblesXAlumno(Integer idalumno);
 	public abstract Alumno_Clase getAlumno_ClaseXAlumnoXClase(Integer idalumno,Integer idclase);
 	public abstract void deleteAlumno_Clase(Integer idclase);
+	public abstract Nota getLastNota();
 }

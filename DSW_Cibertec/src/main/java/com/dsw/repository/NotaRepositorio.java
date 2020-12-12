@@ -23,4 +23,7 @@ public interface NotaRepositorio extends JpaRepository<Nota, Integer>{
 	
 	@Query("Select n from Nota n where n.alumno.idalumno = :idal and n.clase.idclase = :idcla")
 	public abstract Nota getNotaXAlumnoXClase(@Param("idal")Integer idalumno,@Param("idcla")Integer idclase);
+	
+	@Query("Select n from Nota n")
+	public abstract Nota getLastNota();
 }

@@ -116,6 +116,18 @@ public class AlumnoController {
 		ac.setClase(cla);
 		ac.setAlumno(al);
 		
+		Nota n=new Nota();
+		n.setIdnota(null);
+		n.setAlumno(a);
+		n.setClase(cla);
+		n.setE1(0);
+		n.setE2(0);
+		n.setEp(0);
+		n.setE3(0);
+		n.setEf(0);
+		n.setPromedio(0);
+		serAlumno.insertNota(n);
+		
 		serAlumno.insertAlumnoClase(ac);
 		return "redirect:salidaMatriculaXCursos";
 	}

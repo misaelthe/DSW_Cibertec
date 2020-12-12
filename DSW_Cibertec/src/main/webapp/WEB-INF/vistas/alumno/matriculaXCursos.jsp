@@ -80,7 +80,7 @@
 				</div>
 			</form>
 			<div>
-				<a class="btn btn-primary btn-lg" href="verIndexAdmin">Regresar</a>
+				<a class="btn btn-primary btn-lg" href="verIndexAlumno">Regresar</a>
 			</div>
 		</div>
 		<div class="modal fade" id="idModalRegistra">
