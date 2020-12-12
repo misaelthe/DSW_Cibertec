@@ -22,11 +22,11 @@
 			<form id="idFormElimina" action="eliminarClase">
 				<input type="hidden" id="id_elimina" name="idclase">
 			</form>
-			<form accept-charset="UTF-8" action="filtrarCurso"
+			<form accept-charset="UTF-8" action="filtrarClase"
 				class="simple_form" id="defaultForm2" method="post">
 				<div class="row" style="height: 70px">
 					<div class="col-md-2">
-						<input class="form-control" id="id_nonbre_filtro" name="curso"
+						<input class="form-control" id="id_nonbre_filtro" name="nombre"
 							placeholder="Ingrese el curso" type="text" maxlength="30" />
 					</div>
 					<div class="col-md-2">

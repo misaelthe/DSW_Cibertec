@@ -67,7 +67,13 @@ public class AdminController {
 		session.setAttribute("cursos", data);
 		return "redirect:verCrudCurso";
 	}
-
+	@RequestMapping("/filtrarClase")
+	public String filtrarClase(String nombre, HttpSession session) {
+		List<Clase> data = serAdmin.getClaseByCurso(nombre + "%");
+		session.setAttribute("clases", data);
+		return "redirect:verCrudClase";
+	}
+	
 	// CRUD ALUMNO
 	@RequestMapping("/verCrudAlumno")
 	public String verCrudAlumno() {
