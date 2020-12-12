@@ -57,10 +57,10 @@ public class DocenteController {
 		nota.setEp(inPar);
 		nota.setE3(inTeo3);
 		nota.setEf(inFin);
-		Integer no1=(inTeo1+inTeo2+inTeo3)*45/300;
-		Integer no2=(inPar)*20/100;
-		Integer no3=(inFin)*25/100;
-		Integer prom=no1+no2+no3;
+		Double no1=(double) ((inTeo1+inTeo2+inTeo3)*45/300);
+		Double no2=(double)(inPar)*20/100;
+		Double no3=(double)(inFin)*25/100;
+		Integer prom=(int) Math.round(no1+no2+no3);
 		System.out.println(prom.toString()+"-------------------------------------------------------------------------------"+no1+"-"+no2+"-"+no3);
 		nota.setPromedio(prom);
 		ser_alumno.insertNota(nota);
