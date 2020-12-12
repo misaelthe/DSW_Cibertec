@@ -132,8 +132,9 @@ public class AdminController {
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		Date date1 = df.parse(fecnac);
 
-		Usuario u = serAdmin.getLastUsuario();
-		u.setIdusuario(u.getIdusuario() + 1);
+		Usuario un = serAdmin.getLastUsuario();
+		Usuario u=new Usuario();
+		u.setIdusuario(un.getIdusuario() + 1);
 		u.setPassword(dni);
 		u.setCredencial(2);
 		u.setUsuario(dni);
