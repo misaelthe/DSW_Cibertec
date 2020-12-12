@@ -245,13 +245,10 @@ public class AdminController {
 	}
 
 	@RequestMapping("/actualizarCurso")
-	public String actualizarCurso(Integer idcurso, String nombre, Integer idcarrera, Integer ciclo,
+	public String actualizarCurso(Integer idcurso, String nombre, Integer ciclo,
 			HttpSession session) {
 		Curso c=serAdmin.getCursoBy(idcurso);
-		Carrera ca=c.getCarrera();
-		ca.setIdcarrera(idcarrera);
-		
-		c.setCarrera(ca);
+
 		c.setNombre(nombre);
 		c.setCiclo(ciclo);
 
