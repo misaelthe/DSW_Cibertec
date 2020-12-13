@@ -336,7 +336,8 @@ public class AdminController {
 	@GetMapping(value = "/getAlumnosNoMatriculados", produces = "application/json")
 	@ResponseBody
 	public ResponseEntity<List<Alumno>> getAlumnosNoMatriculados() {
-		List<Alumno> tem = ser_alumno.getAlumnosNoMatriculados();
+		List<Alumno> tem = ser_alumno.getAllAlumno();
+		System.out.println(tem.size()+"estos son los alumnossssss");
 		return new ResponseEntity<>(tem, HttpStatus.OK);
 	}
 

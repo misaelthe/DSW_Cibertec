@@ -130,38 +130,32 @@
 			$("#idalumno").val(idalumno);
 			$("#inputAlumno").val(nom);
 		}
-		$.getJSON('getCarreras', function(data) {
+		$.getJSON('getAllCarrera', function(data) {
 			$.each(data, function(index, value) {
 				$("#selectcarrera").append(
 						"<option value="+value.idcarrera+">" + value.nombre
 								+ "</option>");
 			});
 		});
-		$
-				.getJSON(
-						'getAlumnosNoMatriculados',
-						function(data) {
-							$
-									.each(
-											data,
-											function(index, value) {
-												$("#tbodyAlumno")
-														.append(
-																"<tr class='col-md-12row''><td class='col-md-1 textAlineado'>"
-																		+ value.idalumno
-																		+ "</td><td class='col-md-4 textAlineado'>"
-																		+ value.nombre
-																		+ "</td><td class='col-md-2 textAlineado'>"
-																		+ value.dni
-																		+ "</td><td class='col-md-3 textAlineado'>"
-																		+ value.correo
-																		+ "</td><td class='col-md-2 textAlineado'><button type='button' class='btn btn-primary' data-toggle='collapse' data-target='#collapseExample' aria-controls='collapseExample' id='btnAlumnoSelec' onclick='cargarAlSelec("
-																		+ value.idalumno
-																		+ ",&quot;"
-																		+ value.nombre
-																		+ "&quot;)'>Escoger</button></td></tr>");
-											});
-						});
+		$.getJSON('getAlumnosNoMatriculados',function(data) {
+			$.each(data,function(index, value) {
+				$("#tbodyAlumno")
+						.append(
+								"<tr class='col-md-12row''><td class='col-md-1 textAlineado'>"
+										+ value.idalumno
+										+ "</td><td class='col-md-4 textAlineado'>"
+										+ value.nombre
+										+ "</td><td class='col-md-2 textAlineado'>"
+										+ value.dni
+										+ "</td><td class='col-md-3 textAlineado'>"
+										+ value.correo
+										+ "</td><td class='col-md-2 textAlineado'><button type='button' class='btn btn-primary' data-toggle='collapse' data-target='#collapseExample' aria-controls='collapseExample' id='btnAlumnoSelec' onclick='cargarAlSelec("
+										+ value.idalumno
+										+ ",&quot;"
+										+ value.nombre
+										+ "&quot;)'>Escoger</button></td></tr>");
+			});
+		});
 		$("#selectcarrera").change(function() {
 			$("#idcarrera").val($(this).val());
 		});

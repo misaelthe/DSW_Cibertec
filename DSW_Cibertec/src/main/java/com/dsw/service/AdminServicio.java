@@ -27,7 +27,7 @@ public interface AdminServicio {
 	public abstract List<Seccion> getAllSeccion();
 	public abstract List<Docente> getAllDocente();
 	public abstract List<Carrera> getAllCarrera();
-	
+	public abstract List<Matricula> getAllMatricula();
 	public abstract Usuario getLastUsuario();
 	public abstract Docente getDocenteBy(Integer iddocente);
 	public abstract Curso getCursoBy(Integer idcurso);
